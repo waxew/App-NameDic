@@ -8,9 +8,8 @@ import kotlin.math.absoluteValue
 /**
  * لایهٔ کاربردی انتخاب نام.
  *
- * این کلاس عمداً منطق «کشف نام» را از UI جدا می‌کند تا صفحه‌ها مجبور نباشند
- * روی فهرست خام ۲۶هزارنامی کار کنند. خروجی‌ها فقط از دادهٔ موجود در
- * [NameRepository] ساخته می‌شوند و هیچ ریشه/معنی تازه‌ای حدس زده نمی‌شود.
+ * این کلاس منطق «کشف نام» را از UI جدا می‌کند تا صفحه‌ها مجبور نباشند روی
+ * فهرست خام ۲۶هزارنامی کار کنند. هیچ معنی یا ریشه‌ای در این لایه حدس زده نمی‌شود.
  */
 class NameDiscoveryEngine(private val repository: NameRepository) {
 
@@ -27,9 +26,6 @@ class NameDiscoveryEngine(private val repository: NameRepository) {
     val maleCount: Int get() = repository.names.count { it.gender == Gender.MALE }
     val unisexCount: Int get() = repository.names.count { it.gender == Gender.UNISEX }
 
-    /**
-     * مرور نام‌ها با فیلتر جنسیت/فرهنگ. UNKNOWN فقط در حالت «همه» دیده می‌شود.
-     */
     fun browse(
         gender: Gender? = null,
         cultureId: String? = null,
@@ -41,10 +37,7 @@ class NameDiscoveryEngine(private val repository: NameRepository) {
         genderOk && cultureOk && enrichmentOk
     }
 
-    /**
-     * فقط فرهنگ‌هایی را برمی‌گرداند که واقعاً رکورد دارند؛ بنابراین UI دیگر
-     * کاربر را وارد صفحه‌های خالی نمی‌کند.
-     */
+    /** فقط دسته‌هایی که حداقل یک نام واقعی دارند وارد رابط کاربری می‌شوند. */
     fun availableCultures(): List<CultureStats> = repository.cultures
         .asSequence()
         .filterNot { it.id == "iran_general" }
@@ -62,9 +55,12 @@ class NameDiscoveryEngine(private val repository: NameRepository) {
         .sortedByDescending { it.total }
         .toList()
 
-    /**
-     * استخر پیشنهاد سریع؛ نام‌های دارای توضیح/ریشه/دادهٔ واژگانی جلوتر هستند.
-     */
+    /** شناسه‌های داخلی دیتابیس هرگز مستقیماً به کاربر نمایش داده نمی‌شوند. */
+    fun cultureTitles(entry: NameEntry): List<String> = entry.usageCultureIds
+        .filterNot { it == "iran_general" }
+        .map { id -> repository.cultures.firstOrNull { it.id == id }?.titleFa ?: id }
+        .distinct()
+
     fun discoveryPool(gender: Gender): List<NameEntry> = repository.names
         .asSequence()
         .filter { it.gender == gender }
@@ -78,10 +74,7 @@ class NameDiscoveryEngine(private val repository: NameRepository) {
         )
         .toList()
 
-    /**
-     * نام پیشنهادی روز را به‌صورت قطعی از روی seed می‌سازد تا در یک روز مدام
-     * تغییر نکند. این تابع هیچ ادعای «محبوبیت» ایجاد نمی‌کند.
-     */
+    /** پیشنهاد روز قطعی است و در طول یک روز بی‌دلیل عوض نمی‌شود. */
     fun featuredName(seed: Int): NameEntry? {
         val pool = repository.names.filter {
             it.gender in setOf(Gender.FEMALE, Gender.MALE) && it.hasReadableInfo()
@@ -91,8 +84,8 @@ class NameDiscoveryEngine(private val repository: NameRepository) {
     }
 
     /**
-     * نام‌های مشابه را با امتیاز شباهت ساده و قابل توضیح رتبه‌بندی می‌کند:
-     * جنسیت، حرف آغازین، اشتراک فرهنگ و وجود اطلاعات توصیفی.
+     * مشابه‌ها با امتیاز قابل توضیح مرتب می‌شوند: جنسیت، حرف اول، فرهنگ مشترک
+     * و میزان اطلاعات قابل نمایش.
      */
     fun relatedTo(entry: NameEntry, limit: Int = 8): List<NameEntry> = repository.names
         .asSequence()
