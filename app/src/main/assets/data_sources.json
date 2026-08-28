@@ -16,7 +16,8 @@
   ],
   "notBundled": [
     {"title":"nikahd99/iranian-Names-Database-By-Gender","reasonFa":"مجوز باز صریح در مخزن پیدا نشد."},
-    {"title":"MansourM/persian-names-database","reasonFa":"مجوز باز صریح در مخزن پیدا نشد."},
+    {"title":"MansourM/persian-names-database","reasonFa":"مجوز باز صریح پیدا نشد و README منبع داده را یک فایل اکسل بیرونی معرفی می‌کند."},
+    {"title":"ehsan-shahbakhsh/api-iranian-names","reasonFa":"wrapper دارای MIT است اما دیتاست صراحتاً از MansourM/persian-names-database اقتباس شده؛ حق بازنشر دیتاست اصلی روشن نیست."},
     {"title":"PJSoftCo/BabyNames","reasonFa":"داده معنی‌دار است اما مجوز باز صریح برای دیتاست پیدا نشد."},
     {"title":"ghaninia/databases","reasonFa":"داده scrape شده و مجوز باز صریح در ریشه مخزن دیده نشد."},
     {"title":"alisadeghiaghili/farsi-faker","reasonFa":"منبع MIT است اما داده اصلی pickle باینری است؛ فایل pickle ناشناس شبکه در CI unpickle نمی‌شود."},
