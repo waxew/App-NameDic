@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "automaticSources": [
+    {"id":"nabidam_persian_names","title":"nabidam/persian-names","url":"https://github.com/nabidam/persian-names","license":"MIT","fields":["name","gender"],"notesFa":"فهرست پایه ۸٬۸۱۶ نام؛ معنی و ریشه از این منبع استنباط نمی‌شود."},
+    {"id":"farbodbj_pngt","title":"farbodbj/persian-gender-by-name (PNGT)","url":"https://github.com/farbodbj/persian-gender-by-name","license":"Apache-2.0","fields":["name","gender","latin"],"notesFa":"فهرست بزرگ نام‌ها با جنسیت و نویسه‌گردانی انگلیسی."},
+    {"id":"mehdi_iranian_names","title":"mehdi-haydari/iranianNames","url":"https://github.com/mehdi-haydari/iranianNames","license":"MIT","fields":["name","gender","latin"],"notesFa":"نوشتار لاتین منبع کمکی است و به‌تنهایی سند ریشه‌شناسی نیست."},
+    {"id":"jadijadi_persianwords","title":"jadijadi/persianwords","url":"https://github.com/jadijadi/persianwords","license":"CC0-1.0","fields":["name","gender"],"notesFa":"فهرست نام‌های دخترانه و پسرانه؛ خطوط خراب هنگام import حذف می‌شوند."},
+    {"id":"armanyazdi_persian_names","title":"armanyazdi/persian-names","url":"https://github.com/armanyazdi/persian-names","license":"MIT","fields":["name","gender"],"notesFa":"فهرست نام فارسی بر اساس جنسیت."},
+    {"id":"wikidata_cc0","title":"Wikidata","url":"https://www.wikidata.org/","license":"CC0","fields":["languageAssociation","gender","latinVariant","wikidataId"],"notesFa":"P407 فقط برای ارتباط زبانی/دسته‌بندی استفاده می‌شود و ریشه واژه محسوب نمی‌شود."},
+    {"id":"wiktionary_kaikki","title":"Wiktionary via Kaikki/Wiktextract","url":"https://kaikki.org/dictionary/Persian/","license":"CC-BY-SA + GFDL","fields":["latinVariant","pronunciation","gender","persianNameClassification","conciseOrigin"],"notesFa":"فقط واقعیت‌های ساختاری کوتاه استخراج می‌شوند؛ متن طولانی کپی نمی‌شود."}
+  ],
+  "referenceSources": [
+    {"id":"sahim_official","title":"سامانه تعاملی نام سازمان ثبت احوال","url":"https://sahim.sabteahval.ir/","license":"official-reference","fields":["approvedName","gender","meaning","pronunciation","frequency","details"],"mode":"manual-until-public-api","notesFa":"مرجع رسمی ایران؛ تا روشن شدن API عمومی/مجوز برداشت خودکار، برای بررسی و تصحیح دستی استفاده می‌شود."},
+    {"id":"iranica_reference","title":"Encyclopaedia Iranica","url":"https://iranicaonline.org/","license":"copyrighted-reference","fields":["historicalEtymology","historicalContext"],"mode":"manual-curation","notesFa":"برای راستی‌آزمایی علمی و ارجاع؛ متن مقاله‌ها به‌صورت عمده وارد دیتابیس نمی‌شود."}
+  ],
+  "notBundled": [
+    {"title":"nikahd99/iranian-Names-Database-By-Gender","reasonFa":"مجوز باز صریح در مخزن پیدا نشد."},
+    {"title":"MansourM/persian-names-database","reasonFa":"مجوز باز صریح در مخزن پیدا نشد."},
+    {"title":"PJSoftCo/BabyNames","reasonFa":"داده معنی‌دار است اما مجوز باز صریح برای دیتاست پیدا نشد."},
+    {"title":"ghaninia/databases","reasonFa":"داده scrape شده و مجوز باز صریح در ریشه مخزن دیده نشد."},
+    {"title":"alisadeghiaghili/farsi-faker","reasonFa":"منبع MIT است اما داده اصلی pickle باینری است؛ فایل pickle ناشناس شبکه در CI unpickle نمی‌شود."},
+    {"title":"CJKI Database of Persian Names","reasonFa":"دیتابیس تجاری است و بدون خرید مجوز bundle نمی‌شود."}
+  ]
+}
