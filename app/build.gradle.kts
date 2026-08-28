@@ -13,12 +13,12 @@ val signingProperties = Properties().apply {
 
 android {
     namespace = "ir.asteam.namedic"
-    compileSdk = 37
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "ir.asteam.namedic"
         minSdk = 24
-        targetSdk = 37
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
