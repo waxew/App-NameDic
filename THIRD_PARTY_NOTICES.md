@@ -87,6 +87,18 @@ License: Wiktionary text/data is made available under CC BY-SA and GFDL; Kaikki 
 Suggested academic citation for the extractor:
 Tatu Ylonen, "Wiktextract: Wiktionary as Machine-Readable Structured Data", LREC 2022.
 
+## Maani/Dehkhoda-Lexicon
+
+Dataset: `https://huggingface.co/datasets/Maani/Dehkhoda-Lexicon`
+
+Use: Persian lexical synonyms and antonyms for words that exactly match an existing personal-name spelling.
+
+License: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), as declared by the dataset card.
+
+Important modeling rule: these relations are stored in `lexicalMeaningFa` and `lexicalAntonymsFa` and are displayed as information about the Persian word homographic with the name. They are not promoted to the direct personal-name `meaning` or `origin`. App-NameDic does not import the dataset's English translation output in this enrichment step.
+
+Attribution: Maani/Dehkhoda-Lexicon, derived from Dehkhoda lexical material. Derived lexical data distributed with App-NameDic remains subject to the applicable CC BY-SA 4.0 requirements.
+
 ## Official reference: Iranian Civil Registration / Sahim
 
 Website: `https://sahim.sabteahval.ir/`
@@ -95,6 +107,6 @@ The interactive name system is treated as a high-priority official verification 
 
 ## Sources intentionally not bundled
 
-Several repositories/services contain potentially useful names but are not automatically imported because their reuse status or distribution format is unsuitable. This includes unlicensed GitHub datasets, scraped collections without a clear data license, remote pickle-only datasets, commercial name databases, and datasets whose stated provenance involves leaked personal/banking data.
+Several repositories/services contain potentially useful names but are not automatically imported because their reuse status or distribution format is unsuitable. This includes unlicensed GitHub datasets, scraped collections without a clear data license, remote pickle-only datasets, commercial name databases, derivative wrappers whose underlying dataset rights are unclear, and datasets whose stated provenance involves leaked personal/banking data.
 
 See `DATA_SOURCES.md` for the current decision log.
