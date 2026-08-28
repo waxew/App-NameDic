@@ -8,4 +8,4 @@ compileSdk=36
 AGP=9.3.0
 Gradle=9.5.0
 Java=17
-ComposeBOM=2026.08.00
+ComposeBOM=2026.06.00
