@@ -23,7 +23,13 @@ data class CultureCategory(
     val subtitleFa: String,
 )
 
-/** مدل اصلی هر نام در فرهنگ‌نامه. */
+/**
+ * مدل اصلی هر نام در فرهنگ‌نامه.
+ *
+ * meaning = معنی/توضیح خود نام که باید منبع پژوهشی مستقیم داشته باشد.
+ * lexicalMeaningFa = هم‌معنی‌های واژه فارسیِ هم‌نوشت با نام؛ این فیلد عمداً
+ * جداست چون هم‌نوشت بودن یک واژه، به‌تنهایی معنی یا ریشه شخص‌نام را ثابت نمی‌کند.
+ */
 data class NameEntry(
     val name: String,
     val gender: Gender,
@@ -33,6 +39,8 @@ data class NameEntry(
     val latin: String = "",
     val latinVariants: List<String> = emptyList(),
     val pronunciation: String = "",
+    val lexicalMeaningFa: String = "",
+    val lexicalAntonymsFa: String = "",
     val tags: List<String> = emptyList(),
     val sourceIds: List<String> = emptyList(),
     val sourceTitle: String = "",
