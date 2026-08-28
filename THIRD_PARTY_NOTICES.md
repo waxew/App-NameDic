@@ -1,57 +1,90 @@
 # Third-party notices
 
+App-NameDic uses only data sources whose automatic reuse conditions are known. `DATA_SOURCES.md` and `app/src/main/assets/data_sources.json` describe which fields are imported from each source.
+
 ## nabidam/persian-names
 
 Project: `https://github.com/nabidam/persian-names`
 
-Used as a base list of Persian/Iranian names and gender labels. Meanings, etymologies and cultural classifications in App-NameDic are maintained separately and must not be inferred from this dataset.
+Use: Iranian/Persian name list and gender labels.
 
-MIT License
+License: MIT. Copyright (c) 2024 nabidam.
 
-Copyright (c) 2024 nabidam
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, subject to inclusion of the copyright and permission notice. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
 
 ## mehdi-haydari/iranianNames
 
 Project: `https://github.com/mehdi-haydari/iranianNames`
 
-Used only as an auxiliary source for Latin-script spellings of names when a normalized Persian-name match exists. The upstream project explicitly notes that some English spellings may need correction, so these spellings are treated as search/display aids rather than etymological evidence.
+Use: Persian names, gender and auxiliary Latin-script spellings.
 
-MIT License
+License: MIT. Copyright (c) 2016 imwho.
 
-Copyright (c) 2016 imwho
+The upstream README warns that some English spellings may need correction. App-NameDic therefore treats them as search/display variants, not etymological evidence.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## armanyazdi/persian-names
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Project: `https://github.com/armanyazdi/persian-names`
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Use: additional Persian male/female name lists.
+
+License: MIT.
+
+Only the Persian gender-separated lists are automatically merged. The separate English lists are not assumed to be positionally aligned with the Persian lists.
+
+## farbodbj/persian-gender-by-name
+
+Project: `https://github.com/farbodbj/persian-gender-by-name`
+
+Use: larger Persian name/gender/English-transliteration corpus.
+
+License: Apache License 2.0.
+
+Upstream license: `https://github.com/farbodbj/persian-gender-by-name/blob/github-master/LICENSE`
+
+App-NameDic records this source separately in `sourceIds` so attribution and provenance remain traceable.
+
+## jadijadi/persianwords
+
+Project: `https://github.com/jadijadi/persianwords`
+
+Use: additional male/female Persian name lists.
+
+License: CC0 1.0 Universal.
+
+The importer discards non-name lines and merge-conflict markers found in the upstream male-name file.
+
+## Wikidata
+
+Website: `https://www.wikidata.org/`
+
+Use: structured name-language associations, given-name class/gender, labels and Q identifiers.
+
+License: structured data in Wikidata's main/property/lexeme namespaces is CC0.
+
+Important modeling rule: Wikidata property P407 ("language of work or name") is stored only as a language/culture association. It is not converted into an etymological `origin`.
+
+## Wiktionary / Kaikki.org / Wiktextract
+
+Wiktionary: `https://en.wiktionary.org/`
+Kaikki Persian data: `https://kaikki.org/dictionary/Persian/`
+Wiktextract: `https://github.com/tatuylonen/wiktextract`
+
+Use: structured Persian `pos=name` facts such as romanization, IPA, given-name gender categories, Persian-name classification and concise explicit origin labels.
+
+License: Wiktionary text/data is made available under CC BY-SA and GFDL; Kaikki makes extracted data available under the same Wiktionary licenses. App-NameDic does not bulk-copy long dictionary prose. Any Wiktionary-derived material remains attributed to Wiktionary/Kaikki and subject to the applicable ShareAlike/GFDL terms. The Android application source code is maintained separately from this attributed data layer.
+
+Suggested academic citation for the extractor:
+Tatu Ylonen, "Wiktextract: Wiktionary as Machine-Readable Structured Data", LREC 2022.
+
+## Official reference: Iranian Civil Registration / Sahim
+
+Website: `https://sahim.sabteahval.ir/`
+
+The interactive name system is treated as a high-priority official verification reference for Iranian naming information. It is not bulk-scraped by the automatic pipeline unless a public/authorized machine-readable interface and reuse terms are available.
+
+## Sources intentionally not bundled
+
+Several repositories/services contain potentially useful names but are not automatically imported because their reuse status or distribution format is unsuitable. Examples include unlicensed GitHub datasets, scraped collections without a clear data license, remote pickle-only datasets, and commercial name databases.
+
+See `DATA_SOURCES.md` for the current decision log.
