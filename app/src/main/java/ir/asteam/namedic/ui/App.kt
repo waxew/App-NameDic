@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.weight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -73,7 +72,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
@@ -91,131 +92,227 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** رابط اصلی برنامه؛ داده‌ها آفلاین‌اند و فقط بررسی نسخه به اینترنت نیاز دارد. */
+/**
+ * ریشه رابط کاربری برنامه.
+ * داده‌های فرهنگ‌نامه از assets خوانده می‌شوند و برای استفاده عادی به اینترنت نیاز ندارند.
+ */
 @Composable
 fun NameDicApp() {
     val context = LocalContext.current
-    val repo = remember { NameRepository(context.applicationContext) }
-    val prefs = remember { context.getSharedPreferences("namedic_prefs", Context.MODE_PRIVATE) }
-    val favorites = remember { mutableStateListOf<String>().apply { addAll(prefs.getStringSet("favorite_names", emptySet()).orEmpty()) } }
-    var route by remember { mutableStateOf(R.HOME) }
-    var parentRoute by remember { mutableStateOf(R.HOME) }
-    var culture by remember { mutableStateOf<CultureCategory?>(null) }
-    var selected by remember { mutableStateOf<NameEntry?>(null) }
-    var profileUri by remember { mutableStateOf(prefs.getString("profile_uri", null)) }
-    var update by remember { mutableStateOf<UpdatePrompt?>(null) }
-    val drawer = rememberDrawerState(DrawerValue.Closed)
+    val repository = remember { NameRepository(context.applicationContext) }
+    val preferences = remember {
+        context.getSharedPreferences("namedic_preferences", Context.MODE_PRIVATE)
+    }
+    val favoriteNames = remember {
+        mutableStateListOf<String>().apply {
+            addAll(preferences.getStringSet("favorite_names", emptySet()).orEmpty())
+        }
+    }
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
-    val picker = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+    var screen by remember { mutableStateOf(Screen.HOME) }
+    var previousScreen by remember { mutableStateOf(Screen.HOME) }
+    var selectedCulture by remember { mutableStateOf<CultureCategory?>(null) }
+    var selectedName by remember { mutableStateOf<NameEntry?>(null) }
+    var profileUri by remember { mutableStateOf(preferences.getString("profile_uri", null)) }
+    var updatePrompt by remember { mutableStateOf<UpdatePrompt?>(null) }
+
+    // انتخاب عکس پروفایل بدون نیاز به مجوز عمومی حافظه.
+    val profilePicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument(),
+    ) { uri ->
         if (uri != null) {
-            runCatching { context.contentResolver.takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION) }
+            runCatching {
+                context.contentResolver.takePersistableUriPermission(
+                    uri,
+                    Intent.FLAG_GRANT_READ_URI_PERMISSION,
+                )
+            }
             profileUri = uri.toString()
-            prefs.edit().putString("profile_uri", uri.toString()).apply()
+            preferences.edit().putString("profile_uri", uri.toString()).apply()
         }
     }
 
+    // بررسی نسخه فقط یک قابلیت کمکی است؛ شکست شبکه روی فرهنگ‌نامه آفلاین اثر ندارد.
     LaunchedEffect(Unit) {
         val latest = withContext(Dispatchers.IO) { UpdateChecker.fetchLatest() }
         if (latest != null && latest.latestVersionCode > BuildConfig.VERSION_CODE) {
-            update = UpdatePrompt(latest.latestVersionName, latest.messageFa, latest.downloadUrl)
+            updatePrompt = UpdatePrompt(
+                version = latest.latestVersionName,
+                message = latest.messageFa,
+                url = latest.downloadUrl,
+            )
         }
     }
 
-    fun saveFavorites() = prefs.edit().putStringSet("favorite_names", favorites.toSet()).apply()
-    fun open(routeName: String) {
-        selected = null
-        culture = null
-        route = routeName
-        scope.launch { drawer.close() }
+    fun persistFavorites() {
+        preferences.edit().putStringSet("favorite_names", favoriteNames.toSet()).apply()
     }
-    fun openName(item: NameEntry) {
-        parentRoute = route
-        selected = item
-        route = R.DETAIL
+
+    fun navigate(destination: Screen) {
+        selectedName = null
+        if (destination != Screen.NAMES) selectedCulture = null
+        screen = destination
+        scope.launch { drawerState.close() }
     }
+
+    fun openName(entry: NameEntry) {
+        previousScreen = screen
+        selectedName = entry
+        screen = Screen.DETAIL
+    }
+
     fun goBack() {
-        when {
-            route == R.DETAIL -> { selected = null; route = parentRoute }
-            culture != null -> { culture = null; route = R.CULTURES }
-            else -> route = R.HOME
+        when (screen) {
+            Screen.DETAIL -> {
+                selectedName = null
+                screen = previousScreen
+            }
+            Screen.NAMES -> {
+                selectedCulture = null
+                screen = Screen.CULTURES
+            }
+            else -> screen = Screen.HOME
         }
     }
 
-    BackHandler(enabled = route != R.HOME) { goBack() }
+    BackHandler(enabled = screen != Screen.HOME) { goBack() }
 
-    update?.let { item ->
+    updatePrompt?.let { prompt ->
         AlertDialog(
-            onDismissRequest = { update = null },
-            title = { Text("نسخه ${item.version} آماده است") },
-            text = { Text(item.message) },
-            dismissButton = { TextButton(onClick = { update = null }) { Text("بعداً") } },
+            onDismissRequest = { updatePrompt = null },
+            title = { Text("نسخه ${prompt.version} منتشر شده است") },
+            text = { Text(prompt.message) },
+            dismissButton = {
+                TextButton(onClick = { updatePrompt = null }) { Text("بعداً") }
+            },
             confirmButton = {
-                TextButton(onClick = {
-                    if (item.url.isNotBlank()) context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.url)))
-                    update = null
-                }) { Text("مشاهده نسخه") }
+                TextButton(
+                    onClick = {
+                        if (prompt.url.isNotBlank()) {
+                            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(prompt.url)))
+                        }
+                        updatePrompt = null
+                    },
+                ) { Text("مشاهده نسخه") }
             },
         )
     }
 
     ModalNavigationDrawer(
-        drawerState = drawer,
+        drawerState = drawerState,
         drawerContent = {
             AppDrawer(
                 profileUri = profileUri,
-                currentRoute = route,
-                onPickPhoto = { picker.launch(arrayOf("image/*")) },
-                onNavigate = ::open,
+                currentScreen = screen,
+                onPickProfile = { profilePicker.launch(arrayOf("image/*")) },
+                onNavigate = ::navigate,
             )
         },
     ) {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(titleFor(route, culture, selected), maxLines = 1) },
+                    title = { Text(screenTitle(screen, selectedCulture, selectedName), maxLines = 1) },
                     navigationIcon = {
-                        IconButton(onClick = if (route == R.HOME) ({ scope.launch { drawer.open() } }) else ::goBack) {
-                            Icon(if (route == R.HOME) Icons.Rounded.Menu else Icons.Rounded.ArrowBack, null)
+                        IconButton(
+                            onClick = {
+                                if (screen == Screen.HOME) {
+                                    scope.launch { drawerState.open() }
+                                } else {
+                                    goBack()
+                                }
+                            },
+                        ) {
+                            Icon(
+                                imageVector = if (screen == Screen.HOME) Icons.Rounded.Menu else Icons.Rounded.ArrowBack,
+                                contentDescription = null,
+                            )
                         }
                     },
                 )
             },
-        ) { padding ->
-            Box(Modifier.fillMaxSize().padding(padding)) {
-                when (route) {
-                    R.HOME -> HomeScreen(repo, ::openName, { culture = it; route = R.NAMES }, ::open)
-                    R.IRANIAN -> NamesScreen(
-                        "اسامی اصیل ایرانی",
-                        repo.names.filter { "persian" in it.usageCultureIds || "ancient_iranian" in it.usageCultureIds },
-                        favorites,
-                        { name -> if (name in favorites) favorites.remove(name) else favorites.add(name); saveFavorites() },
-                        ::openName,
+        ) { innerPadding ->
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding),
+            ) {
+                when (screen) {
+                    Screen.HOME -> HomeScreen(
+                        repository = repository,
+                        onNameClick = ::openName,
+                        onCultureClick = {
+                            selectedCulture = it
+                            screen = Screen.NAMES
+                        },
+                        onNavigate = ::navigate,
                     )
-                    R.CULTURES -> CulturesScreen(repo) { culture = it; route = R.NAMES }
-                    R.NAMES -> NamesScreen(
-                        culture?.titleFa ?: "نام‌ها",
-                        culture?.let { repo.search("", cultureId = it.id) } ?: repo.names,
-                        favorites,
-                        { name -> if (name in favorites) favorites.remove(name) else favorites.add(name); saveFavorites() },
-                        ::openName,
+
+                    Screen.IRANIAN_NAMES -> NamesScreen(
+                        title = "اسامی اصیل ایرانی",
+                        source = repository.names.filter {
+                            "persian" in it.usageCultureIds || "ancient_iranian" in it.usageCultureIds
+                        },
+                        favorites = favoriteNames,
+                        onFavorite = { name ->
+                            if (name in favoriteNames) favoriteNames.remove(name) else favoriteNames.add(name)
+                            persistFavorites()
+                        },
+                        onNameClick = ::openName,
                     )
-                    R.HEROES -> HeritageScreen(repo.heritageItems.filter { it.type == HeritageType.HERO })
-                    R.ANIMALS -> HeritageScreen(repo.heritageItems.filter { it.type != HeritageType.HERO })
-                    R.FAVORITES -> NamesScreen(
-                        "علاقه‌مندی‌ها",
-                        repo.names.filter { it.name in favorites },
-                        favorites,
-                        { name -> favorites.remove(name); saveFavorites() },
-                        ::openName,
+
+                    Screen.CULTURES -> CulturesScreen(repository) {
+                        selectedCulture = it
+                        screen = Screen.NAMES
+                    }
+
+                    Screen.NAMES -> NamesScreen(
+                        title = selectedCulture?.titleFa ?: "نام‌ها",
+                        source = selectedCulture?.let {
+                            repository.search(query = "", cultureId = it.id)
+                        } ?: repository.names,
+                        favorites = favoriteNames,
+                        onFavorite = { name ->
+                            if (name in favoriteNames) favoriteNames.remove(name) else favoriteNames.add(name)
+                            persistFavorites()
+                        },
+                        onNameClick = ::openName,
                     )
-                    R.ABOUT -> AboutScreen()
-                    R.CONTACT -> ContactScreen()
-                    R.DETAIL -> selected?.let { entry ->
-                        DetailScreen(entry, repo.cultures, entry.name in favorites) {
-                            if (entry.name in favorites) favorites.remove(entry.name) else favorites.add(entry.name)
-                            saveFavorites()
-                        }
+
+                    Screen.HEROES -> HeritageScreen(
+                        repository.heritageItems.filter { it.type == HeritageType.HERO },
+                    )
+
+                    Screen.ANIMALS -> HeritageScreen(
+                        repository.heritageItems.filter { it.type != HeritageType.HERO },
+                    )
+
+                    Screen.FAVORITES -> NamesScreen(
+                        title = "علاقه‌مندی‌ها",
+                        source = repository.names.filter { it.name in favoriteNames },
+                        favorites = favoriteNames,
+                        onFavorite = { name ->
+                            favoriteNames.remove(name)
+                            persistFavorites()
+                        },
+                        onNameClick = ::openName,
+                    )
+
+                    Screen.ABOUT -> AboutScreen()
+                    Screen.CONTACT -> ContactScreen()
+                    Screen.DETAIL -> selectedName?.let { entry ->
+                        DetailScreen(
+                            entry = entry,
+                            cultures = repository.cultures,
+                            isFavorite = entry.name in favoriteNames,
+                            onFavorite = {
+                                if (entry.name in favoriteNames) favoriteNames.remove(entry.name)
+                                else favoriteNames.add(entry.name)
+                                persistFavorites()
+                            },
+                        )
                     }
                 }
             }
@@ -223,211 +320,536 @@ fun NameDicApp() {
     }
 }
 
-private object R {
-    const val HOME = "home"; const val IRANIAN = "iranian"; const val CULTURES = "cultures"
-    const val NAMES = "names"; const val HEROES = "heroes"; const val ANIMALS = "animals"
-    const val FAVORITES = "favorites"; const val ABOUT = "about"; const val CONTACT = "contact"; const val DETAIL = "detail"
-}
-private data class UpdatePrompt(val version: String, val message: String, val url: String)
-private fun titleFor(route: String, culture: CultureCategory?, name: NameEntry?) = when (route) {
-    R.HOME -> "نام‌نامه ایران"; R.IRANIAN -> "اسامی اصیل ایرانی"; R.CULTURES -> "زبان‌ها و فرهنگ‌ها"
-    R.NAMES -> culture?.titleFa ?: "نام‌ها"; R.HEROES -> "قهرمانان و اساطیر"; R.ANIMALS -> "جانوران فرهنگی"
-    R.FAVORITES -> "علاقه‌مندی‌ها"; R.ABOUT -> "درباره نرم‌افزار"; R.CONTACT -> "ارتباط با ما"
-    R.DETAIL -> name?.name ?: "جزئیات"; else -> "نام‌نامه ایران"
+/** مسیرهای ساده داخلی برنامه؛ کتابخانه Navigation برای نسخه پایه ضروری نیست. */
+private enum class Screen {
+    HOME,
+    IRANIAN_NAMES,
+    CULTURES,
+    NAMES,
+    HEROES,
+    ANIMALS,
+    FAVORITES,
+    ABOUT,
+    CONTACT,
+    DETAIL,
 }
 
+private data class UpdatePrompt(
+    val version: String,
+    val message: String,
+    val url: String,
+)
+
+private fun screenTitle(
+    screen: Screen,
+    culture: CultureCategory?,
+    name: NameEntry?,
+): String = when (screen) {
+    Screen.HOME -> "نام‌نامه ایران"
+    Screen.IRANIAN_NAMES -> "اسامی اصیل ایرانی"
+    Screen.CULTURES -> "زبان‌ها و فرهنگ‌ها"
+    Screen.NAMES -> culture?.titleFa ?: "نام‌ها"
+    Screen.HEROES -> "قهرمانان و اساطیر"
+    Screen.ANIMALS -> "جانوران و موجودات فرهنگی"
+    Screen.FAVORITES -> "علاقه‌مندی‌ها"
+    Screen.ABOUT -> "درباره نرم‌افزار"
+    Screen.CONTACT -> "ارتباط با ما"
+    Screen.DETAIL -> name?.name ?: "جزئیات نام"
+}
+
+/** Drawer مشترک پروژه با پروفایل، بخش اختصاصی برنامه و بخش ارتباطی. */
 @Composable
-private fun AppDrawer(profileUri: String?, currentRoute: String, onPickPhoto: () -> Unit, onNavigate: (String) -> Unit) {
+private fun AppDrawer(
+    profileUri: String?,
+    currentScreen: Screen,
+    onPickProfile: () -> Unit,
+    onNavigate: (Screen) -> Unit,
+) {
     ModalDrawerSheet {
-        LazyColumn(Modifier.padding(horizontal = 12.dp), contentPadding = PaddingValues(vertical = 18.dp)) {
-            item { ProfileHeader(profileUri, onPickPhoto); HorizontalDivider(Modifier.padding(vertical = 12.dp)) }
-            item { DrawerRow("خانه", Icons.Rounded.Home, R.HOME, currentRoute, onNavigate) }
-            item { DrawerRow("اسامی اصیل ایرانی", Icons.Rounded.Book, R.IRANIAN, currentRoute, onNavigate) }
-            item { DrawerRow("زبان‌ها و فرهنگ‌ها", Icons.Rounded.Language, R.CULTURES, currentRoute, onNavigate) }
-            item { DrawerRow("قهرمانان و اساطیر", Icons.Rounded.EmojiEvents, R.HEROES, currentRoute, onNavigate) }
-            item { DrawerRow("جانوران و موجودات فرهنگی", Icons.Rounded.Pets, R.ANIMALS, currentRoute, onNavigate) }
-            item { DrawerRow("علاقه‌مندی‌ها", Icons.Rounded.Favorite, R.FAVORITES, currentRoute, onNavigate) }
+        LazyColumn(
+            modifier = Modifier.padding(horizontal = 12.dp),
+            contentPadding = PaddingValues(vertical = 18.dp),
+        ) {
             item {
-                HorizontalDivider(Modifier.padding(vertical = 12.dp))
-                DrawerRow("درباره نرم‌افزار", Icons.Rounded.Info, R.ABOUT, currentRoute, onNavigate)
-                DrawerRow("ارتباط با ما", Icons.Rounded.Email, R.CONTACT, currentRoute, onNavigate)
+                ProfileHeader(profileUri = profileUri, onPickProfile = onPickProfile)
+                HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+            }
+
+            item { DrawerItem("خانه", Icons.Rounded.Home, Screen.HOME, currentScreen, onNavigate) }
+            item { DrawerItem("اسامی اصیل ایرانی", Icons.Rounded.Book, Screen.IRANIAN_NAMES, currentScreen, onNavigate) }
+            item { DrawerItem("زبان‌ها و فرهنگ‌ها", Icons.Rounded.Language, Screen.CULTURES, currentScreen, onNavigate) }
+            item { DrawerItem("قهرمانان و اساطیر", Icons.Rounded.EmojiEvents, Screen.HEROES, currentScreen, onNavigate) }
+            item { DrawerItem("جانوران فرهنگی", Icons.Rounded.Pets, Screen.ANIMALS, currentScreen, onNavigate) }
+            item { DrawerItem("علاقه‌مندی‌ها", Icons.Rounded.Favorite, Screen.FAVORITES, currentScreen, onNavigate) }
+
+            item {
+                HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp))
+                DrawerItem("درباره نرم‌افزار", Icons.Rounded.Info, Screen.ABOUT, currentScreen, onNavigate)
+                DrawerItem("ارتباط با ما", Icons.Rounded.Email, Screen.CONTACT, currentScreen, onNavigate)
             }
         }
     }
 }
 
 @Composable
-private fun ProfileHeader(uri: String?, onPick: () -> Unit) {
-    Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(6.dp)) {
-        Box(Modifier.size(92.dp).clickable(onClick = onPick), contentAlignment = Alignment.BottomEnd) {
-            ProfileImage(uri)
-            Icon(Icons.Rounded.PhotoCamera, "انتخاب عکس", tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(24.dp))
+private fun DrawerItem(
+    label: String,
+    icon: ImageVector,
+    destination: Screen,
+    current: Screen,
+    onNavigate: (Screen) -> Unit,
+) {
+    NavigationDrawerItem(
+        label = { Text(label) },
+        icon = { Icon(icon, contentDescription = null) },
+        selected = destination == current,
+        onClick = { onNavigate(destination) },
+    )
+}
+
+/** هدر پروفایل؛ لمس مستقیم تصویر، انتخاب‌گر عکس را باز می‌کند. */
+@Composable
+private fun ProfileHeader(
+    profileUri: String?,
+    onPickProfile: () -> Unit,
+) {
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        Box(
+            modifier = Modifier
+                .size(92.dp)
+                .clickable(onClick = onPickProfile),
+            contentAlignment = Alignment.BottomEnd,
+        ) {
+            ProfileImage(profileUri)
+            Icon(
+                imageVector = Icons.Rounded.PhotoCamera,
+                contentDescription = "انتخاب عکس پروفایل",
+                tint = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.size(24.dp),
+            )
         }
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            Icon(Icons.Rounded.Person, null, modifier = Modifier.size(18.dp)); Text("کاربر نام‌نامه", fontWeight = FontWeight.Bold)
+
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            Icon(Icons.Rounded.Person, contentDescription = null, modifier = Modifier.size(18.dp))
+            Text("کاربر نام‌نامه", fontWeight = FontWeight.Bold)
         }
         Text("برای تغییر تصویر روی عکس بزنید", style = MaterialTheme.typography.bodySmall)
     }
 }
 
 @Composable
-private fun ProfileImage(uri: String?) {
+private fun ProfileImage(profileUri: String?) {
     val context = LocalContext.current
-    val bitmap by produceState<android.graphics.Bitmap?>(null, uri) {
-        value = if (uri.isNullOrBlank()) null else withContext(Dispatchers.IO) {
-            runCatching { context.contentResolver.openInputStream(Uri.parse(uri))?.use(BitmapFactory::decodeStream) }.getOrNull()
+    val image by produceState<ImageBitmap?>(initialValue = null, key1 = profileUri) {
+        value = if (profileUri.isNullOrBlank()) {
+            null
+        } else {
+            withContext(Dispatchers.IO) {
+                runCatching {
+                    context.contentResolver.openInputStream(Uri.parse(profileUri))?.use { stream ->
+                        BitmapFactory.decodeStream(stream)?.asImageBitmap()
+                    }
+                }.getOrNull()
+            }
         }
     }
-    if (bitmap != null) {
-        Image(bitmap!!.asImageBitmap(), "عکس پروفایل", Modifier.size(84.dp).clip(CircleShape), contentScale = ContentScale.Crop)
+
+    if (image != null) {
+        Image(
+            bitmap = image!!,
+            contentDescription = "عکس پروفایل",
+            modifier = Modifier
+                .size(84.dp)
+                .clip(CircleShape),
+            contentScale = ContentScale.Crop,
+        )
     } else {
-        ElevatedCard(Modifier.size(84.dp), shape = CircleShape) {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Icon(Icons.Rounded.Person, null, Modifier.size(42.dp), tint = MaterialTheme.colorScheme.primary)
+        ElevatedCard(modifier = Modifier.size(84.dp), shape = CircleShape) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Icon(
+                    imageVector = Icons.Rounded.Person,
+                    contentDescription = null,
+                    modifier = Modifier.size(42.dp),
+                    tint = MaterialTheme.colorScheme.primary,
+                )
             }
         }
     }
 }
 
+/** خانه شامل معرفی، جستجوی سریع و دسته‌های اصلی است. */
 @Composable
-private fun DrawerRow(label: String, icon: androidx.compose.ui.graphics.vector.ImageVector, route: String, current: String, onNavigate: (String) -> Unit) {
-    NavigationDrawerItem(label = { Text(label) }, icon = { Icon(icon, null) }, selected = route == current, onClick = { onNavigate(route) })
-}
-
-@Composable
-private fun HomeScreen(repo: NameRepository, onName: (NameEntry) -> Unit, onCulture: (CultureCategory) -> Unit, onNavigate: (String) -> Unit) {
+private fun HomeScreen(
+    repository: NameRepository,
+    onNameClick: (NameEntry) -> Unit,
+    onCultureClick: (CultureCategory) -> Unit,
+    onNavigate: (Screen) -> Unit,
+) {
     var query by remember { mutableStateOf("") }
-    val results = remember(query) { if (query.isBlank()) emptyList() else repo.search(query).take(40) }
-    LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    val results = remember(query) {
+        if (query.isBlank()) emptyList() else repository.search(query).take(50)
+    }
+
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
         item {
-            ElevatedCard(Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(7.dp)) {
-                    Text("فرهنگ‌نامه نام‌ها و میراث ایران", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.padding(18.dp),
+                    verticalArrangement = Arrangement.spacedBy(7.dp),
+                ) {
+                    Text(
+                        "فرهنگ‌نامه نام‌ها و میراث ایران",
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                    )
                     Text("معنی، ریشه، فرهنگ استفاده و نام‌های تاریخی؛ با تفکیک ریشه واژه از فرهنگ محل استفاده.")
-                    Text("${repo.names.size} نام • ${repo.cultures.size} دسته", color = MaterialTheme.colorScheme.primary)
+                    Text(
+                        "${repository.names.size} نام • ${repository.cultures.size} دسته فرهنگی/زبانی",
+                        color = MaterialTheme.colorScheme.primary,
+                    )
                 }
             }
         }
-        item { OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth(), label = { Text("جستجوی نام، معنی یا ریشه") }, leadingIcon = { Icon(Icons.Rounded.Search, null) }, singleLine = true) }
+
+        item {
+            OutlinedTextField(
+                value = query,
+                onValueChange = { query = it },
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text("جستجوی نام، معنی یا ریشه") },
+                leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null) },
+                singleLine = true,
+            )
+        }
+
         if (query.isNotBlank()) {
-            if (results.isEmpty()) item { Empty("نتیجه‌ای پیدا نشد.") }
-            items(results, key = { it.name }) { NameRow(it, false, null, onName) }
+            if (results.isEmpty()) item { EmptyState("نتیجه‌ای پیدا نشد.") }
+            items(items = results, key = { it.name }) { entry ->
+                NameRow(entry = entry, isFavorite = false, onFavorite = null, onClick = onNameClick)
+            }
         } else {
             item {
                 Text("دسترسی سریع", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-                Spacer(Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.dp))
                 LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    item { AssistChip({ onNavigate(R.IRANIAN) }, { Text("اسامی ایرانی") }, leadingIcon = { Icon(Icons.Rounded.Book, null) }) }
-                    item { AssistChip({ onNavigate(R.CULTURES) }, { Text("فرهنگ‌ها") }, leadingIcon = { Icon(Icons.Rounded.Language, null) }) }
-                    item { AssistChip({ onNavigate(R.HEROES) }, { Text("قهرمانان") }, leadingIcon = { Icon(Icons.Rounded.EmojiEvents, null) }) }
+                    item {
+                        AssistChip(
+                            onClick = { onNavigate(Screen.IRANIAN_NAMES) },
+                            label = { Text("اسامی ایرانی") },
+                            leadingIcon = { Icon(Icons.Rounded.Book, contentDescription = null) },
+                        )
+                    }
+                    item {
+                        AssistChip(
+                            onClick = { onNavigate(Screen.CULTURES) },
+                            label = { Text("فرهنگ‌ها") },
+                            leadingIcon = { Icon(Icons.Rounded.Language, contentDescription = null) },
+                        )
+                    }
+                    item {
+                        AssistChip(
+                            onClick = { onNavigate(Screen.HEROES) },
+                            label = { Text("قهرمانان") },
+                            leadingIcon = { Icon(Icons.Rounded.EmojiEvents, contentDescription = null) },
+                        )
+                    }
                 }
             }
-            item { Text("زبان‌ها و فرهنگ‌ها", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold) }
-            items(repo.cultures.take(8), key = { it.id }) { CultureRow(it, repo.search("", cultureId = it.id).size, onCulture) }
-            item { TextButton({ onNavigate(R.CULTURES) }, Modifier.fillMaxWidth()) { Text("نمایش همه دسته‌ها") } }
+
+            item {
+                Text("زبان‌ها و فرهنگ‌ها", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+            }
+            items(items = repository.cultures.take(8), key = { it.id }) { culture ->
+                CultureRow(
+                    culture = culture,
+                    count = repository.search(query = "", cultureId = culture.id).size,
+                    onClick = onCultureClick,
+                )
+            }
+            item {
+                TextButton(
+                    onClick = { onNavigate(Screen.CULTURES) },
+                    modifier = Modifier.fillMaxWidth(),
+                ) { Text("نمایش همه دسته‌ها") }
+            }
         }
     }
 }
 
 @Composable
-private fun CulturesScreen(repo: NameRepository, onCulture: (CultureCategory) -> Unit) {
-    LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        item { Text("دسته‌ها بر اساس کاربرد فرهنگی/زبانی‌اند؛ ریشه واقعی هر نام جداگانه ثبت می‌شود.", color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        items(repo.cultures, key = { it.id }) { CultureRow(it, repo.search("", cultureId = it.id).size, onCulture) }
+private fun CulturesScreen(
+    repository: NameRepository,
+    onCultureClick: (CultureCategory) -> Unit,
+) {
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        item {
+            Text(
+                "دسته‌ها بر اساس کاربرد فرهنگی/زبانی‌اند؛ ریشه واقعی هر نام جداگانه ثبت می‌شود.",
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        items(items = repository.cultures, key = { it.id }) { culture ->
+            CultureRow(
+                culture = culture,
+                count = repository.search(query = "", cultureId = culture.id).size,
+                onClick = onCultureClick,
+            )
+        }
     }
 }
 
 @Composable
-private fun CultureRow(culture: CultureCategory, count: Int, onClick: (CultureCategory) -> Unit) {
-    ElevatedCard(Modifier.fillMaxWidth().clickable { onClick(culture) }) {
-        Row(Modifier.fillMaxWidth().padding(14.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-            Icon(Icons.Rounded.People, null, tint = MaterialTheme.colorScheme.primary)
-            Column(Modifier.weight(1f)) {
+private fun CultureRow(
+    culture: CultureCategory,
+    count: Int,
+    onClick: (CultureCategory) -> Unit,
+) {
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick(culture) },
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Icon(Icons.Rounded.People, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+            Column(modifier = Modifier.weight(1f)) {
                 Text(culture.titleFa, fontWeight = FontWeight.Bold)
-                Text(culture.subtitleFa, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+                Text(
+                    culture.subtitleFa,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
             Text(count.toString(), color = MaterialTheme.colorScheme.primary)
         }
     }
 }
 
+/** فهرست نام‌ها با جستجو و فیلتر جنسیت. */
 @Composable
-private fun NamesScreen(title: String, source: List<NameEntry>, favorites: List<String>, onFavorite: (String) -> Unit, onName: (NameEntry) -> Unit) {
+private fun NamesScreen(
+    title: String,
+    source: List<NameEntry>,
+    favorites: List<String>,
+    onFavorite: (String) -> Unit,
+    onNameClick: (NameEntry) -> Unit,
+) {
     var query by remember(title) { mutableStateOf("") }
     var gender by remember(title) { mutableStateOf<Gender?>(null) }
-    val list = remember(source, query, gender) {
-        val q = query.trim().lowercase().replace('ي', 'ی').replace('ك', 'ک')
-        source.filter { e ->
-            (q.isBlank() || listOf(e.name, e.meaning, e.origin, e.tags.joinToString(" ")).any { it.lowercase().replace('ي', 'ی').replace('ك', 'ک').contains(q) }) &&
-                (gender == null || e.gender == gender)
+
+    val filtered = remember(source, query, gender) {
+        val normalizedQuery = normalizeForSearch(query)
+        source.filter { entry ->
+            val matchesQuery = normalizedQuery.isBlank() || listOf(
+                entry.name,
+                entry.meaning,
+                entry.origin,
+                entry.latin,
+                entry.tags.joinToString(" "),
+            ).any { normalizeForSearch(it).contains(normalizedQuery) }
+            val matchesGender = gender == null || entry.gender == gender
+            matchesQuery && matchesGender
         }
     }
-    LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(9.dp)) {
-        item { OutlinedTextField(query, { query = it }, Modifier.fillMaxWidth(), label = { Text("جستجو در $title") }, leadingIcon = { Icon(Icons.Rounded.Search, null) }, singleLine = true) }
+
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(9.dp),
+    ) {
+        item {
+            OutlinedTextField(
+                value = query,
+                onValueChange = { query = it },
+                modifier = Modifier.fillMaxWidth(),
+                label = { Text("جستجو در $title") },
+                leadingIcon = { Icon(Icons.Rounded.Search, contentDescription = null) },
+                singleLine = true,
+            )
+        }
+
         item {
             LazyRow(horizontalArrangement = Arrangement.spacedBy(7.dp)) {
-                item { FilterChip(gender == null, { gender = null }, { Text("همه") }) }
-                item { FilterChip(gender == Gender.FEMALE, { gender = Gender.FEMALE }, { Text("دخترانه") }) }
-                item { FilterChip(gender == Gender.MALE, { gender = Gender.MALE }, { Text("پسرانه") }) }
-                item { FilterChip(gender == Gender.UNISEX, { gender = Gender.UNISEX }, { Text("مشترک") }) }
+                item { FilterChip(selected = gender == null, onClick = { gender = null }, label = { Text("همه") }) }
+                item { FilterChip(selected = gender == Gender.FEMALE, onClick = { gender = Gender.FEMALE }, label = { Text("دخترانه") }) }
+                item { FilterChip(selected = gender == Gender.MALE, onClick = { gender = Gender.MALE }, label = { Text("پسرانه") }) }
+                item { FilterChip(selected = gender == Gender.UNISEX, onClick = { gender = Gender.UNISEX }, label = { Text("مشترک") }) }
             }
         }
-        item { Text("${list.size} نتیجه", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        if (list.isEmpty()) item { Empty("در این دسته هنوز رکورد بررسی‌شده کافی نداریم.") }
-        items(list, key = { it.name }) { NameRow(it, it.name in favorites, { onFavorite(it.name) }, onName) }
-    }
-}
 
-@Composable
-private fun NameRow(entry: NameEntry, favorite: Boolean, onFavorite: (() -> Unit)?, onClick: (NameEntry) -> Unit) {
-    ElevatedCard(Modifier.fillMaxWidth().clickable { onClick(entry) }) {
-        Row(Modifier.fillMaxWidth().padding(14.dp), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Column(Modifier.weight(1f)) {
-                Text(entry.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Text("${entry.gender.titleFa} • ${entry.meaning}", maxLines = 2, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            }
-            onFavorite?.let { callback -> IconButton(callback) { Icon(if (favorite) Icons.Rounded.Favorite else Icons.Rounded.FavoriteBorder, "علاقه‌مندی") } }
-        }
-    }
-}
-
-@Composable
-private fun DetailScreen(entry: NameEntry, cultures: List<CultureCategory>, favorite: Boolean, onFavorite: () -> Unit) {
-    val cultureNames = cultures.filter { it.id in entry.usageCultureIds }.map { it.titleFa }.ifEmpty { listOf("هنوز دسته‌بندی نشده") }
-    LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         item {
-            ElevatedCard(Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(18.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-                        Column(Modifier.weight(1f)) { Text(entry.name, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold); if (entry.latin.isNotBlank()) Text(entry.latin) }
-                        IconButton(onFavorite) { Icon(if (favorite) Icons.Rounded.Favorite else Icons.Rounded.FavoriteBorder, "علاقه‌مندی") }
-                    }
-                    Info("جنسیت", entry.gender.titleFa); Info("معنی / توضیح", entry.meaning); Info("ریشه", entry.origin)
-                    Info("فرهنگ استفاده", cultureNames.joinToString("، ")); Info("وضعیت داده", entry.verificationStatus.titleFa)
-                    if (entry.pronunciation.isNotBlank()) Info("تلفظ", entry.pronunciation)
-                    if (entry.tags.isNotEmpty()) Info("برچسب‌ها", entry.tags.joinToString("، "))
-                    if (entry.sourceTitle.isNotBlank()) Info("منبع", entry.sourceTitle)
-                    if (entry.notes.isNotBlank()) Info("یادداشت پژوهش", entry.notes)
+            Text(
+                "${filtered.size} نتیجه",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+
+        if (filtered.isEmpty()) item { EmptyState("در این بخش هنوز رکورد کافی ثبت نشده است.") }
+
+        items(items = filtered, key = { it.name }) { entry ->
+            NameRow(
+                entry = entry,
+                isFavorite = entry.name in favorites,
+                onFavorite = { onFavorite(entry.name) },
+                onClick = onNameClick,
+            )
+        }
+    }
+}
+
+@Composable
+private fun NameRow(
+    entry: NameEntry,
+    isFavorite: Boolean,
+    onFavorite: (() -> Unit)?,
+    onClick: (NameEntry) -> Unit,
+) {
+    ElevatedCard(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick(entry) },
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(14.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(entry.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Text(
+                    "${entry.gender.titleFa} • ${entry.meaning}",
+                    maxLines = 2,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            if (onFavorite != null) {
+                IconButton(onClick = onFavorite) {
+                    Icon(
+                        imageVector = if (isFavorite) Icons.Rounded.Favorite else Icons.Rounded.FavoriteBorder,
+                        contentDescription = "علاقه‌مندی",
+                    )
                 }
             }
         }
-        item { Text("رایج بودن یک نام در یک فرهنگ، به‌تنهایی ریشه زبانی آن را اثبات نمی‌کند؛ این دو مورد جدا نگهداری می‌شوند.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant) }
     }
 }
 
-@Composable private fun Info(label: String, value: String) { Column { Text(label, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary); Text(value) } }
+/** جزئیات نام؛ ریشه و فرهنگ استفاده عمداً در دو سطر مستقل نمایش داده می‌شوند. */
+@Composable
+private fun DetailScreen(
+    entry: NameEntry,
+    cultures: List<CultureCategory>,
+    isFavorite: Boolean,
+    onFavorite: () -> Unit,
+) {
+    val cultureNames = cultures
+        .filter { it.id in entry.usageCultureIds }
+        .map { it.titleFa }
+        .ifEmpty { listOf("هنوز دسته‌بندی نشده") }
+
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        item {
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.padding(18.dp),
+                    verticalArrangement = Arrangement.spacedBy(10.dp),
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        Column(modifier = Modifier.weight(1f)) {
+                            Text(entry.name, style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
+                            if (entry.latin.isNotBlank()) Text(entry.latin)
+                        }
+                        IconButton(onClick = onFavorite) {
+                            Icon(
+                                imageVector = if (isFavorite) Icons.Rounded.Favorite else Icons.Rounded.FavoriteBorder,
+                                contentDescription = "علاقه‌مندی",
+                            )
+                        }
+                    }
+
+                    InfoRow("جنسیت", entry.gender.titleFa)
+                    InfoRow("معنی / توضیح", entry.meaning)
+                    InfoRow("ریشه", entry.origin)
+                    InfoRow("فرهنگ استفاده", cultureNames.joinToString("، "))
+                    InfoRow("وضعیت داده", entry.verificationStatus.titleFa)
+                    if (entry.pronunciation.isNotBlank()) InfoRow("تلفظ", entry.pronunciation)
+                    if (entry.tags.isNotEmpty()) InfoRow("برچسب‌ها", entry.tags.joinToString("، "))
+                    if (entry.sourceTitle.isNotBlank()) InfoRow("منبع", entry.sourceTitle)
+                    if (entry.notes.isNotBlank()) InfoRow("یادداشت پژوهش", entry.notes)
+                }
+            }
+        }
+
+        item {
+            Text(
+                "رایج بودن یک نام در یک فرهنگ، به‌تنهایی ریشه زبانی آن را اثبات نمی‌کند؛ این دو ویژگی جدا ثبت می‌شوند.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun InfoRow(label: String, value: String) {
+    Column {
+        Text(label, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.primary)
+        Text(value)
+    }
+}
 
 @Composable
 private fun HeritageScreen(source: List<HeritageItem>) {
-    LazyColumn(contentPadding = PaddingValues(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        item { Text("این بخش در نسخه‌های بعدی به دانشنامه تاریخی کامل تبدیل می‌شود.", color = MaterialTheme.colorScheme.onSurfaceVariant) }
-        items(source, key = { it.id }) { item ->
-            ElevatedCard(Modifier.fillMaxWidth()) {
-                Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(5.dp)) {
+    LazyColumn(
+        contentPadding = PaddingValues(16.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        item {
+            Text(
+                "این بخش در نسخه‌های بعدی به دانشنامه تاریخی کامل با سلسله‌ها و خط زمانی تبدیل می‌شود.",
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        items(items = source, key = { it.id }) { item ->
+            ElevatedCard(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(5.dp),
+                ) {
                     Text(item.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                    Text(item.type.titleFa, color = MaterialTheme.colorScheme.primary); Text(item.summary)
+                    Text(item.type.titleFa, color = MaterialTheme.colorScheme.primary)
+                    Text(item.summary)
                     if (item.era.isNotBlank()) Text(item.era, style = MaterialTheme.typography.bodySmall)
-                    if (item.sourceTitle.isNotBlank()) Text("منبع: ${item.sourceTitle}", style = MaterialTheme.typography.bodySmall)
+                    if (item.sourceTitle.isNotBlank()) {
+                        Text("منبع: ${item.sourceTitle}", style = MaterialTheme.typography.bodySmall)
+                    }
                 }
             }
         }
@@ -436,22 +858,75 @@ private fun HeritageScreen(source: List<HeritageItem>) {
 
 @Composable
 private fun AboutScreen() {
-    LazyColumn(contentPadding = PaddingValues(18.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-        item { Text("نام‌نامه ایران", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold); Text("فرهنگ‌نامه آفلاین نام‌ها، ریشه‌ها، فرهنگ‌های ایران و میراث تاریخی و حماسی؛ داده‌ها به‌تدریج با منبع گسترش می‌یابند."); Text("نسخه ${BuildConfig.VERSION_NAME}", color = MaterialTheme.colorScheme.primary) }
+    LazyColumn(
+        contentPadding = PaddingValues(18.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        item {
+            Text("نام‌نامه ایران", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+            Text("فرهنگ‌نامه آفلاین نام‌ها، ریشه‌ها، فرهنگ‌های ایران و میراث تاریخی و حماسی؛ داده‌ها به‌تدریج با منبع گسترش می‌یابند.")
+            Text("نسخه ${BuildConfig.VERSION_NAME}", color = MaterialTheme.colorScheme.primary)
+        }
     }
 }
 
 @Composable
 private fun ContactScreen() {
-    Column(Modifier.fillMaxSize().padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
         Text("ارتباط با ما", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
-        Text("برای پیشنهاد نام، گزارش خطای معنی/ریشه یا همکاری پژوهشی با تیم توسعه در ارتباط باشید.")
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(8.dp)) { Icon(Icons.Rounded.Email, null, tint = MaterialTheme.colorScheme.primary); Text("AS.Support.info@Gmail.com", color = MaterialTheme.colorScheme.primary) }
-        Spacer(Modifier.weight(1f)); HorizontalDivider(); Spacer(Modifier.height(10.dp))
-        Text("گروه توسعه فناوری و نرم افزاری as Team", Modifier.fillMaxWidth(), fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
-        Text("AS.Support.info@Gmail.com", Modifier.fillMaxWidth(), color = MaterialTheme.colorScheme.primary, textAlign = TextAlign.Center)
-        Spacer(Modifier.height(54.dp))
+        Text("برای پیشنهاد نام، گزارش خطای معنی یا ریشه و همکاری پژوهشی با تیم توسعه در ارتباط باشید.")
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Icon(Icons.Rounded.Email, contentDescription = null, tint = MaterialTheme.colorScheme.primary)
+            Text("AS.Support.info@Gmail.com", color = MaterialTheme.colorScheme.primary)
+        }
+
+        Spacer(modifier = Modifier.weight(1f))
+        HorizontalDivider()
+        Spacer(modifier = Modifier.height(10.dp))
+        Text(
+            "گروه توسعه فناوری و نرم افزاری as Team",
+            modifier = Modifier.fillMaxWidth(),
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+        )
+        Text(
+            "AS.Support.info@Gmail.com",
+            modifier = Modifier.fillMaxWidth(),
+            color = MaterialTheme.colorScheme.primary,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(modifier = Modifier.height(54.dp))
     }
 }
 
-@Composable private fun Empty(text: String) { Box(Modifier.fillMaxWidth().padding(28.dp), contentAlignment = Alignment.Center) { Text(text, textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.onSurfaceVariant) } }
+@Composable
+private fun EmptyState(text: String) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(28.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text,
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+private fun normalizeForSearch(value: String): String = value
+    .trim()
+    .lowercase()
+    .replace('ي', 'ی')
+    .replace('ك', 'ک')
+    .replace("‌", "")
+    .replace(" ", "")
