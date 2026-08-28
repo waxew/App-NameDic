@@ -2,7 +2,7 @@
 
 «نام‌نامه ایران» یک برنامه Android آفلاین و قابل توسعه برای شناخت نام‌ها، معنی/توضیح، ریشه زبانی، فرهنگ یا زبان استفاده و میراث تاریخی ایران است.
 
-## نسخه 1.1.0
+## نسخه 1.1.1
 
 - Kotlin + Jetpack Compose + Material 3
 - minSdk 24 / targetSdk 36 / compileSdk 36
@@ -13,6 +13,7 @@
 - چند شکل لاتین برای هر نام در صورت وجود
 - enrichment ساختاری از Wikidata
 - enrichment تلفظ/romanization/ریشه صریح از Wiktionary/Kaikki
+- منبع MIT اضافه `mohammadhejazirad/persian-names` برای افزایش پوشش نام/جنسیت
 - نگهداری `sourceIds` و provenance هر رکورد
 - گزارش پوشش واقعی در `data_build_info.json`
 - جستجو، فیلتر دخترانه/پسرانه/مشترک
@@ -29,7 +30,7 @@
 
 `origin / ریشه` با `usageCultureIds / فرهنگ یا زبان استفاده` یک چیز نیست. رایج بودن یا ثبت شدن یک نام در یک زبان/جامعه به‌تنهایی ریشه واژه را اثبات نمی‌کند.
 
-نسخه 1.1.0 هیچ معنی، ریشه یا قومیتی را از روی شکل یک نام حدس نمی‌زند.
+نسخه 1.1.1 هیچ معنی، ریشه یا قومیتی را از روی شکل یک نام حدس نمی‌زند.
 
 ## pipeline داده
 
@@ -37,6 +38,7 @@
 
 ```bash
 python3 tools/sync_names.py
+python3 tools/sync_mohammadhejazirad_names.py
 python3 tools/sync_wikidata_cultures.py
 python3 tools/sync_wiktionary_names.py
 python3 tools/build_data_report.py
@@ -75,3 +77,7 @@ python3 tools/validate_data.py
 ### 1.1.0
 - هسته داده به aggregator چندمنبعی ارتقا یافت.
 - provenance، چند transliteration، Wikidata، Wiktionary/Kaikki و گزارش پوشش اضافه شدند.
+
+### 1.1.1
+- دیتاست MIT `mohammadhejazirad/persian-names` با حدود ۱۰٬۰۸۸ نام یکتا به pipeline افزوده شد.
+- منبع داده مبتنی بر اطلاعات لو‌رفته بانکی به‌صراحت از مجموعه منابع قابل استفاده کنار گذاشته شد.
