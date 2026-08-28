@@ -52,6 +52,14 @@ android {
     lint { abortOnError = true; checkReleaseBuilds = true }
 }
 
+// TopAppBar در نسخه Material3 فعلی هنوز ExperimentalMaterial3Api است.
+// opt-in در سطح ماژول باعث می‌شود API آزمایشی به‌صورت کنترل‌شده و مرکزی مدیریت شود.
+kotlin {
+    compilerOptions {
+        optIn.add("androidx.compose.material3.ExperimentalMaterial3Api")
+    }
+}
+
 dependencies {
     // Compose 1.11.x remains compatible with compileSdk 36; Compose 1.12 requires API 37.
     val composeBom = platform("androidx.compose:compose-bom:2026.06.00")
