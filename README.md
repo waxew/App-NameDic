@@ -2,7 +2,7 @@
 
 «نام‌نامه ایران» یک برنامه Android آفلاین و قابل توسعه برای شناخت نام‌ها، معنی/توضیح، ریشه زبانی، فرهنگ یا زبان استفاده و میراث تاریخی ایران است.
 
-## نسخه 1.1.1
+## نسخه 1.2.0
 
 - Kotlin + Jetpack Compose + Material 3
 - minSdk 24 / targetSdk 36 / compileSdk 36
@@ -13,10 +13,13 @@
 - چند شکل لاتین برای هر نام در صورت وجود
 - enrichment ساختاری از Wikidata
 - enrichment تلفظ/romanization/ریشه صریح از Wiktionary/Kaikki
-- منبع MIT اضافه `mohammadhejazirad/persian-names` برای افزایش پوشش نام/جنسیت
+- منبع MIT `mohammadhejazirad/persian-names` برای افزایش پوشش نام/جنسیت
+- لایه واژگانی CC BY-SA از `Maani/Dehkhoda-Lexicon`
+- تفکیک صریح «معنی شخص‌نام» از «هم‌معنی/متضاد واژه فارسی هم‌نوشت با نام»
+- ادغام فیلدبه‌فیلد curated/base برای حفظ تلفظ، provenance و enrichment چندمنبعی
 - نگهداری `sourceIds` و provenance هر رکورد
 - گزارش پوشش واقعی در `data_build_info.json`
-- جستجو، فیلتر دخترانه/پسرانه/مشترک
+- جستجو در نام، معنی مستقیم، داده واژگانی، ریشه و نوشتار لاتین
 - صفحه «همه نام‌ها»
 - 16 دسته زبانی/فرهنگی + دسته خنثی «فهرست عمومی ایران»
 - قهرمانان، اساطیر و جانوران فرهنگی
@@ -28,17 +31,23 @@
 
 ## اصل حیاتی داده‌ها
 
-`origin / ریشه` با `usageCultureIds / فرهنگ یا زبان استفاده` یک چیز نیست. رایج بودن یا ثبت شدن یک نام در یک زبان/جامعه به‌تنهایی ریشه واژه را اثبات نمی‌کند.
+سه مفهوم در نسخه 1.2.0 مستقل هستند:
 
-نسخه 1.1.1 هیچ معنی، ریشه یا قومیتی را از روی شکل یک نام حدس نمی‌زند.
+1. `meaning` = معنی/توضیح مستقیم خود شخص‌نام با منبع مستقیم.
+2. `origin` = ریشه زبانی/تاریخی منبع‌دار.
+3. `lexicalMeaningFa` / `lexicalAntonymsFa` = اطلاعات واژه فارسی هم‌نوشت با نام.
+
+هم‌نوشت بودن یک واژه با نام، رایج بودن نام در یک فرهنگ، و ریشه زبانی آن سه ادعای متفاوت‌اند. برنامه هیچ‌کدام را از روی دیگری حدس نمی‌زند.
 
 ## pipeline داده
 
-منابع خودکار دارای مجوز روشن شامل چند دیتاست نام ایرانی/فارسی، Wikidata و Wiktionary/Kaikki هستند. سامانه تعاملی نام ثبت احوال به‌عنوان مرجع رسمی بررسی می‌شود اما تا زمانی که API عمومی و شرایط برداشت ماشینی روشن نباشد bulk-scrape نمی‌شود.
+منابع خودکار دارای مجوز روشن شامل چند دیتاست نام ایرانی/فارسی، Wikidata، Wiktionary/Kaikki و Maani/Dehkhoda-Lexicon هستند. سامانه تعاملی نام ثبت احوال به‌عنوان مرجع رسمی بررسی می‌شود اما تا زمانی که API عمومی و شرایط برداشت ماشینی روشن نباشد bulk-scrape نمی‌شود.
 
 ```bash
 python3 tools/sync_names.py
 python3 tools/sync_mohammadhejazirad_names.py
+python3 tools/restore_enriched_orphans.py /path/to/previous.json
+python3 tools/sync_dehkhoda_lexical.py
 python3 tools/sync_wikidata_cultures.py
 python3 tools/sync_wiktionary_names.py
 python3 tools/build_data_report.py
@@ -51,7 +60,7 @@ python3 tools/validate_data.py
 ## فایل‌های داده
 
 - `app/src/main/assets/names_base.json`: corpus ادغام‌شده و deduplicate شده.
-- `app/src/main/assets/curated_names.json`: رکوردهای پژوهش‌شده دستی که روی base اولویت دارند.
+- `app/src/main/assets/curated_names.json`: رکوردهای پژوهش‌شده دستی؛ از 1.2.0 فیلدبه‌فیلد با base ادغام می‌شوند.
 - `app/src/main/assets/data_sources.json`: رجیستری ماشین‌خوان منابع.
 - `app/src/main/assets/data_build_info.json`: آمار واقعی پوشش پس از build/sync.
 
@@ -80,4 +89,9 @@ python3 tools/validate_data.py
 
 ### 1.1.1
 - دیتاست MIT `mohammadhejazirad/persian-names` با حدود ۱۰٬۰۸۸ نام یکتا به pipeline افزوده شد.
-- منبع داده مبتنی بر اطلاعات لو‌رفته بانکی به‌صراحت از مجموعه منابع قابل استفاده کنار گذاشته شد.
+- منبع داده مبتنی بر اطلاعات لو‌رفته بانکی به‌صراحت کنار گذاشته شد.
+
+### 1.2.0
+- لایه واژگانی `Maani/Dehkhoda-Lexicon` با مجوز CC BY-SA 4.0 اضافه شد.
+- هم‌معنی/متضاد واژه هم‌نوشت با نام در فیلد و UI مستقل نمایش داده می‌شود و با معنی شخص‌نام مخلوط نمی‌شود.
+- curated/base به‌صورت فیلدبه‌فیلد merge می‌شوند تا enrichment چندمنبعی حفظ شود.
