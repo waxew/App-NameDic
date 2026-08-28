@@ -34,18 +34,21 @@ jobs:
           gradle-version: '9.5.0'
       - name: Validate bundled data
         run: python3 tools/validate_data.py
-      - name: Sync full MIT names dataset
+      - name: Sync licensed name datasets
         run: python3 tools/sync_names.py
-      - name: Apply dataset visibility fix
-        run: python3 tools/apply_dataset_visibility_fix.py
-      - name: Persist full dataset and UI fix
+      - name: Apply v1.0.2 data-quality fix
+        run: python3 tools/apply_data_quality_fix.py
+      - name: Persist expanded dataset and data-quality fix
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add app/src/main/assets/names_base.json app/src/main/java/ir/asteam/namedic/ui/App.kt app/build.gradle.kts VERSION.txt README.md PROJECT_INFO.md
+          git add app/src/main/assets/names_base.json \
+            app/src/main/java/ir/asteam/namedic/data/NameRepository.kt \
+            app/src/main/java/ir/asteam/namedic/ui/App.kt \
+            app/build.gradle.kts VERSION.txt README.md PROJECT_INFO.md
           if ! git diff --cached --quiet; then
-            git commit -m "Persist full names dataset and all-names browser [skip ci]"
+            git commit -m "Persist v1.0.2 name data-quality enhancements [skip ci]"
             git push origin HEAD:main
           fi
       - name: Validate expanded data
