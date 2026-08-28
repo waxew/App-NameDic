@@ -1,6 +1,6 @@
 {
-  "latestVersionCode": 5,
-  "latestVersionName": "1.1.1",
+  "latestVersionCode": 6,
+  "latestVersionName": "1.2.0",
   "downloadUrl": "https://github.com/waxew/App-NameDic/releases/latest",
-  "messageFa": "نسخه ۱.۱.۱ نام‌نامه ایران با یک دیتاست MIT تکمیلی برای افزایش پوشش نام و جنسیت آماده است."
+  "messageFa": "نسخه ۱.۲.۰ نام‌نامه ایران با لایه واژگانی منبع‌دار، تفکیک معنی شخص‌نام از واژه هم‌نوشت و ادغام بهتر اطلاعات چندمنبعی آماده است."
 }
