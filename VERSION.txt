@@ -1,6 +1,6 @@
 App-NameDic
-versionName=1.0.2
-versionCode=3
+versionName=1.1.0
+versionCode=4
 applicationId=ir.asteam.namedic
 minSdk=24
 targetSdk=36
