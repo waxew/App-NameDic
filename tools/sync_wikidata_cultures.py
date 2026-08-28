@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enrich cultural/language classification from Wikidata structured data (CC0).
+"""Enrich/add given names from Wikidata structured data (CC0).
 
 P407 ("language of work or name") is used only as a language association.
 It is deliberately NOT copied into NameEntry.origin because language
@@ -117,6 +117,7 @@ def main() -> None:
                 by_latin.setdefault(key, []).append(item)
 
     total_matches = 0
+    created_records = 0
     successful_languages = 0
 
     for culture_id, (qid, label) in LANGUAGES.items():
@@ -128,25 +129,52 @@ def main() -> None:
             continue
 
         culture_matches = 0
+        culture_created = 0
         for binding in bindings:
             item_uri = binding.get("item", {}).get("value", "")
             class_uri = binding.get("class", {}).get("value", "")
             fa_label = binding.get("faLabel", {}).get("value", "").strip()
             en_label = binding.get("enLabel", {}).get("value", "").strip()
+            qid_item = entity_id(item_uri)
+            class_id = entity_id(class_uri)
+            wd_gender = CLASS_GENDER.get(class_id, "UNKNOWN")
 
             candidates: list[dict[str, Any]] = []
             if fa_label and PERSIAN_RE.search(fa_label):
                 candidates.extend(by_fa.get(normalize_fa(fa_label), []))
             if not candidates and en_label:
                 candidates.extend(by_latin.get(normalize_latin(en_label), []))
+
+            # Wikidata can also contribute a new displayable record when a Persian
+            # label exists. English-only items are not auto-transliterated into
+            # Persian, because that would introduce guessed spellings.
+            if not candidates and fa_label and PERSIAN_RE.search(fa_label):
+                normalized = normalize_fa(fa_label)
+                record = {
+                    "name": fa_label,
+                    "gender": wd_gender,
+                    "latin": en_label,
+                    "latinVariants": [en_label] if en_label else [],
+                    "sourceIds": ["wikidata_cc0"],
+                    "sourceCount": 1,
+                    "usageCultureIds": ["iran_general", culture_id],
+                    "classificationSourceIds": ["wikidata_cc0"],
+                    "wikidataIds": [qid_item],
+                }
+                data[fa_label] = record
+                by_fa.setdefault(normalized, []).append(record)
+                if en_label:
+                    by_latin.setdefault(normalize_latin(en_label), []).append(record)
+                candidates = [record]
+                culture_created += 1
+                created_records += 1
+
             if not candidates:
                 continue
 
-            qid_item = entity_id(item_uri)
-            class_id = entity_id(class_uri)
             for record in candidates:
                 record["usageCultureIds"] = uniq(
-                    [*record.get("usageCultureIds", []), culture_id]
+                    [*record.get("usageCultureIds", []), "iran_general", culture_id]
                 )
                 record["classificationSourceIds"] = uniq(
                     [*record.get("classificationSourceIds", []), "wikidata_cc0"]
@@ -164,7 +192,6 @@ def main() -> None:
                     if not record.get("latin"):
                         record["latin"] = en_label
 
-                wd_gender = CLASS_GENDER.get(class_id, "UNKNOWN")
                 if record.get("gender", "UNKNOWN") == "UNKNOWN" and wd_gender != "UNKNOWN":
                     record["gender"] = wd_gender
 
@@ -174,7 +201,7 @@ def main() -> None:
 
         print(
             f"Wikidata {label}: {len(bindings):,} structured items, "
-            f"{culture_matches:,} local record matches"
+            f"{culture_matches:,} local matches, {culture_created:,} new Persian-label records"
         )
         time.sleep(0.35)
 
@@ -183,7 +210,8 @@ def main() -> None:
         encoding="utf-8",
     )
     print(
-        f"Wikidata enrichment complete: {total_matches:,} matches across "
+        f"Wikidata enrichment complete: {total_matches:,} matches, "
+        f"{created_records:,} new records, across "
         f"{successful_languages}/{len(LANGUAGES)} reachable language queries"
     )
 
