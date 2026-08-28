@@ -58,7 +58,7 @@ class NameDiscoveryEngine(private val repository: NameRepository) {
     /** شناسه‌های داخلی دیتابیس هرگز مستقیماً به کاربر نمایش داده نمی‌شوند. */
     fun cultureTitles(entry: NameEntry): List<String> = entry.usageCultureIds
         .filterNot { it == "iran_general" }
-        .map { id -> repository.cultures.firstOrNull { it.id == id }?.titleFa ?: id }
+        .mapNotNull { id -> repository.cultures.firstOrNull { it.id == id }?.titleFa }
         .distinct()
 
     fun discoveryPool(gender: Gender): List<NameEntry> = repository.names
@@ -106,12 +106,19 @@ class NameDiscoveryEngine(private val repository: NameRepository) {
         .map { it.first }
         .toList()
 
+    /**
+     * جستجوی خالی عمداً نتیجه‌ای برنمی‌گرداند تا صفحه جستجو با ورود اولیه
+     * مجبور به ساخت و نمایش ده‌ها هزار ردیف نشود.
+     */
     fun search(
         query: String,
         gender: Gender? = null,
         enrichedOnly: Boolean = false,
-    ): List<NameEntry> = repository.search(query, gender).filter {
-        !enrichedOnly || it.hasReadableInfo()
+    ): List<NameEntry> {
+        if (query.isBlank()) return emptyList()
+        return repository.search(query, gender).filter {
+            !enrichedOnly || it.hasReadableInfo()
+        }
     }
 
     private fun NameEntry.hasReadableInfo(): Boolean =
