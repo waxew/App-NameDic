@@ -33194,25 +33194,25 @@
       "mehdi_iranian_names_male",
       "mohammadhejazirad_persian_names",
       "nabidam_persian_names",
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "usageCultureIds": [
       "iran_general",
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔes.fæn̪.d̪i.jɒ́ːɹ]",
+    "wikidataIds": [
+      "Q125331646"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A7/%D8%A7%D8%B3/%D8%A7%D8%B3%D9%81%D9%86%D8%AF%DB%8C%D8%A7%D8%B1.html",
     "gender": "MALE",
     "latin": "esfand yar",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q125331646"
-    ]
+    "sourceCount": 7
   },
   "اسفندیاری": {
     "name": "اسفندیاری",
@@ -122276,26 +122276,26 @@
       "mehdi_iranian_names_male",
       "mohammadhejazirad_persian_names",
       "nabidam_persian_names",
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "usageCultureIds": [
       "iran_general",
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[hæm.zé]",
+    "wikidataIds": [
+      "Q11973868"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%AD/%D8%AD%D9%85/%D8%AD%D9%85%D8%B2%D9%87.html",
     "gender": "MALE",
     "latin": "hamze",
     "sourceCount": 7,
-    "lexicalMeaningFa": "اسم 1 تره‌تیزک، رشاد 2 شیر، حیدر، ضیغم، صفدر، اسد، ضرغام، ارسلان، هژبر",
-    "wikidataIds": [
-      "Q11973868"
-    ]
+    "lexicalMeaningFa": "اسم 1 تره‌تیزک، رشاد 2 شیر، حیدر، ضیغم، صفدر، اسد، ضرغام، ارسلان، هژبر"
   },
   "حمزهء": {
     "name": "حمزهء",
@@ -185468,27 +185468,27 @@
       "mehdi_iranian_names_male",
       "mohammadhejazirad_persian_names",
       "nabidam_persian_names",
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "usageCultureIds": [
       "iran_general",
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[sæ.ʔíːd̪̥]",
+    "wikidataIds": [
+      "Q23806099"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B3/%D8%B3%D8%B9/%D8%B3%D8%B9%DB%8C%D8%AF.html",
     "gender": "MALE",
     "latin": "saeid",
     "sourceCount": 8,
     "lexicalMeaningFa": "1 خوش‌اقبال، خوشبخت، سعادتمند، نیک‌اختر، نیکبخت، همایون",
-    "lexicalAntonymsFa": "بداقبال، شقی 2 مبارک، میمون، فرخنده، خجسته",
-    "wikidataIds": [
-      "Q23806099"
-    ]
+    "lexicalAntonymsFa": "بداقبال، شقی 2 مبارک، میمون، فرخنده، خجسته"
   },
   "سعیدا": {
     "name": "سعیدا",
@@ -289279,25 +289279,25 @@
       "farbodbj_pngt",
       "mohammadhejazirad_persian_names",
       "nabidam_persian_names",
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "usageCultureIds": [
       "iran_general",
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[f(e)loˈɾɒː]",
+    "wikidataIds": [
+      "Q112480214"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%81/%D9%81%D9%84/%D9%81%D9%84%D9%88%D8%B1%D8%A7.html",
     "gender": "FEMALE",
     "latin": "felora",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q112480214"
-    ]
+    "sourceCount": 6
   },
   "فلورانس": {
     "name": "فلورانس",
@@ -340693,8 +340693,8 @@
     "sourceIds": [
       "farbodbj_pngt",
       "maani_dehkhoda_lexicon",
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "usageCultureIds": [
       "iran_general",
@@ -340702,18 +340702,18 @@
       "azerbaijani"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæm.mǽd̪̥]",
+    "wikidataIds": [
+      "Q25538821"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D9%85/%D9%85%D9%85%D8%AF.html",
     "gender": "MALE",
     "latin": "mamad",
     "sourceCount": 4,
-    "lexicalMeaningFa": "اسم 1 معاون، یاری‌دهنده، یاریگر، یاور 2 کشنده",
-    "wikidataIds": [
-      "Q25538821"
-    ]
+    "lexicalMeaningFa": "اسم 1 معاون، یاری‌دهنده، یاریگر، یاور 2 کشنده"
   },
   "ممدتقی": {
     "name": "ممدتقی",
