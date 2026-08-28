@@ -1,6 +1,6 @@
 # منابع داده App-NameDic
 
-هدف نسخه 1.1.0 ساخت یک corpus چندمنبعی است، نه تکیه بر یک فایل نام. هر فیلد فقط از منبعی وارد می‌شود که واقعاً آن فیلد را ارائه می‌کند و مجوز استفاده آن روشن باشد.
+هدف نسخه 1.1.x ساخت یک corpus چندمنبعی است، نه تکیه بر یک فایل نام. هر فیلد فقط از منبعی وارد می‌شود که واقعاً آن فیلد را ارائه می‌کند و مجوز استفاده آن روشن باشد.
 
 ## قواعد ادغام
 
@@ -28,6 +28,9 @@
 
 ### armanyazdi/persian-names — MIT
 فهرست‌های جداگانه نام فارسی دختر/پسر. فایل‌های انگلیسی upstream به‌صورت ردیفی با فایل فارسی هم‌تراز فرض نمی‌شوند.
+
+### mohammadhejazirad/persian-names — MIT
+حدود 10,088 نام یکتا در سه گروه مردانه، زنانه و مشترک. App-NameDic فقط ثابت‌های متنی تولیدشده در `src/generated-data.ts` را parse می‌کند؛ هیچ کد upstream اجرا نمی‌شود. این منبع فقط برای نام/جنسیت استفاده می‌شود و معنی یا ریشه از آن استنباط نمی‌شود.
 
 ### Wikidata — CC0
 برای داده ساختاری استفاده می‌شود:
@@ -63,6 +66,7 @@ P407 به‌عنوان «ریشه واژه» ذخیره نمی‌شود؛ فقط
 - `PJSoftCo/BabyNames`: معنی و زبان دارد، اما مجوز دیتاست روشن نیست.
 - `ghaninia/databases`: داده scrape شده و مجوز باز صریح مشاهده نشد.
 - `alisadeghiaghili/farsi-faker`: MIT است، ولی داده اصلی pickle است؛ فایل pickle شبکه در CI به‌دلیل ریسک اجرای کد unpickle نمی‌شود.
+- `asghariali1/Iranian_names`: خود README اعلام می‌کند منبع از داده لو‌رفته بانکی ساخته شده؛ به دلایل حریم خصوصی و منشأ نامناسب استفاده نمی‌شود.
 - CJKI Database of Persian Names: تجاری؛ فقط در صورت خرید مجوز می‌تواند اضافه شود.
 
 ## فایل‌های تولیدی
@@ -76,6 +80,7 @@ P407 به‌عنوان «ریشه واژه» ذخیره نمی‌شود؛ فقط
 
 ```bash
 python3 tools/sync_names.py
+python3 tools/sync_mohammadhejazirad_names.py
 python3 tools/sync_wikidata_cultures.py
 python3 tools/sync_wiktionary_names.py
 python3 tools/build_data_report.py
