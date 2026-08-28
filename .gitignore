@@ -1,0 +1,24 @@
+# Android Studio / Gradle
+.gradle/
+.gradle-local/
+.idea/
+*.iml
+local.properties
+**/build/
+.cxx/
+.externalNativeBuild/
+
+# سیستم‌عامل
+.DS_Store
+Thumbs.db
+
+# اطلاعات کاملاً خصوصی امضای Release — هرگز در Git عمومی قرار نگیرد.
+signing/*.jks
+signing/*.keystore
+signing/signing.properties
+signing/PRIVATE_SIGNING_INFO.txt
+
+# خروجی‌ها
+*.apk
+*.aab
+*.zip

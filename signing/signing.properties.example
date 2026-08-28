@@ -1,0 +1,5 @@
+# نمونه عمومی؛ رمز واقعی را اینجا commit نکنید.
+storeFile=signing/App-NameDic-release.jks
+storePassword=CHANGE_ME
+keyAlias=appnamedic
+keyPassword=CHANGE_ME

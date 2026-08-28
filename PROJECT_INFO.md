@@ -1,0 +1,13 @@
+# Project Info
+
+- Repository: `App-NameDic`
+- User-facing name: `نام‌نامه ایران`
+- Application ID / namespace: `ir.asteam.namedic`
+- Version: `1.0.0` (`versionCode=1`)
+- Kotlin + Jetpack Compose + Material 3
+- AGP 9.3.0 / Gradle 9.5.0 / JDK 17
+- minSdk 24 / targetSdk 37 / compileSdk 37
+
+معماری نسخه اول آفلاین است: `MainActivity`، رابط Compose در `ui/App.kt`، مخزن داده در `data/NameRepository.kt`، بررسی نسخه در `data/UpdateChecker.kt` و مدل‌ها در `model/Models.kt`.
+
+علاقه‌مندی و URI عکس پروفایل در SharedPreferences نگهداری می‌شوند. applicationId و signing ثابت می‌مانند تا آپدیت روی نسخه قبلی نصب شود و داده کاربر حفظ شود.
