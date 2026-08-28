@@ -32,6 +32,16 @@ License: MIT.
 
 Only the Persian gender-separated lists are automatically merged. The separate English lists are not assumed to be positionally aligned with the Persian lists.
 
+## mohammadhejazirad/persian-names
+
+Project: `https://github.com/mohammadhejazirad/persian-names`
+
+Use: additional Persian/Arabic-script first names classified as male, female or unisex.
+
+License: MIT. Copyright (c) 2022-2026 MohammadReza HejaziRad.
+
+App-NameDic parses only the generated text constants containing names. No upstream JavaScript/TypeScript code is executed, and this source is not treated as evidence for meaning or etymology.
+
 ## farbodbj/persian-gender-by-name
 
 Project: `https://github.com/farbodbj/persian-gender-by-name`
@@ -85,6 +95,6 @@ The interactive name system is treated as a high-priority official verification 
 
 ## Sources intentionally not bundled
 
-Several repositories/services contain potentially useful names but are not automatically imported because their reuse status or distribution format is unsuitable. Examples include unlicensed GitHub datasets, scraped collections without a clear data license, remote pickle-only datasets, and commercial name databases.
+Several repositories/services contain potentially useful names but are not automatically imported because their reuse status or distribution format is unsuitable. This includes unlicensed GitHub datasets, scraped collections without a clear data license, remote pickle-only datasets, commercial name databases, and datasets whose stated provenance involves leaked personal/banking data.
 
 See `DATA_SOURCES.md` for the current decision log.
