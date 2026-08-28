@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Structural validation for bundled App-NameDic JSON data."""
+"""Structural validation for bundled App-NameDic JSON data.
+
+The bundled input may contain spelling variants that normalize to the same name
+(e.g. spaced vs unspaced compound names). The multi-source aggregator is the
+stage responsible for deduplication, so structural validation must not reject
+those pre-merge variants.
+"""
 from __future__ import annotations
 
 import json
@@ -41,21 +47,10 @@ def validate_curated() -> int:
 def validate_base() -> int:
     data = json.loads((ASSETS / "names_base.json").read_text(encoding="utf-8"))
     assert isinstance(data, dict)
-    seen_normalized: set[str] = set()
     for key, item in data.items():
         assert str(key).strip() and isinstance(item, dict)
         name = str(item.get("name", key)).strip()
         assert name, f"empty base name for key {key!r}"
-        normalized = (
-            name.lower()
-            .replace("ي", "ی")
-            .replace("ى", "ی")
-            .replace("ك", "ک")
-            .replace("‌", "")
-            .replace(" ", "")
-        )
-        assert normalized not in seen_normalized, f"normalized duplicate base name: {name}"
-        seen_normalized.add(normalized)
         assert item.get("gender", "UNKNOWN") in VALID_GENDERS
 
         for field in (
