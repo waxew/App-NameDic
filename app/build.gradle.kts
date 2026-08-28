@@ -48,6 +48,8 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        // برای استفاده امن از java.time روی Android 7.x.
+        isCoreLibraryDesugaringEnabled = true
     }
     lint { abortOnError = true; checkReleaseBuilds = true }
 }
@@ -71,5 +73,6 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
     implementation("io.coil-kt:coil-compose:2.7.0")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
