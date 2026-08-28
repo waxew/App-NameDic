@@ -8,8 +8,9 @@ import org.json.JSONObject
 /**
  * مخزن آفلاین داده‌ها.
  *
- * رکوردهای گردآوری‌شده در curated_names.json روی رکورد پایه هم‌نام اولویت دارند.
- * دیتاست پایه از چند منبع آزاد ادغام می‌شود و منبع هر رکورد جدا نگهداری می‌شود.
+ * رکوردهای گردآوری‌شده در curated_names.json روی فیلدهای پژوهشی رکورد پایه
+ * اولویت دارند، اما enrichment چندمنبعی پایه (تلفظ، منابع، داده واژگانی و ...)
+ * در صورت خالی بودن فیلد curated حفظ می‌شود.
  */
 class NameRepository(private val context: Context) {
 
@@ -52,6 +53,10 @@ class NameRepository(private val context: Context) {
             "armanyazdi/persian-names (MIT)",
             "https://github.com/armanyazdi/persian-names",
         ),
+        "mohammadhejazirad_persian_names" to SourceInfo(
+            "mohammadhejazirad/persian-names (MIT)",
+            "https://github.com/mohammadhejazirad/persian-names",
+        ),
         "wikidata_cc0" to SourceInfo(
             "Wikidata structured data (CC0)",
             "https://www.wikidata.org/",
@@ -59,6 +64,10 @@ class NameRepository(private val context: Context) {
         "wiktionary_kaikki" to SourceInfo(
             "Wiktionary via Kaikki/Wiktextract (CC BY-SA / GFDL)",
             "https://kaikki.org/dictionary/Persian/",
+        ),
+        "maani_dehkhoda_lexicon" to SourceInfo(
+            "Maani/Dehkhoda-Lexicon (CC BY-SA 4.0)",
+            "https://huggingface.co/datasets/Maani/Dehkhoda-Lexicon",
         ),
         "sahim_official" to SourceInfo(
             "سامانه تعاملی نام ثبت احوال",
@@ -170,6 +179,8 @@ class NameRepository(private val context: Context) {
             val searchable = listOf(
                 entry.name,
                 entry.meaning,
+                entry.lexicalMeaningFa,
+                entry.lexicalAntonymsFa,
                 entry.origin,
                 entry.latin,
                 entry.latinVariants.joinToString(" "),
@@ -185,8 +196,37 @@ class NameRepository(private val context: Context) {
     private fun loadNames(): List<NameEntry> {
         val merged = linkedMapOf<String, NameEntry>()
         loadBaseNames().forEach { merged[normalize(it.name)] = it }
-        loadCuratedNames().forEach { merged[normalize(it.name)] = it }
+        loadCuratedNames().forEach { curated ->
+            val key = normalize(curated.name)
+            val base = merged[key]
+            merged[key] = if (base == null) curated else mergeBaseWithCurated(base, curated)
+        }
         return merged.values.sortedBy { it.name }
+    }
+
+    /**
+     * Curated data wins only where it actually has a value. This prevents a short
+     * hand-curated record from deleting pronunciation/provenance/lexical enrichment
+     * already collected for the same name from open structured sources.
+     */
+    private fun mergeBaseWithCurated(base: NameEntry, curated: NameEntry): NameEntry {
+        val combinedSources = (base.sourceIds + curated.sourceIds).distinct()
+        return curated.copy(
+            gender = if (curated.gender == Gender.UNKNOWN) base.gender else curated.gender,
+            meaning = curated.meaning.ifBlank { base.meaning },
+            origin = curated.origin.ifBlank { base.origin },
+            usageCultureIds = (base.usageCultureIds + curated.usageCultureIds).distinct(),
+            latin = curated.latin.ifBlank { base.latin },
+            latinVariants = (base.latinVariants + curated.latinVariants).filter { it.isNotBlank() }.distinct(),
+            pronunciation = curated.pronunciation.ifBlank { base.pronunciation },
+            lexicalMeaningFa = curated.lexicalMeaningFa.ifBlank { base.lexicalMeaningFa },
+            lexicalAntonymsFa = curated.lexicalAntonymsFa.ifBlank { base.lexicalAntonymsFa },
+            tags = (base.tags + curated.tags).distinct(),
+            sourceIds = combinedSources,
+            sourceTitle = sourceTitleFor(combinedSources),
+            sourceUrl = curated.sourceUrl.ifBlank { base.sourceUrl.ifBlank { sourceUrlFor(combinedSources) } },
+            notes = curated.notes.ifBlank { base.notes },
+        )
     }
 
     private fun loadBaseNames(): List<NameEntry> {
@@ -210,10 +250,13 @@ class NameRepository(private val context: Context) {
                     val meaning = item.optString("meaning")
                     val origin = item.optString("origin")
                     val pronunciation = item.optString("pronunciation")
+                    val lexicalMeaningFa = item.optString("lexicalMeaningFa")
+                    val lexicalAntonymsFa = item.optString("lexicalAntonymsFa")
                     val status = if (
                         meaning.isNotBlank() ||
                         origin.isNotBlank() ||
                         pronunciation.isNotBlank() ||
+                        lexicalMeaningFa.isNotBlank() ||
                         usageCultures.any { it != "iran_general" }
                     ) {
                         VerificationStatus.CURATED
@@ -231,6 +274,8 @@ class NameRepository(private val context: Context) {
                             latin = latin,
                             latinVariants = latinVariants,
                             pronunciation = pronunciation,
+                            lexicalMeaningFa = lexicalMeaningFa,
+                            lexicalAntonymsFa = lexicalAntonymsFa,
                             tags = item.optJSONArray("tags").toStringList(),
                             sourceIds = sourceIds,
                             sourceTitle = sourceTitleFor(sourceIds),
@@ -269,6 +314,8 @@ class NameRepository(private val context: Context) {
                             latin = latin,
                             latinVariants = variants,
                             pronunciation = item.optString("pronunciation"),
+                            lexicalMeaningFa = item.optString("lexicalMeaningFa"),
+                            lexicalAntonymsFa = item.optString("lexicalAntonymsFa"),
                             tags = item.optJSONArray("tags").toStringList(),
                             sourceIds = sourceIds,
                             sourceTitle = explicitSourceTitle.ifBlank { sourceTitleFor(sourceIds) },
