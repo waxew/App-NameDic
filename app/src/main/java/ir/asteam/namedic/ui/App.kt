@@ -528,7 +528,7 @@ private fun HomeScreen(
                     )
                     Text("معنی، ریشه، فرهنگ استفاده و نام‌های تاریخی؛ با تفکیک ریشه واژه از فرهنگ محل استفاده.")
                     Text(
-                        "${repository.names.size} نام • ${repository.cultures.size} دسته فرهنگی/زبانی",
+                        "${repository.names.size} نام • ${repository.names.count { it.meaning.isNotBlank() }} رکورد دارای معنی • ${repository.cultures.size} دسته",
                         color = MaterialTheme.colorScheme.primary,
                     )
                 }
@@ -757,8 +757,13 @@ private fun NameRow(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(entry.name, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                val subtitle = buildList {
+                    add(entry.gender.titleFa)
+                    if (entry.meaning.isNotBlank()) add(entry.meaning)
+                    else if (entry.latin.isNotBlank()) add(entry.latin)
+                }.joinToString(" • ")
                 Text(
-                    "${entry.gender.titleFa} • ${entry.meaning}",
+                    subtitle,
                     maxLines = 2,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -816,14 +821,21 @@ private fun DetailScreen(
                     }
 
                     InfoRow("جنسیت", entry.gender.titleFa)
-                    InfoRow("معنی / توضیح", entry.meaning)
-                    InfoRow("ریشه", entry.origin)
-                    InfoRow("فرهنگ استفاده", cultureNames.joinToString("، "))
-                    InfoRow("وضعیت داده", entry.verificationStatus.titleFa)
+                    if (entry.meaning.isNotBlank()) InfoRow("معنی / توضیح", entry.meaning)
+                    if (entry.origin.isNotBlank()) InfoRow("ریشه", entry.origin)
+                    if (cultureNames.isNotEmpty()) InfoRow("فرهنگ / فهرست", cultureNames.joinToString("، "))
+                    if (entry.latin.isNotBlank()) InfoRow("نوشتار لاتین", entry.latin)
                     if (entry.pronunciation.isNotBlank()) InfoRow("تلفظ", entry.pronunciation)
                     if (entry.tags.isNotEmpty()) InfoRow("برچسب‌ها", entry.tags.joinToString("، "))
-                    if (entry.sourceTitle.isNotBlank()) InfoRow("منبع", entry.sourceTitle)
+                    if (entry.sourceTitle.isNotBlank()) InfoRow("منبع فهرست", entry.sourceTitle)
                     if (entry.notes.isNotBlank()) InfoRow("یادداشت پژوهش", entry.notes)
+                    if (entry.meaning.isBlank() && entry.origin.isBlank()) {
+                        Text(
+                            "برای معنی و ریشه این نام هنوز منبع معتبر به رکورد متصل نشده است.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                 }
             }
         }

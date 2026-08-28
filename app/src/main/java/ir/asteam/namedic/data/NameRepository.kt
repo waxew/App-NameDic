@@ -8,6 +8,7 @@ import org.json.JSONObject
 /** مخزن آفلاین داده‌ها؛ رکورد پژوهش‌شده بر رکورد پایه اولویت دارد. */
 class NameRepository(private val context: Context) {
     val cultures: List<CultureCategory> = listOf(
+        CultureCategory("iran_general", "فهرست عمومی ایران", "نام‌های ثبت‌شده در دیتاست عمومی ایران؛ این دسته ادعای ریشه زبانی ندارد"),
         CultureCategory("persian", "فارسی", "نام‌های فارسی و رایج در فرهنگ فارسی"),
         CultureCategory("azerbaijani", "آذری", "نام‌های رایج در فرهنگ ترکی آذربایجانی ایران"),
         CultureCategory("kurdish", "کردی", "نام‌های رایج در فرهنگ‌ها و گویش‌های کردی ایران"),
@@ -66,7 +67,18 @@ class NameRepository(private val context: Context) {
                     val key = keys.next()
                     val item = root.optJSONObject(key) ?: JSONObject()
                     val name = item.optString("name", key).ifBlank { key }
-                    add(NameEntry(name, parseGender(item.optString("gender")), "معنی و ریشه این نام هنوز در بخش پژوهش در حال تکمیل است.", "نیازمند بررسی", emptyList(), sourceTitle = "Persian Names dataset (MIT)", verificationStatus = VerificationStatus.BASE_ONLY))
+                    add(
+                        NameEntry(
+                            name = name,
+                            gender = parseGender(item.optString("gender")),
+                            meaning = "",
+                            origin = "",
+                            usageCultureIds = listOf("iran_general"),
+                            latin = item.optString("latin"),
+                            sourceTitle = "Persian Names dataset (MIT)",
+                            verificationStatus = VerificationStatus.BASE_ONLY,
+                        )
+                    )
                 }
             }
         }.getOrDefault(emptyList())

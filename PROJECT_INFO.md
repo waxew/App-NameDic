@@ -3,7 +3,7 @@
 - Repository: `App-NameDic`
 - User-facing name: `نام‌نامه ایران`
 - Application ID / namespace: `ir.asteam.namedic`
-- Version: `1.0.1` (`versionCode=2`)
+- Version: `1.0.2` (`versionCode=3`)
 - Kotlin + Jetpack Compose + Material 3
 - AGP 9.3.0 / Gradle 9.5.0 / JDK 17
 - minSdk: 24
