@@ -250,6 +250,17 @@ fun NameDicApp() {
                         onNavigate = ::navigate,
                     )
 
+                    Screen.ALL_NAMES -> NamesScreen(
+                        title = "همه نام‌ها",
+                        source = repository.names,
+                        favorites = favoriteNames,
+                        onFavorite = { name ->
+                            if (name in favoriteNames) favoriteNames.remove(name) else favoriteNames.add(name)
+                            persistFavorites()
+                        },
+                        onNameClick = ::openName,
+                    )
+
                     Screen.IRANIAN_NAMES -> NamesScreen(
                         title = "اسامی اصیل ایرانی",
                         source = repository.names.filter {
@@ -323,6 +334,7 @@ fun NameDicApp() {
 /** مسیرهای ساده داخلی برنامه؛ کتابخانه Navigation برای نسخه پایه ضروری نیست. */
 private enum class Screen {
     HOME,
+    ALL_NAMES,
     IRANIAN_NAMES,
     CULTURES,
     NAMES,
@@ -346,6 +358,7 @@ private fun screenTitle(
     name: NameEntry?,
 ): String = when (screen) {
     Screen.HOME -> "نام‌نامه ایران"
+    Screen.ALL_NAMES -> "همه نام‌ها"
     Screen.IRANIAN_NAMES -> "اسامی اصیل ایرانی"
     Screen.CULTURES -> "زبان‌ها و فرهنگ‌ها"
     Screen.NAMES -> culture?.titleFa ?: "نام‌ها"
@@ -376,6 +389,7 @@ private fun AppDrawer(
             }
 
             item { DrawerItem("خانه", Icons.Rounded.Home, Screen.HOME, currentScreen, onNavigate) }
+            item { DrawerItem("همه نام‌ها", Icons.Rounded.People, Screen.ALL_NAMES, currentScreen, onNavigate) }
             item { DrawerItem("اسامی اصیل ایرانی", Icons.Rounded.Book, Screen.IRANIAN_NAMES, currentScreen, onNavigate) }
             item { DrawerItem("زبان‌ها و فرهنگ‌ها", Icons.Rounded.Language, Screen.CULTURES, currentScreen, onNavigate) }
             item { DrawerItem("قهرمانان و اساطیر", Icons.Rounded.EmojiEvents, Screen.HEROES, currentScreen, onNavigate) }
@@ -542,6 +556,13 @@ private fun HomeScreen(
                 Text("دسترسی سریع", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(8.dp))
                 LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    item {
+                        AssistChip(
+                            onClick = { onNavigate(Screen.ALL_NAMES) },
+                            label = { Text("همه نام‌ها") },
+                            leadingIcon = { Icon(Icons.Rounded.People, contentDescription = null) },
+                        )
+                    }
                     item {
                         AssistChip(
                             onClick = { onNavigate(Screen.IRANIAN_NAMES) },
