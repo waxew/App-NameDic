@@ -37,7 +37,11 @@ def main() -> None:
         "withMultipleLatinVariants": sum(
             len(item.get("latinVariants", [])) > 1 for item in records
         ),
+        # معنی مستقیم شخص‌نام؛ نباید با داده واژگانی هم‌نوشت مخلوط شود.
         "withMeaning": sum(bool(item.get("meaning")) for item in records),
+        # هم‌معنی/متضاد واژه فارسیِ هم‌نوشت با نام، نه معنی قطعی شخص‌نام.
+        "withLexicalMeaningFa": sum(bool(item.get("lexicalMeaningFa")) for item in records),
+        "withLexicalAntonymsFa": sum(bool(item.get("lexicalAntonymsFa")) for item in records),
         "withOrigin": sum(bool(item.get("origin")) for item in records),
         "withPronunciation": sum(bool(item.get("pronunciation")) for item in records),
         "withCultureClassificationBeyondGeneral": sum(
