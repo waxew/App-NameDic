@@ -6074,12 +6074,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "arad",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q109671618"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "arad",
+    "sourceCount": 6
   },
   "آرادخت": {
     "name": "آرادخت",
@@ -7827,17 +7827,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔɒː.ɹǽʃ]",
+    "wikidataIds": [
+      "Q16323184"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A2/%D8%A2%D8%B1/%D8%A2%D8%B1%D8%B4.html",
     "gender": "MALE",
     "latin": "arash",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q16323184"
-    ]
+    "sourceCount": 8
   },
   "آرشا": {
     "name": "آرشا",
@@ -7880,17 +7880,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔɒːɹ.ʃɒ́ːm]",
+    "wikidataIds": [
+      "Q118436429"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A2/%D8%A2%D8%B1/%D8%A2%D8%B1%D8%B4%D8%A7%D9%85.html",
     "gender": "MALE",
     "latin": "arsham",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q118436429"
-    ]
+    "sourceCount": 8
   },
   "آرشامه": {
     "name": "آرشامه",
@@ -10635,12 +10635,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "azat",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q18747960"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "azat",
+    "sourceCount": 3
   },
   "آزاد": {
     "name": "آزاد",
@@ -10663,12 +10663,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "azad",
-    "sourceCount": 7,
     "wikidataIds": [
       "Q134981611"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "azad",
+    "sourceCount": 7
   },
   "آزادان": {
     "name": "آزادان",
@@ -10819,12 +10819,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "azade",
-    "sourceCount": 7,
     "wikidataIds": [
       "Q4832075"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "azade",
+    "sourceCount": 7
   },
   "آزاده السادات": {
     "name": "آزاده السادات",
@@ -11430,12 +11430,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "asal",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q116274763"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "asal",
+    "sourceCount": 4
   },
   "آسام": {
     "name": "آسام",
@@ -13354,12 +13354,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "afsaneh",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q116470639"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "afsaneh",
+    "sourceCount": 4
   },
   "آفشید": {
     "name": "آفشید",
@@ -25222,12 +25222,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "ahmad reza",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q123566583"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "ahmad reza",
+    "sourceCount": 6
   },
   "احمد ریا": {
     "name": "احمد ریا",
@@ -27119,12 +27119,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "azat",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q18747960"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "azat",
+    "sourceCount": 2
   },
   "اذرخش": {
     "name": "اذرخش",
@@ -29520,12 +29520,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "arsham",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q118436429"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "arsham",
+    "sourceCount": 5
   },
   "ارشاما": {
     "name": "ارشاما",
@@ -29845,12 +29845,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "arshia",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q140446941"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "arshia",
+    "sourceCount": 5
   },
   "ارشیت": {
     "name": "ارشیت",
@@ -30084,17 +30084,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔæɹ.ɢæ.vɒːn]",
+    "wikidataIds": [
+      "Q114054608"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A7/%D8%A7%D8%B1/%D8%A7%D8%B1%D8%BA%D9%88%D8%A7%D9%86.html",
     "gender": "FEMALE",
     "latin": "arqavan",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q114054608"
-    ]
+    "sourceCount": 8
   },
   "ارغون": {
     "name": "ارغون",
@@ -35974,12 +35974,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "azhar",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q28790405"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "azhar",
+    "sourceCount": 3
   },
   "اعتبار": {
     "name": "اعتبار",
@@ -38349,12 +38349,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "afsaneh",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q116470639"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "afsaneh",
+    "sourceCount": 2
   },
   "افصح": {
     "name": "افصح",
@@ -41822,17 +41822,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔe.lɒː.ɦé]",
+    "wikidataIds": [
+      "Q99079478"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A7/%D8%A7%D9%84/%D8%A7%D9%84%D9%87%D9%87.html",
     "gender": "FEMALE",
     "latin": "elahe",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q99079478"
-    ]
+    "sourceCount": 6
   },
   "الهه ال": {
     "name": "الهه ال",
@@ -46499,12 +46499,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "amir ahmad",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q117321716"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "amir ahmad",
+    "sourceCount": 6
   },
   "امیراردلان": {
     "name": "امیراردلان",
@@ -48355,12 +48355,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "amir salar",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q108305309"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "amir salar",
+    "sourceCount": 5
   },
   "امیرسام": {
     "name": "امیرسام",
@@ -54740,17 +54740,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔæ.nuː.ʃiːɹ.vɒ́ːn]",
+    "wikidataIds": [
+      "Q139858630"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A7/%D8%A7%D9%86/%D8%A7%D9%86%D9%88%D8%B4%DB%8C%D8%B1%D9%88%D8%A7%D9%86.html",
     "gender": "MALE",
     "latin": "anushirvan",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q139858630"
-    ]
+    "sourceCount": 7
   },
   "انژیلا": {
     "name": "انژیلا",
@@ -57954,12 +57954,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "arsham",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q118436429"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "arsham",
+    "sourceCount": 3
   },
   "اَرشان": {
     "name": "اَرشان",
@@ -60728,12 +60728,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "akbar",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q28790469"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "akbar",
+    "sourceCount": 6
   },
   "اکبرخان": {
     "name": "اکبرخان",
@@ -62191,12 +62191,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "iraj",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q16277116"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "iraj",
+    "sourceCount": 2
   },
   "ایرامان": {
     "name": "ایرامان",
@@ -62628,17 +62628,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔiː.ɹæd͡ʒ̥]",
+    "wikidataIds": [
+      "Q16277116"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A7/%D8%A7%DB%8C/%D8%A7%DB%8C%D8%B1%D8%AC.html",
     "gender": "MALE",
     "latin": "iraj",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q16277116"
-    ]
+    "sourceCount": 8
   },
   "ایرج تاج": {
     "name": "ایرج تاج",
@@ -67124,18 +67124,18 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[bɒː.ɹɒ́ːn]",
+    "wikidataIds": [
+      "Q807248"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D8%A7/%D8%A8%D8%A7%D8%B1%D8%A7%D9%86.html",
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "baran",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q807248"
-    ]
+    "sourceCount": 8
   },
   "بارانا": {
     "name": "بارانا",
@@ -67514,12 +67514,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "baran",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q807248"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "baran",
+    "sourceCount": 2
   },
   "باری": {
     "name": "باری",
@@ -73791,12 +73791,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "bardiya",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q114764516"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "bardiya",
+    "sourceCount": 6
   },
   "بردیس": {
     "name": "بردیس",
@@ -79191,12 +79191,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "bandar",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q29514070"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "bandar",
+    "sourceCount": 2
   },
   "بندن": {
     "name": "بندن",
@@ -79985,18 +79985,18 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[bæ.ɦɒ́ːɹ]",
-    "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D8%A7%D8%B1.html",
-    "gender": "FEMALE",
-    "latin": "bahar",
-    "sourceCount": 8,
     "wikidataIds": [
       "Q20001573",
       "Q99075700"
-    ]
+    ],
+    "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D8%A7%D8%B1.html",
+    "gender": "FEMALE",
+    "latin": "bahar",
+    "sourceCount": 8
   },
   "بهارآفرین": {
     "name": "بهارآفرین",
@@ -80282,12 +80282,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "bahare",
-    "sourceCount": 7,
     "wikidataIds": [
       "Q116469882"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "bahare",
+    "sourceCount": 7
   },
   "بهاره سادات": {
     "name": "بهاره سادات",
@@ -81171,17 +81171,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[beɦ.ɹɒ́ːd̪̥]",
+    "wikidataIds": [
+      "Q107301403"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D8%B1%D8%A7%D8%AF.html",
     "gender": "MALE",
     "latin": "be rad",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q107301403"
-    ]
+    "sourceCount": 7
   },
   "بهراز": {
     "name": "بهراز",
@@ -81222,17 +81222,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[bæɦ.ɹɒ́ːm]",
+    "wikidataIds": [
+      "Q9164249"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D8%B1%D8%A7%D9%85.html",
     "gender": "MALE",
     "latin": "bahram",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q9164249"
-    ]
+    "sourceCount": 7
   },
   "بهرام بردی": {
     "name": "بهرام بردی",
@@ -81718,16 +81718,16 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
+    ],
+    "wikidataIds": [
+      "Q116952034"
     ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D8%B1%D9%86%DA%AF.html",
     "gender": "MALE",
     "latin": "behrang",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q116952034"
-    ]
+    "sourceCount": 7
   },
   "بهره": {
     "name": "بهره",
@@ -82027,17 +82027,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[beɦ.zɒ́ːd̪̥]",
+    "wikidataIds": [
+      "Q88317249"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D8%B2%D8%A7%D8%AF.html",
     "gender": "MALE",
     "latin": "behzad",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q88317249"
-    ]
+    "sourceCount": 7
   },
   "بهزادان": {
     "name": "بهزادان",
@@ -82825,17 +82825,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[behˈnɒːz]",
+    "wikidataIds": [
+      "Q116478867"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D9%86%D8%A7%D8%B2.html",
     "gender": "FEMALE",
     "latin": "be naz",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q116478867"
-    ]
+    "sourceCount": 7
   },
   "بهنام": {
     "name": "بهنام",
@@ -82858,17 +82858,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[beɦ.nɒ́ːm]",
+    "wikidataIds": [
+      "Q4880939"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%D9%87/%D8%A8%D9%87%D9%86%D8%A7%D9%85.html",
     "gender": "MALE",
     "latin": "beh nam",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q4880939"
-    ]
+    "sourceCount": 7
   },
   "بهنام حسین": {
     "name": "بهنام حسین",
@@ -83644,12 +83644,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "bobak",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q4934551"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "bobak",
+    "sourceCount": 3
   },
   "بوتان": {
     "name": "بوتان",
@@ -86501,12 +86501,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "behrang",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q116952034"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "behrang",
+    "sourceCount": 2
   },
   "بِهرو": {
     "name": "بِهرو",
@@ -86812,12 +86812,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "beh naz",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q116478867"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "beh naz",
+    "sourceCount": 2
   },
   "بِهنام": {
     "name": "بِهنام",
@@ -91959,17 +91959,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[biː.ʒǽn]",
+    "wikidataIds": [
+      "Q105997690"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%A8/%D8%A8%DB%8C/%D8%A8%DB%8C%DA%98%D9%86.html",
     "gender": "MALE",
     "latin": "bizhan",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q105997690"
-    ]
+    "sourceCount": 8
   },
   "بیژن علی": {
     "name": "بیژن علی",
@@ -92903,12 +92903,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "taj",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q65074287"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "taj",
+    "sourceCount": 4
   },
   "تاج آفرین": {
     "name": "تاج آفرین",
@@ -95120,13 +95120,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q65074287"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "taj",
-    "sourceCount": 4,
-    "wikidataIds": [
-      "Q65074287"
-    ]
+    "sourceCount": 4
   },
   "تاک آفرین": {
     "name": "تاک آفرین",
@@ -98532,16 +98532,16 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
+    ],
+    "wikidataIds": [
+      "Q92294833"
     ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%AA/%D8%AA%D9%87/%D8%AA%D9%87%D9%85%DB%8C%D9%86%D9%87.html",
     "gender": "FEMALE",
     "latin": "tahmine",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q92294833"
-    ]
+    "sourceCount": 8
   },
   "تهنیا": {
     "name": "تهنیا",
@@ -104462,13 +104462,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q116366747"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "janan",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q116366747"
-    ]
+    "sourceCount": 5
   },
   "جانانه": {
     "name": "جانانه",
@@ -106706,17 +106706,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[d͡ʒæ.lɒ́ːl̥]",
+    "wikidataIds": [
+      "Q48693023"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%AC/%D8%AC%D9%84/%D8%AC%D9%84%D8%A7%D9%84.html",
     "gender": "MALE",
     "latin": "jalal",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q48693023"
-    ]
+    "sourceCount": 7
   },
   "جلال الدین": {
     "name": "جلال الدین",
@@ -106739,12 +106739,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "jalaloddin",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q56462594"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "jalaloddin",
+    "sourceCount": 5
   },
   "جلالت": {
     "name": "جلالت",
@@ -109493,12 +109493,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "jahangir",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q6123134"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "jahangir",
+    "sourceCount": 2
   },
   "جهانگرد": {
     "name": "جهانگرد",
@@ -109578,17 +109578,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[d͡ʒæ.ɦɒːɲ.ɡʲíːɹ]",
+    "wikidataIds": [
+      "Q6123134"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%AC/%D8%AC%D9%87/%D8%AC%D9%87%D8%A7%D9%86%DA%AF%DB%8C%D8%B1.html",
     "gender": "MALE",
     "latin": "jahangir",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q6123134"
-    ]
+    "sourceCount": 7
   },
   "جهانیار": {
     "name": "جهانیار",
@@ -109723,12 +109723,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "jahangir",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q6123134"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "jahangir",
+    "sourceCount": 2
   },
   "جوآنا": {
     "name": "جوآنا",
@@ -116212,12 +116212,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "hadise",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q114056828"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "hadise",
+    "sourceCount": 6
   },
   "حدیثه السادات": {
     "name": "حدیثه السادات",
@@ -118465,12 +118465,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "hosseine",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q108417998"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "hosseine",
+    "sourceCount": 2
   },
   "حسین هادی": {
     "name": "حسین هادی",
@@ -130481,17 +130481,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[xos.ɹow]",
+    "wikidataIds": [
+      "Q11083747"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%AE/%D8%AE%D8%B3/%D8%AE%D8%B3%D8%B1%D9%88.html",
     "gender": "MALE",
     "latin": "khosro",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q11083747"
-    ]
+    "sourceCount": 7
   },
   "خسرو الدین": {
     "name": "خسرو الدین",
@@ -136299,17 +136299,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[d̪ɒːɹ.júːʃ]",
+    "wikidataIds": [
+      "Q265867"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%AF/%D8%AF%D8%A7/%D8%AF%D8%A7%D8%B1%DB%8C%D9%88%D8%B4.html",
     "gender": "MALE",
     "latin": "darush",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q265867"
-    ]
+    "sourceCount": 8
   },
   "داریون": {
     "name": "داریون",
@@ -146442,12 +146442,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "rahele",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q106017755"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "rahele",
+    "sourceCount": 6
   },
   "راحله السادات": {
     "name": "راحله السادات",
@@ -149128,17 +149128,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ɹɒː.míːn]",
+    "wikidataIds": [
+      "Q2130144"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B1/%D8%B1%D8%A7/%D8%B1%D8%A7%D9%85%DB%8C%D9%86.html",
     "gender": "MALE",
     "latin": "ramin",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q2130144"
-    ]
+    "sourceCount": 8
   },
   "رامینا": {
     "name": "رامینا",
@@ -154628,17 +154628,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ɹe.ˈzɒː]",
+    "wikidataIds": [
+      "Q19832237"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B1/%D8%B1%D8%B6/%D8%B1%D8%B6%D8%A7.html",
     "gender": "MALE",
     "latin": "reza",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q19832237"
-    ]
+    "sourceCount": 8
   },
   "رضاء": {
     "name": "رضاء",
@@ -155407,12 +155407,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "reza",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q19832237"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "reza",
+    "sourceCount": 2
   },
   "رعد": {
     "name": "رعد",
@@ -158253,12 +158253,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "ruhollah",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q98664330"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "ruhollah",
+    "sourceCount": 2
   },
   "روح الته": {
     "name": "روح الته",
@@ -158316,17 +158316,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ɹuːɦ.ʔol.lɒ́ːʰ]",
+    "wikidataIds": [
+      "Q98664330"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B1/%D8%B1%D9%88/%D8%B1%D9%88%D8%AD%E2%80%8C%D8%A7%D9%84%D9%84%D9%87.html",
     "gender": "MALE",
     "latin": "ruhollah",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q98664330"
-    ]
+    "sourceCount": 6
   },
   "روح اله": {
     "name": "روح اله",
@@ -158348,12 +158348,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "ruhollah",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q98664330"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "ruhollah",
+    "sourceCount": 3
   },
   "روحان": {
     "name": "روحان",
@@ -158558,12 +158558,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "ruhollah",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q98664330"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "ruhollah",
+    "sourceCount": 2
   },
   "روح له": {
     "name": "روح له",
@@ -162668,18 +162668,18 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ɹej.hɒː.ne]",
-    "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B1/%D8%B1%DB%8C/%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87.html",
-    "gender": "FEMALE",
-    "latin": "reyhane",
-    "sourceCount": 7,
     "wikidataIds": [
       "Q116479545",
       "Q135508208"
-    ]
+    ],
+    "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B1/%D8%B1%DB%8C/%D8%B1%DB%8C%D8%AD%D8%A7%D9%86%D9%87.html",
+    "gender": "FEMALE",
+    "latin": "reyhane",
+    "sourceCount": 7
   },
   "ریحانه السادات": {
     "name": "ریحانه السادات",
@@ -163333,12 +163333,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "rika",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q50730557"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "rika",
+    "sourceCount": 4
   },
   "ریکان": {
     "name": "ریکان",
@@ -174001,17 +174001,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[sɒː.sɒ́ːn]",
+    "wikidataIds": [
+      "Q41244061"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B3/%D8%B3%D8%A7/%D8%B3%D8%A7%D8%B3%D8%A7%D9%86.html",
     "gender": "MALE",
     "latin": "sasan",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q41244061"
-    ]
+    "sourceCount": 8
   },
   "ساسین": {
     "name": "ساسین",
@@ -174305,12 +174305,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "saqar",
-    "sourceCount": 7,
     "wikidataIds": [
       "Q116482017"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "saqar",
+    "sourceCount": 7
   },
   "ساغمان": {
     "name": "ساغمان",
@@ -181617,17 +181617,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[so.ɹúːʃ]",
+    "wikidataIds": [
+      "Q10674037"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B3/%D8%B3%D8%B1/%D8%B3%D8%B1%D9%88%D8%B4.html",
     "gender": "UNISEX",
     "latin": "sarv sh",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q10674037"
-    ]
+    "sourceCount": 7
   },
   "سروشا": {
     "name": "سروشا",
@@ -186157,12 +186157,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "samane",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q21907115"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "samane",
+    "sourceCount": 6
   },
   "سمانه السادات": {
     "name": "سمانه السادات",
@@ -194236,17 +194236,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[se.pʰéɦɹ]",
+    "wikidataIds": [
+      "Q115799275"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B3/%D8%B3%D9%BE/%D8%B3%D9%BE%D9%87%D8%B1.html",
     "gender": "MALE",
     "latin": "sepehr",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q115799275"
-    ]
+    "sourceCount": 8
   },
   "سپهراد": {
     "name": "سپهراد",
@@ -195637,17 +195637,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[si.jɒː.væʃ]",
+    "wikidataIds": [
+      "Q31891201"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B3/%D8%B3%DB%8C/%D8%B3%DB%8C%D8%A7%D9%88%D8%B4.html",
     "gender": "MALE",
     "latin": "siyavosh",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q31891201"
-    ]
+    "sourceCount": 8
   },
   "سیاوشس": {
     "name": "سیاوشس",
@@ -205027,17 +205027,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[siː.mɒ́ː]",
+    "wikidataIds": [
+      "Q20202207"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B3/%D8%B3%DB%8C/%D8%B3%DB%8C%D9%85%D8%A7.html",
     "gender": "FEMALE",
     "latin": "sima",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q20202207"
-    ]
+    "sourceCount": 8
   },
   "سیماء": {
     "name": "سیماء",
@@ -207929,17 +207929,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʃɒː.d̪iː]",
+    "wikidataIds": [
+      "Q5066441"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B4/%D8%B4%D8%A7/%D8%B4%D8%A7%D8%AF%DB%8C.html",
     "gender": "FEMALE",
     "latin": "shadi",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q5066441"
-    ]
+    "sourceCount": 8
   },
   "شادی آور": {
     "name": "شادی آور",
@@ -210334,12 +210334,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "shahram",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q101023549"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "shahram",
+    "sourceCount": 3
   },
   "شاهرخ": {
     "name": "شاهرخ",
@@ -210365,17 +210365,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʃɒːɦ.ɹóx]",
+    "wikidataIds": [
+      "Q116482024"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B4/%D8%B4%D8%A7/%D8%B4%D8%A7%D9%87%D8%B1%D8%AE.html",
     "gender": "MALE",
     "latin": "shah rokh",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q116482024"
-    ]
+    "sourceCount": 8
   },
   "شاهرز": {
     "name": "شاهرز",
@@ -211988,17 +211988,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʃɒː.ɦíːn]",
+    "wikidataIds": [
+      "Q116481633"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B4/%D8%B4%D8%A7/%D8%B4%D8%A7%D9%87%DB%8C%D9%86.html",
     "gender": "MALE",
     "latin": "shahin",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q116481633"
-    ]
+    "sourceCount": 8
   },
   "شاهیندخت": {
     "name": "شاهیندخت",
@@ -212329,17 +212329,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʃɒː.pʰúːɹ]",
+    "wikidataIds": [
+      "Q4520360"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B4/%D8%B4%D8%A7/%D8%B4%D8%A7%D9%BE%D9%88%D8%B1.html",
     "gender": "MALE",
     "latin": "shapur",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q4520360"
-    ]
+    "sourceCount": 8
   },
   "شاپور رضا": {
     "name": "شاپور رضا",
@@ -213915,12 +213915,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "sharareh",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q116481765"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "sharareh",
+    "sourceCount": 2
   },
   "شراره": {
     "name": "شراره",
@@ -213942,12 +213942,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "sharareh",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q116481765"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "sharareh",
+    "sourceCount": 5
   },
   "شراصلان": {
     "name": "شراصلان",
@@ -214653,12 +214653,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "UNISEX",
-    "latin": "sharvin",
-    "sourceCount": 7,
     "wikidataIds": [
       "Q7495453"
-    ]
+    ],
+    "gender": "UNISEX",
+    "latin": "sharvin",
+    "sourceCount": 7
   },
   "شروین دخت": {
     "name": "شروین دخت",
@@ -215008,12 +215008,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "shamsi",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q113535223"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "shamsi",
+    "sourceCount": 2
   },
   "ششمس الدین": {
     "name": "ششمس الدین",
@@ -215931,17 +215931,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʃæɣɒːˈjeɣ]",
+    "wikidataIds": [
+      "Q116478980"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B4/%D8%B4%D9%82/%D8%B4%D9%82%D8%A7%DB%8C%D9%82.html",
     "gender": "FEMALE",
     "latin": "shaqayeq",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q116478980"
-    ]
+    "sourceCount": 7
   },
   "شقایق السادات": {
     "name": "شقایق السادات",
@@ -216803,12 +216803,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "shamsi",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q113535223"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "shamsi",
+    "sourceCount": 5
   },
   "شمسی الزمان": {
     "name": "شمسی الزمان",
@@ -218559,17 +218559,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʃæɦ.ɹɒːm]",
+    "wikidataIds": [
+      "Q101023549"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B4/%D8%B4%D9%87/%D8%B4%D9%87%D8%B1%D8%A7%D9%85.html",
     "gender": "MALE",
     "latin": "shahram",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q101023549"
-    ]
+    "sourceCount": 8
   },
   "شهرام حسن": {
     "name": "شهرام حسن",
@@ -219063,12 +219063,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "shahram",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q101023549"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "shahram",
+    "sourceCount": 2
   },
   "شهرناز": {
     "name": "شهرناز",
@@ -220037,12 +220037,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "shah nam",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q56457906"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "shah nam",
+    "sourceCount": 6
   },
   "شهن تاج": {
     "name": "شهن تاج",
@@ -220439,12 +220439,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "shahin",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q116481633"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "shahin",
+    "sourceCount": 6
   },
   "شهین الدخت": {
     "name": "شهین الدخت",
@@ -221264,12 +221264,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "shokufeh",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q116548123"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "shokufeh",
+    "sourceCount": 2
   },
   "شوگار": {
     "name": "شوگار",
@@ -223951,12 +223951,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "shir khan",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q56244842"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "shir khan",
+    "sourceCount": 2
   },
   "شیر خدا": {
     "name": "شیر خدا",
@@ -226112,12 +226112,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "sad",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q23806099"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "sad",
+    "sourceCount": 2
   },
   "صادا": {
     "name": "صادا",
@@ -229448,12 +229448,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "sa'd",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q23806099"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "sa'd",
+    "sourceCount": 2
   },
   "صعدون": {
     "name": "صعدون",
@@ -237523,12 +237523,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "tahmineh",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q92294833"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "tahmineh",
+    "sourceCount": 3
   },
   "طهور": {
     "name": "طهور",
@@ -252965,13 +252965,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q18747960"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "azat",
-    "sourceCount": 4,
-    "wikidataIds": [
-      "Q18747960"
-    ]
+    "sourceCount": 4
   },
   "عزتا اله": {
     "name": "عزتا اله",
@@ -254150,12 +254150,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "asal",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q116274763"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "asal",
+    "sourceCount": 6
   },
   "عسل ناز": {
     "name": "عسل ناز",
@@ -255041,12 +255041,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "azat",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q18747960"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "azat",
+    "sourceCount": 2
   },
   "عضد": {
     "name": "عضد",
@@ -259859,17 +259859,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔæ.liː.ɹe.zɒ́ː]",
+    "wikidataIds": [
+      "Q12808432"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B9/%D8%B9%D9%84/%D8%B9%D9%84%DB%8C%D8%B1%D8%B6%D8%A7.html",
     "gender": "MALE",
     "latin": "ali reza",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q12808432"
-    ]
+    "sourceCount": 7
   },
   "علی‌رضا ر": {
     "name": "علی‌رضا ر",
@@ -260235,17 +260235,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʔæ.liː.ʃíːɹ]",
+    "wikidataIds": [
+      "Q4062477"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D8%B9/%D8%B9%D9%84/%D8%B9%D9%84%DB%8C%E2%80%8C%D8%B4%DB%8C%D8%B1.html",
     "gender": "MALE",
     "latin": "ali shir",
-    "sourceCount": 3,
-    "wikidataIds": [
-      "Q4062477"
-    ]
+    "sourceCount": 3
   },
   "علی شیرین": {
     "name": "علی شیرین",
@@ -261163,12 +261163,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "ali mohammad",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q28712842"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "ali mohammad",
+    "sourceCount": 5
   },
   "علی‌محمد خان": {
     "name": "علی‌محمد خان",
@@ -262498,12 +262498,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "emad",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q3148856"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "emad",
+    "sourceCount": 5
   },
   "عمادالدین": {
     "name": "عمادالدین",
@@ -275588,17 +275588,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[fæ.ɹɒː.nǽkʰʲ]",
+    "wikidataIds": [
+      "Q116481778"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%81/%D9%81%D8%B1/%D9%81%D8%B1%D8%A7%D9%86%DA%A9.html",
     "gender": "FEMALE",
     "latin": "faranak",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q116481778"
-    ]
+    "sourceCount": 8
   },
   "فرانکه": {
     "name": "فرانکه",
@@ -276488,12 +276488,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "farah",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q5258847"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "farah",
+    "sourceCount": 5
   },
   "فرح الله": {
     "name": "فرح الله",
@@ -276941,12 +276941,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "farah naz",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q90030109"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "farah naz",
+    "sourceCount": 6
   },
   "فرحنازسادات": {
     "name": "فرحنازسادات",
@@ -277165,13 +277165,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q58199600"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "farrokh",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q58199600"
-    ]
+    "sourceCount": 6
   },
   "فرخاد": {
     "name": "فرخاد",
@@ -278389,17 +278389,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[fæɹ.zɒ́ːd̪̥]",
+    "wikidataIds": [
+      "Q61041709"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%81/%D9%81%D8%B1/%D9%81%D8%B1%D8%B2%D8%A7%D8%AF.html",
     "gender": "MALE",
     "latin": "farzad",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q61041709"
-    ]
+    "sourceCount": 8
   },
   "فرزادد": {
     "name": "فرزادد",
@@ -278603,17 +278603,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[fæɹ.zɒː.ne]",
+    "wikidataIds": [
+      "Q5436593"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%81/%D9%81%D8%B1/%D9%81%D8%B1%D8%B2%D8%A7%D9%86%D9%87.html",
     "gender": "FEMALE",
     "latin": "farzane",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q5436593"
-    ]
+    "sourceCount": 7
   },
   "فرزانه السادات": {
     "name": "فرزانه السادات",
@@ -280309,12 +280309,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "far naz",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q114578930"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "far naz",
+    "sourceCount": 5
   },
   "فرنازال": {
     "name": "فرنازال",
@@ -280468,12 +280468,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "farnaz",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q114578930"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "farnaz",
+    "sourceCount": 2
   },
   "فرنما": {
     "name": "فرنما",
@@ -280749,17 +280749,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[fæ.ɹæɲ.ɡʲíːs]",
+    "wikidataIds": [
+      "Q85973484"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%81/%D9%81%D8%B1/%D9%81%D8%B1%D9%86%DA%AF%DB%8C%D8%B3.html",
     "gender": "FEMALE",
     "latin": "farangis",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q85973484"
-    ]
+    "sourceCount": 5
   },
   "فرنی": {
     "name": "فرنی",
@@ -282643,17 +282643,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[fæ.ɹiː.bɒ́ː]",
+    "wikidataIds": [
+      "Q116481480"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%81/%D9%81%D8%B1/%D9%81%D8%B1%DB%8C%D8%A8%D8%A7.html",
     "gender": "FEMALE",
     "latin": "faryba",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q116481480"
-    ]
+    "sourceCount": 8
   },
   "فریباالسادات": {
     "name": "فریباالسادات",
@@ -283154,17 +283154,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[fe.ɹiː.d̪uːn]",
+    "wikidataIds": [
+      "Q16275818"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%81/%D9%81%D8%B1/%D9%81%D8%B1%DB%8C%D8%AF%D9%88%D9%86.html",
     "gender": "MALE",
     "latin": "fereydun",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q16275818"
-    ]
+    "sourceCount": 7
   },
   "فریدون اختر": {
     "name": "فریدون اختر",
@@ -284476,12 +284476,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "fazlollah",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q76010285"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "fazlollah",
+    "sourceCount": 2
   },
   "فضاله": {
     "name": "فضاله",
@@ -284598,12 +284598,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "fazlollah",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q76010285"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "fazlollah",
+    "sourceCount": 2
   },
   "فضل الحق": {
     "name": "فضل الحق",
@@ -284657,12 +284657,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "fazlollah",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q76010285"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "fazlollah",
+    "sourceCount": 5
   },
   "فضل اله": {
     "name": "فضل اله",
@@ -284682,12 +284682,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "fazlollah",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q76010285"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "fazlollah",
+    "sourceCount": 3
   },
   "فضل رحمان": {
     "name": "فضل رحمان",
@@ -285031,12 +285031,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "fazlollah",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q76010285"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "fazlollah",
+    "sourceCount": 2
   },
   "فظل اله": {
     "name": "فظل اله",
@@ -285055,12 +285055,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "fazlollah",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q76010285"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "fazlollah",
+    "sourceCount": 2
   },
   "فظه": {
     "name": "فظه",
@@ -285533,12 +285533,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "felor",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q112480214"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "felor",
+    "sourceCount": 4
   },
   "فلورا": {
     "name": "فلورا",
@@ -286453,12 +286453,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "fouad",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q93541568"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "fouad",
+    "sourceCount": 2
   },
   "فولاد": {
     "name": "فولاد",
@@ -287158,12 +287158,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "far naz",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q114578930"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "far naz",
+    "sourceCount": 2
   },
   "فَرنام": {
     "name": "فَرنام",
@@ -287549,12 +287549,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "farrokh",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q58199600"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "farrokh",
+    "sourceCount": 2
   },
   "فَرّخ‌بخت": {
     "name": "فَرّخ‌بخت",
@@ -288519,12 +288519,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "feyz",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q63934629"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "feyz",
+    "sourceCount": 4
   },
   "فیض آبادی": {
     "name": "فیض آبادی",
@@ -288660,12 +288660,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "fazlollah",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q76010285"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "fazlollah",
+    "sourceCount": 2
   },
   "فیض محمد": {
     "name": "فیض محمد",
@@ -289398,17 +289398,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[qɒː.ɹǽn]",
+    "wikidataIds": [
+      "Q89579912"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%82/%D9%82%D8%A7/%D9%82%D8%A7%D8%B1%D9%86.html",
     "gender": "MALE",
     "latin": "gharen",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q89579912"
-    ]
+    "sourceCount": 5
   },
   "قاروق": {
     "name": "قاروق",
@@ -289565,17 +289565,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[qɒː.sém]",
+    "wikidataIds": [
+      "Q5555812"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%82/%D9%82%D8%A7/%D9%82%D8%A7%D8%B3%D9%85.html",
     "gender": "MALE",
     "latin": "qasem",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q5555812"
-    ]
+    "sourceCount": 7
   },
   "قاسم بگ": {
     "name": "قاسم بگ",
@@ -293931,12 +293931,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "qahreman",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q135421468"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "qahreman",
+    "sourceCount": 5
   },
   "قهرملن": {
     "name": "قهرملن",
@@ -297272,12 +297272,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "lali",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q134475708"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "lali",
+    "sourceCount": 2
   },
   "لعیا": {
     "name": "لعیا",
@@ -299213,12 +299213,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "leila",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q98638754"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "leila",
+    "sourceCount": 2
   },
   "لیلماه": {
     "name": "لیلماه",
@@ -299254,12 +299254,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "leila",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q98638754"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "leila",
+    "sourceCount": 2
   },
   "لیلوفر": {
     "name": "لیلوفر",
@@ -306139,18 +306139,18 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mɒː.ɦíːn]",
+    "wikidataIds": [
+      "Q116481610"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%A7/%D9%85%D8%A7%D9%87%DB%8C%D9%86.html",
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "mahin",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q116481610"
-    ]
+    "sourceCount": 6
   },
   "ماهینه": {
     "name": "ماهینه",
@@ -307816,17 +307816,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mod͡ʒ.t̪ʰæ.bɒ́ː]",
+    "wikidataIds": [
+      "Q16074511"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%AC/%D9%85%D8%AC%D8%AA%D8%A8%DB%8C.html",
     "gender": "MALE",
     "latin": "mojtaba",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q16074511"
-    ]
+    "sourceCount": 7
   },
   "مجتبی حسن": {
     "name": "مجتبی حسن",
@@ -308327,17 +308327,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæ.d͡ʒíːd̪̥]",
+    "wikidataIds": [
+      "Q99574399"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%AC/%D9%85%D8%AC%DB%8C%D8%AF.html",
     "gender": "MALE",
     "latin": "majid",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q99574399"
-    ]
+    "sourceCount": 6
   },
   "مجیدالدین": {
     "name": "مجیدالدین",
@@ -313974,12 +313974,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mohammaddavud",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q76940461"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mohammaddavud",
+    "sourceCount": 4
   },
   "محمدد حسن": {
     "name": "محمدد حسن",
@@ -314967,12 +314967,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mohammad saleh",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q112726406"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mohammad saleh",
+    "sourceCount": 2
   },
   "محمد سالم": {
     "name": "محمد سالم",
@@ -316334,12 +316334,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mohammad saleh",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q112726406"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mohammad saleh",
+    "sourceCount": 6
   },
   "محمدصانع": {
     "name": "محمدصانع",
@@ -321937,17 +321937,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæɦ.múːd̪̥]",
+    "wikidataIds": [
+      "Q19824087"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%AD/%D9%85%D8%AD%D9%85%D9%88%D8%AF.html",
     "gender": "MALE",
     "latin": "mahmud",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q19824087"
-    ]
+    "sourceCount": 7
   },
   "محمود الله": {
     "name": "محمود الله",
@@ -324888,18 +324888,18 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæɹ.d͡ʒɒːn]",
+    "wikidataIds": [
+      "Q18083285"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%B1/%D9%85%D8%B1%D8%AC%D8%A7%D9%86.html",
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "marjan",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q18083285"
-    ]
+    "sourceCount": 7
   },
   "مرجاندخت": {
     "name": "مرجاندخت",
@@ -325024,12 +325024,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "marjan",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q18083285"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "marjan",
+    "sourceCount": 2
   },
   "مرجون": {
     "name": "مرجون",
@@ -325253,12 +325253,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mardan",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q134528965"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mardan",
+    "sourceCount": 2
   },
   "مردان شه": {
     "name": "مردان شه",
@@ -327040,17 +327040,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæɹ.jǽm]",
+    "wikidataIds": [
+      "Q85621136"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%B1/%D9%85%D8%B1%DB%8C%D9%85.html",
     "gender": "FEMALE",
     "latin": "maryam",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q85621136"
-    ]
+    "sourceCount": 7
   },
   "مریم اعظم": {
     "name": "مریم اعظم",
@@ -327743,12 +327743,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "mastan",
-    "sourceCount": 3,
     "wikidataIds": [
       "Q134540963"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "mastan",
+    "sourceCount": 3
   },
   "مستانه": {
     "name": "مستانه",
@@ -328067,12 +328067,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مسطوره": {
     "name": "مسطوره",
@@ -328177,17 +328177,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæs.ʔuːd̪̥]",
+    "wikidataIds": [
+      "Q22245352"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%B3/%D9%85%D8%B3%D8%B9%D9%88%D8%AF.html",
     "gender": "MALE",
     "latin": "maseud",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q22245352"
-    ]
+    "sourceCount": 7
   },
   "مسعوداله": {
     "name": "مسعوداله",
@@ -328392,17 +328392,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mos.lém]",
+    "wikidataIds": [
+      "Q25432774"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%B3/%D9%85%D8%B3%D9%84%D9%85.html",
     "gender": "MALE",
     "latin": "moslem",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q25432774"
-    ]
+    "sourceCount": 6
   },
   "مسلمان": {
     "name": "مسلمان",
@@ -329951,12 +329951,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصتفا": {
     "name": "مصتفا",
@@ -329975,12 +329975,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصتفی": {
     "name": "مصتفی",
@@ -329999,12 +329999,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصدق": {
     "name": "مصدق",
@@ -330155,12 +330155,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصصلفی": {
     "name": "مصصلفی",
@@ -330195,12 +330195,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصطغی": {
     "name": "مصطغی",
@@ -330235,12 +330235,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصطفوی": {
     "name": "مصطفوی",
@@ -330280,17 +330280,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mos.tæ.fɒ́ː]",
+    "wikidataIds": [
+      "Q21055015"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D8%B5/%D9%85%D8%B5%D8%B7%D9%81%DB%8C.html",
     "gender": "MALE",
     "latin": "mostafa",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q21055015"
-    ]
+    "sourceCount": 7
   },
   "مصطفی عباس": {
     "name": "مصطفی عباس",
@@ -330341,12 +330341,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصطقی": {
     "name": "مصطقی",
@@ -330397,12 +330397,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصظفی": {
     "name": "مصظفی",
@@ -330421,12 +330421,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مصعب": {
     "name": "مصعب",
@@ -330815,12 +330815,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مضفر": {
     "name": "مضفر",
@@ -330935,12 +330935,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "مطعم": {
     "name": "مطعم",
@@ -335492,17 +335492,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæ.læ.kʰʲé]",
+    "wikidataIds": [
+      "Q136093915"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D9%84/%D9%85%D9%84%DA%A9%D9%87.html",
     "gender": "FEMALE",
     "latin": "malakeh",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q136093915"
-    ]
+    "sourceCount": 5
   },
   "ملکها": {
     "name": "ملکها",
@@ -338645,17 +338645,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæ.niː.ʒé]",
+    "wikidataIds": [
+      "Q107478037"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D9%86/%D9%85%D9%86%DB%8C%DA%98%D9%87.html",
     "gender": "FEMALE",
     "latin": "manijeh",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q107478037"
-    ]
+    "sourceCount": 6
   },
   "منیکا": {
     "name": "منیکا",
@@ -339231,17 +339231,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæɦ.t̪ʰɒ́ːb̥]",
+    "wikidataIds": [
+      "Q58233873"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D9%87/%D9%85%D9%87%D8%AA%D8%A7%D8%A8.html",
     "gender": "FEMALE",
     "latin": "mahtab",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q58233873"
-    ]
+    "sourceCount": 7
   },
   "مهتابان": {
     "name": "مهتابان",
@@ -340428,13 +340428,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q56015906"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "mehr",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q56015906"
-    ]
+    "sourceCount": 5
   },
   "مهرءال": {
     "name": "مهرءال",
@@ -341445,17 +341445,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[meɦ.ɹɒ́ːn]",
+    "wikidataIds": [
+      "Q89099179"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D9%87/%D9%85%D9%87%D8%B1%D8%A7%D9%86.html",
     "gender": "MALE",
     "latin": "mehr an",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q89099179"
-    ]
+    "sourceCount": 7
   },
   "مهرانا": {
     "name": "مهرانا",
@@ -341703,13 +341703,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q58417066"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "mehrangiz",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q58417066"
-    ]
+    "sourceCount": 5
   },
   "مهرانگیز بیگوم": {
     "name": "مهرانگیز بیگوم",
@@ -343934,17 +343934,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
+    ],
+    "wikidataIds": [
+      "Q56015906"
     ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D9%87/%D9%85%D9%87%D8%B1%DB%8C.html",
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "mehri",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q56015906"
-    ]
+    "sourceCount": 6
   },
   "مهریا": {
     "name": "مهریا",
@@ -345121,12 +345121,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mehman",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q81005037"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mehman",
+    "sourceCount": 2
   },
   "مهمد": {
     "name": "مهمد",
@@ -345669,17 +345669,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[mæɦ.vǽʃ]",
+    "wikidataIds": [
+      "Q116481828"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%85/%D9%85%D9%87/%D9%85%D9%87%D9%88%D8%B4.html",
     "gender": "FEMALE",
     "latin": "mahvash",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q116481828"
-    ]
+    "sourceCount": 6
   },
   "مهوند": {
     "name": "مهوند",
@@ -346378,12 +346378,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "mehin",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q116481610"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "mehin",
+    "sourceCount": 6
   },
   "مهین آغا": {
     "name": "مهین آغا",
@@ -347378,12 +347378,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "mostafa",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q21055015"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "mostafa",
+    "sourceCount": 2
   },
   "موعده": {
     "name": "موعده",
@@ -363728,12 +363728,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "nadiya",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q55663938"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "nadiya",
+    "sourceCount": 6
   },
   "نادیاسادات": {
     "name": "نادیاسادات",
@@ -363887,12 +363887,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "nar",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q134873218"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "nar",
+    "sourceCount": 2
   },
   "نارا": {
     "name": "نارا",
@@ -366090,12 +366090,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "nazak",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q134880753"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "nazak",
+    "sourceCount": 4
   },
   "نازگل": {
     "name": "نازگل",
@@ -370773,17 +370773,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[næɹ.ɡʲes]",
+    "wikidataIds": [
+      "Q116367189"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%86/%D9%86%D8%B1/%D9%86%D8%B1%DA%AF%D8%B3.html",
     "gender": "FEMALE",
     "latin": "narges",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q116367189"
-    ]
+    "sourceCount": 8
   },
   "نرگس السادات": {
     "name": "نرگس السادات",
@@ -371707,17 +371707,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[næs.ɹiːn]",
+    "wikidataIds": [
+      "Q10594701"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%86/%D9%86%D8%B3/%D9%86%D8%B3%D8%B1%DB%8C%D9%86.html",
     "gender": "FEMALE",
     "latin": "nasrin",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q10594701"
-    ]
+    "sourceCount": 8
   },
   "نسرین اختر": {
     "name": "نسرین اختر",
@@ -372656,17 +372656,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[næs.ɹol.lɒ́ːʰ]",
+    "wikidataIds": [
+      "Q117320612"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%86/%D9%86%D8%B5/%D9%86%D8%B5%D8%B1%D8%A7%D9%84%D9%84%D9%87.html",
     "gender": "MALE",
     "latin": "nasr allah",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q117320612"
-    ]
+    "sourceCount": 6
   },
   "نصراله": {
     "name": "نصراله",
@@ -374728,12 +374728,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "nafiseh",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q112085988"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "nafiseh",
+    "sourceCount": 5
   },
   "نفیسه السادات": {
     "name": "نفیسه السادات",
@@ -374797,12 +374797,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "nafiseh",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q112085988"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "nafiseh",
+    "sourceCount": 2
   },
   "نفیل": {
     "name": "نفیل",
@@ -375393,12 +375393,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "namaz",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q134703032"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "namaz",
+    "sourceCount": 2
   },
   "نمام": {
     "name": "نمام",
@@ -376831,13 +376831,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q134718955"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "nobahar",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q134718955"
-    ]
+    "sourceCount": 5
   },
   "نوبهارعلی": {
     "name": "نوبهارعلی",
@@ -378794,12 +378794,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "noruz",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q134718968"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "noruz",
+    "sourceCount": 6
   },
   "نوروز اکرم": {
     "name": "نوروز اکرم",
@@ -382851,13 +382851,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q116365070"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "niyaz",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q116365070"
-    ]
+    "sourceCount": 5
   },
   "نیازاحمد": {
     "name": "نیازاحمد",
@@ -384318,17 +384318,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[niː.luː.fæɹ]",
+    "wikidataIds": [
+      "Q1419523"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%86/%D9%86%DB%8C/%D9%86%DB%8C%D9%84%D9%88%D9%81%D8%B1.html",
     "gender": "FEMALE",
     "latin": "nilufar",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q1419523"
-    ]
+    "sourceCount": 8
   },
   "نیلوفرال": {
     "name": "نیلوفرال",
@@ -385561,13 +385561,13 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
+    "wikidataIds": [
+      "Q121094573"
+    ],
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "nikta",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q121094573"
-    ]
+    "sourceCount": 5
   },
   "نیکتاب": {
     "name": "نیکتاب",
@@ -388746,12 +388746,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "hayede",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q139782063"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "hayede",
+    "sourceCount": 5
   },
   "هایدی": {
     "name": "هایدی",
@@ -389983,17 +389983,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[hoɹ.móz]",
+    "wikidataIds": [
+      "Q110249891"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%87/%D9%87%D8%B1/%D9%87%D8%B1%D9%85%D8%B2.html",
     "gender": "MALE",
     "latin": "hormoz",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q110249891"
-    ]
+    "sourceCount": 8
   },
   "هرمزان": {
     "name": "هرمزان",
@@ -391944,17 +391944,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ho.mɒː.júːn]",
+    "wikidataIds": [
+      "Q115446119"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%87/%D9%87%D9%85/%D9%87%D9%85%D8%A7%DB%8C%D9%88%D9%86.html",
     "gender": "UNISEX",
     "latin": "hamayun",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q115446119"
-    ]
+    "sourceCount": 6
   },
   "همایون بخت": {
     "name": "همایون بخت",
@@ -394942,12 +394942,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "hushyar",
-    "sourceCount": 6,
     "wikidataIds": [
       "Q16046184"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "hushyar",
+    "sourceCount": 6
   },
   "هوشیدر": {
     "name": "هوشیدر",
@@ -405579,12 +405579,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "pardis",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q113383552"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "pardis",
+    "sourceCount": 4
   },
   "پاردیک": {
     "name": "پاردیک",
@@ -405642,17 +405642,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[pʰɒːɹ.sɒ́ː]",
+    "wikidataIds": [
+      "Q108757131"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%BE/%D9%BE%D8%A7/%D9%BE%D8%A7%D8%B1%D8%B3%D8%A7.html",
     "gender": "MALE",
     "latin": "parsa",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q108757131"
-    ]
+    "sourceCount": 7
   },
   "پارسادخت": {
     "name": "پارسادخت",
@@ -408431,18 +408431,18 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[pʰæɹ.d̪íːs]",
+    "wikidataIds": [
+      "Q113383552"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%BE/%D9%BE%D8%B1/%D9%BE%D8%B1%D8%AF%DB%8C%D8%B3.html",
     "gender": "UNISEX",
     "genderConflict": true,
     "latin": "pardis",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q113383552"
-    ]
+    "sourceCount": 7
   },
   "پردیکا": {
     "name": "پردیکا",
@@ -408689,17 +408689,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[pʰæ.ɹæs.t̪ʰúː]",
+    "wikidataIds": [
+      "Q106104573"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%BE/%D9%BE%D8%B1/%D9%BE%D8%B1%D8%B3%D8%AA%D9%88.html",
     "gender": "FEMALE",
     "latin": "parasto",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q106104573"
-    ]
+    "sourceCount": 8
   },
   "پرستوک": {
     "name": "پرستوک",
@@ -409639,17 +409639,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[pʰæɾˈhɒːm]",
+    "wikidataIds": [
+      "Q98465855"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%BE/%D9%BE%D8%B1/%D9%BE%D8%B1%D9%87%D8%A7%D9%85.html",
     "gender": "MALE",
     "latin": "parham",
-    "sourceCount": 5,
-    "wikidataIds": [
-      "Q98465855"
-    ]
+    "sourceCount": 5
   },
   "پرهان": {
     "name": "پرهان",
@@ -409791,17 +409791,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[pʰæɹ.vɒː.né]",
+    "wikidataIds": [
+      "Q92422959"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%BE/%D9%BE%D8%B1/%D9%BE%D8%B1%D9%88%D8%A7%D9%86%D9%87.html",
     "gender": "FEMALE",
     "latin": "parvane",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q92422959"
-    ]
+    "sourceCount": 8
   },
   "پروبز": {
     "name": "پروبز",
@@ -409986,12 +409986,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "parvaneh",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q92422959"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "parvaneh",
+    "sourceCount": 2
   },
   "پروچستا": {
     "name": "پروچستا",
@@ -413307,17 +413307,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[pʰuː.lɒ́ːd̪̥]",
+    "wikidataIds": [
+      "Q135218228"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%D9%BE/%D9%BE%D9%88/%D9%BE%D9%88%D9%84%D8%A7%D8%AF.html",
     "gender": "MALE",
     "latin": "pulad",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q135218228"
-    ]
+    "sourceCount": 6
   },
   "پولاد علی": {
     "name": "پولاد علی",
@@ -413648,12 +413648,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "puya",
-    "sourceCount": 7,
     "wikidataIds": [
       "Q3400814"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "puya",
+    "sourceCount": 7
   },
   "پویان": {
     "name": "پویان",
@@ -413851,12 +413851,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "pardis",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q113383552"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "pardis",
+    "sourceCount": 2
   },
   "پَرستا": {
     "name": "پَرستا",
@@ -417494,12 +417494,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "jahangir",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q6123134"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "jahangir",
+    "sourceCount": 2
   },
   "چهرآذر": {
     "name": "چهرآذر",
@@ -418894,17 +418894,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[ʒɒː.lé]",
+    "wikidataIds": [
+      "Q116482079"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%DA%98/%DA%98%D8%A7/%DA%98%D8%A7%D9%84%D9%87.html",
     "gender": "FEMALE",
     "latin": "zhale",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q116482079"
-    ]
+    "sourceCount": 8
   },
   "ژاله رخ": {
     "name": "ژاله رخ",
@@ -421418,12 +421418,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "kazem",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q99571947"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "kazem",
+    "sourceCount": 2
   },
   "کازمیه": {
     "name": "کازمیه",
@@ -421663,12 +421663,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "kazem",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q99571947"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "kazem",
+    "sourceCount": 2
   },
   "کاضمه": {
     "name": "کاضمه",
@@ -421723,17 +421723,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[kʰɒː.zém]",
+    "wikidataIds": [
+      "Q99571947"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%DA%A9/%DA%A9%D8%A7/%DA%A9%D8%A7%D8%B8%D9%85.html",
     "gender": "MALE",
     "latin": "kazem",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q99571947"
-    ]
+    "sourceCount": 7
   },
   "کاظمع": {
     "name": "کاظمع",
@@ -421752,12 +421752,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "kazem",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q99571947"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "kazem",
+    "sourceCount": 2
   },
   "کاظمعلی": {
     "name": "کاظمعلی",
@@ -423896,12 +423896,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "kobra",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q116481805"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "kobra",
+    "sourceCount": 4
   },
   "کبراء": {
     "name": "کبراء",
@@ -423970,12 +423970,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "kobra",
-    "sourceCount": 4,
     "wikidataIds": [
       "Q116481805"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "kobra",
+    "sourceCount": 4
   },
   "کبریا": {
     "name": "کبریا",
@@ -424383,17 +424383,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[kʰʲæ.t̪ʰɒː.júːn]",
+    "wikidataIds": [
+      "Q116470458"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%DA%A9/%DA%A9%D8%AA/%DA%A9%D8%AA%D8%A7%DB%8C%D9%88%D9%86.html",
     "gender": "FEMALE",
     "latin": "kataun",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q116470458"
-    ]
+    "sourceCount": 8
   },
   "کتاییون": {
     "name": "کتاییون",
@@ -424412,12 +424412,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "katayoun",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q116470458"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "katayoun",
+    "sourceCount": 2
   },
   "کتماره": {
     "name": "کتماره",
@@ -427250,17 +427250,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[kʰʲæ.mɒ́ːl̥]",
+    "wikidataIds": [
+      "Q1305584"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%DA%A9/%DA%A9%D9%85/%DA%A9%D9%85%D8%A7%D9%84.html",
     "gender": "MALE",
     "latin": "kamal",
-    "sourceCount": 7,
-    "wikidataIds": [
-      "Q1305584"
-    ]
+    "sourceCount": 7
   },
   "کمال ادین": {
     "name": "کمال ادین",
@@ -428716,12 +428716,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "MALE",
-    "latin": "koresh",
-    "sourceCount": 5,
     "wikidataIds": [
       "Q66459391"
-    ]
+    ],
+    "gender": "MALE",
+    "latin": "koresh",
+    "sourceCount": 5
   },
   "کورنگ": {
     "name": "کورنگ",
@@ -429869,12 +429869,12 @@
     "classificationSourceIds": [
       "wikidata_cc0"
     ],
-    "gender": "FEMALE",
-    "latin": "kobra",
-    "sourceCount": 2,
     "wikidataIds": [
       "Q116481805"
-    ]
+    ],
+    "gender": "FEMALE",
+    "latin": "kobra",
+    "sourceCount": 2
   },
   "کُردیا": {
     "name": "کُردیا",
@@ -432120,17 +432120,17 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
     ],
     "pronunciation": "[kʰʲej.vɒ́ːn]",
+    "wikidataIds": [
+      "Q42892063"
+    ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%DA%A9/%DA%A9%DB%8C/%DA%A9%DB%8C%D9%88%D8%A7%D9%86.html",
     "gender": "UNISEX",
     "latin": "keyvan",
-    "sourceCount": 8,
-    "wikidataIds": [
-      "Q42892063"
-    ]
+    "sourceCount": 8
   },
   "کیوان بانو": {
     "name": "کیوان بانو",
@@ -438272,16 +438272,16 @@
       "persian"
     ],
     "classificationSourceIds": [
-      "wiktionary_kaikki",
-      "wikidata_cc0"
+      "wikidata_cc0",
+      "wiktionary_kaikki"
+    ],
+    "wikidataIds": [
+      "Q61782804"
     ],
     "wiktionaryPage": "https://kaikki.org/dictionary/Persian/meaning/%DA%AF/%DA%AF%D9%84/%DA%AF%D9%84%D8%B4%DB%8C%D9%81%D8%AA%D9%87.html",
     "gender": "FEMALE",
     "latin": "golshifteh",
-    "sourceCount": 6,
-    "wikidataIds": [
-      "Q61782804"
-    ]
+    "sourceCount": 6
   },
   "گل صبا": {
     "name": "گل صبا",
