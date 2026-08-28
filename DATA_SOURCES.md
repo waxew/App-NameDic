@@ -62,7 +62,8 @@ P407 به‌عنوان «ریشه واژه» ذخیره نمی‌شود؛ فقط
 ## منابع بررسی‌شده ولی bundle نشده
 
 - `nikahd99/iranian-Names-Database-By-Gender`: دیتاست بزرگ، اما مجوز باز صریح پیدا نشد.
-- `MansourM/persian-names-database`: مجوز باز صریح پیدا نشد.
+- `MansourM/persian-names-database`: مجوز باز صریح پیدا نشد؛ README آن منبع داده را یک فایل اکسل بیرونی معرفی می‌کند.
+- `ehsan-shahbakhsh/api-iranian-names`: wrapper دارای MIT است، اما README اعلام می‌کند دیتاست از `MansourM/persian-names-database` اقتباس شده؛ تا روشن شدن حق بازنشر دیتاست اصلی وارد corpus نمی‌شود.
 - `PJSoftCo/BabyNames`: معنی و زبان دارد، اما مجوز دیتاست روشن نیست.
 - `ghaninia/databases`: داده scrape شده و مجوز باز صریح مشاهده نشد.
 - `alisadeghiaghili/farsi-faker`: MIT است، ولی داده اصلی pickle است؛ فایل pickle شبکه در CI به‌دلیل ریسک اجرای کد unpickle نمی‌شود.
