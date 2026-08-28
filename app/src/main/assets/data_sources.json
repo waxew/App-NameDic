@@ -6,6 +6,7 @@
     {"id":"mehdi_iranian_names","title":"mehdi-haydari/iranianNames","url":"https://github.com/mehdi-haydari/iranianNames","license":"MIT","fields":["name","gender","latin"],"notesFa":"نوشتار لاتین منبع کمکی است و به‌تنهایی سند ریشه‌شناسی نیست."},
     {"id":"jadijadi_persianwords","title":"jadijadi/persianwords","url":"https://github.com/jadijadi/persianwords","license":"CC0-1.0","fields":["name","gender"],"notesFa":"فهرست نام‌های دخترانه و پسرانه؛ خطوط خراب هنگام import حذف می‌شوند."},
     {"id":"armanyazdi_persian_names","title":"armanyazdi/persian-names","url":"https://github.com/armanyazdi/persian-names","license":"MIT","fields":["name","gender"],"notesFa":"فهرست نام فارسی بر اساس جنسیت."},
+    {"id":"mohammadhejazirad_persian_names","title":"mohammadhejazirad/persian-names","url":"https://github.com/mohammadhejazirad/persian-names","license":"MIT","fields":["name","gender"],"notesFa":"حدود ۱۰٬۰۸۸ نام یکتا در سه گروه مردانه، زنانه و مشترک؛ importer فقط ثابت‌های متنی generated-data.ts را parse می‌کند و هیچ کد upstream اجرا نمی‌شود."},
     {"id":"wikidata_cc0","title":"Wikidata","url":"https://www.wikidata.org/","license":"CC0","fields":["languageAssociation","gender","latinVariant","wikidataId"],"notesFa":"P407 فقط برای ارتباط زبانی/دسته‌بندی استفاده می‌شود و ریشه واژه محسوب نمی‌شود."},
     {"id":"wiktionary_kaikki","title":"Wiktionary via Kaikki/Wiktextract","url":"https://kaikki.org/dictionary/Persian/","license":"CC-BY-SA + GFDL","fields":["latinVariant","pronunciation","gender","persianNameClassification","conciseOrigin"],"notesFa":"فقط واقعیت‌های ساختاری کوتاه استخراج می‌شوند؛ متن طولانی کپی نمی‌شود."}
   ],
@@ -19,6 +20,7 @@
     {"title":"PJSoftCo/BabyNames","reasonFa":"داده معنی‌دار است اما مجوز باز صریح برای دیتاست پیدا نشد."},
     {"title":"ghaninia/databases","reasonFa":"داده scrape شده و مجوز باز صریح در ریشه مخزن دیده نشد."},
     {"title":"alisadeghiaghili/farsi-faker","reasonFa":"منبع MIT است اما داده اصلی pickle باینری است؛ فایل pickle ناشناس شبکه در CI unpickle نمی‌شود."},
+    {"title":"asghariali1/Iranian_names","reasonFa":"خود README منبع اعلام می‌کند داده از اطلاعات لو‌رفته بانکی ساخته شده؛ به دلایل حریم خصوصی و منشأ نامناسب استفاده نمی‌شود."},
     {"title":"CJKI Database of Persian Names","reasonFa":"دیتابیس تجاری است و بدون خرید مجوز bundle نمی‌شود."}
   ]
 }
