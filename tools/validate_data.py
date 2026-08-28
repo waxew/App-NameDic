@@ -1,37 +1,103 @@
 #!/usr/bin/env python3
-"""اعتبارسنجی ساختاری دیتاست‌های JSON قبل از build/release."""
+"""Structural validation for bundled App-NameDic JSON data."""
 from __future__ import annotations
+
 import json
 from pathlib import Path
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / "app" / "src" / "main" / "assets"
+ASSETS = ROOT / "app/src/main/assets"
 VALID_GENDERS = {"MALE", "FEMALE", "UNISEX", "UNKNOWN"}
 VALID_STATUSES = {"VERIFIED", "CURATED", "BASE_ONLY", "NEEDS_REVIEW"}
+
+
+def assert_string_list(value: Any, label: str) -> None:
+    assert isinstance(value, list), f"{label} must be a list"
+    assert all(isinstance(item, str) and item.strip() for item in value), (
+        f"{label} must contain only non-empty strings"
+    )
+
 
 def validate_curated() -> int:
     data = json.loads((ASSETS / "curated_names.json").read_text(encoding="utf-8"))
     assert isinstance(data, list)
-    seen = set()
+    seen: set[str] = set()
     for index, item in enumerate(data):
-        assert item["name"].strip(), f"empty name at index {index}"
-        assert item["name"] not in seen, f"duplicate curated name: {item['name']}"
-        seen.add(item["name"])
+        assert isinstance(item, dict), f"curated item {index} must be an object"
+        name = str(item.get("name", "")).strip()
+        assert name, f"empty curated name at index {index}"
+        assert name not in seen, f"duplicate curated name: {name}"
+        seen.add(name)
         assert item.get("gender", "UNKNOWN") in VALID_GENDERS
         assert item.get("verificationStatus", "NEEDS_REVIEW") in VALID_STATUSES
-        assert isinstance(item.get("usageCultureIds", []), list)
+        assert_string_list(item.get("usageCultureIds", []), f"{name}.usageCultureIds")
+        assert_string_list(item.get("tags", []), f"{name}.tags")
+        assert_string_list(item.get("sourceIds", []), f"{name}.sourceIds")
+        assert_string_list(item.get("latinVariants", []), f"{name}.latinVariants")
     return len(data)
+
 
 def validate_base() -> int:
     data = json.loads((ASSETS / "names_base.json").read_text(encoding="utf-8"))
     assert isinstance(data, dict)
+    seen_normalized: set[str] = set()
     for key, item in data.items():
-        assert key.strip() and isinstance(item, dict)
+        assert str(key).strip() and isinstance(item, dict)
+        name = str(item.get("name", key)).strip()
+        assert name, f"empty base name for key {key!r}"
+        normalized = (
+            name.lower()
+            .replace("ي", "ی")
+            .replace("ى", "ی")
+            .replace("ك", "ک")
+            .replace("‌", "")
+            .replace(" ", "")
+        )
+        assert normalized not in seen_normalized, f"normalized duplicate base name: {name}"
+        seen_normalized.add(normalized)
         assert item.get("gender", "UNKNOWN") in VALID_GENDERS
+
+        for field in (
+            "usageCultureIds",
+            "classificationSourceIds",
+            "sourceIds",
+            "latinVariants",
+            "tags",
+            "wikidataIds",
+        ):
+            if field in item:
+                assert_string_list(item[field], f"{name}.{field}")
+
+        if "sourceCount" in item:
+            assert isinstance(item["sourceCount"], int) and item["sourceCount"] >= 0
+            if "sourceIds" in item:
+                assert item["sourceCount"] == len(set(item["sourceIds"])), (
+                    f"{name}.sourceCount does not match sourceIds"
+                )
+        if "genderConflict" in item:
+            assert isinstance(item["genderConflict"], bool)
+
     return len(data)
 
+
+def validate_build_info() -> None:
+    path = ASSETS / "data_build_info.json"
+    if not path.exists():
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    assert isinstance(data, dict)
+    assert isinstance(data.get("totalNames", 0), int)
+    assert isinstance(data.get("sourceCoverage", {}), dict)
+    assert isinstance(data.get("cultureCoverage", {}), dict)
+
+
 def main() -> None:
-    print(f"OK: {validate_curated()} curated entries + {validate_base()} base entries")
+    curated_count = validate_curated()
+    base_count = validate_base()
+    validate_build_info()
+    print(f"OK: {curated_count:,} curated entries + {base_count:,} base entries")
+
 
 if __name__ == "__main__":
     main()
