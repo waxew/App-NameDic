@@ -40,8 +40,14 @@ jobs:
       - name: Validate bundled data
         run: python3 tools/validate_data.py
 
+      - name: Snapshot current enriched corpus
+        run: cp app/src/main/assets/names_base.json /tmp/names_base_previous.json
+
       - name: Merge licensed open name databases
         run: python3 tools/sync_names.py
+
+      - name: Restore enrichment-only records
+        run: python3 tools/restore_enriched_orphans.py /tmp/names_base_previous.json
 
       - name: Enrich language categories from Wikidata
         run: python3 tools/sync_wikidata_cultures.py
