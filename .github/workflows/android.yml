@@ -49,8 +49,11 @@ jobs:
       - name: Merge additional MIT Persian names corpus
         run: python3 tools/sync_mohammadhejazirad_names.py
 
-      - name: Restore enrichment-only records
+      - name: Restore previous enrichment metadata
         run: python3 tools/restore_enriched_orphans.py /tmp/names_base_previous.json
+
+      - name: Enrich Persian lexical homonyms from Dehkhoda
+        run: python3 tools/sync_dehkhoda_lexical.py
 
       - name: Enrich language categories from Wikidata
         run: python3 tools/sync_wikidata_cultures.py
