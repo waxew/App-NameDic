@@ -19,8 +19,8 @@ android {
         applicationId = "ir.asteam.namedic"
         minSdk = 24
         targetSdk = 36
-        versionCode = 5
-        versionName = "1.1.1"
+        versionCode = 6
+        versionName = "1.2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
