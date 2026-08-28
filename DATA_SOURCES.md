@@ -1,12 +1,14 @@
 # منابع داده App-NameDic
 
-هدف نسخه 1.1.x ساخت یک corpus چندمنبعی است، نه تکیه بر یک فایل نام. هر فیلد فقط از منبعی وارد می‌شود که واقعاً آن فیلد را ارائه می‌کند و مجوز استفاده آن روشن باشد.
+هدف نسخه 1.2.x ساخت یک corpus چندمنبعی است، نه تکیه بر یک فایل نام. هر فیلد فقط از منبعی وارد می‌شود که واقعاً آن فیلد را ارائه می‌کند و مجوز استفاده آن روشن باشد.
 
 ## قواعد ادغام
 
 - نام‌ها با نرمال‌سازی «ی/ي»، «ک/ك»، فاصله و نیم‌فاصله deduplicate می‌شوند.
 - جنسیت از چند منبع رأی‌گیری می‌شود. تعارض زن/مرد به‌جای انتخاب حدسی، `UNISEX` و `genderConflict=true` ثبت می‌شود.
 - `Origin / ریشه` با `Usage Culture / فرهنگ یا زبان استفاده` یکی نیست.
+- `meaning` فقط برای معنی مستقیمِ شخص‌نام است و باید منبع مستقیم داشته باشد.
+- `lexicalMeaningFa` و `lexicalAntonymsFa` فقط اطلاعات واژه فارسی هم‌نوشت با نام هستند و نباید به‌عنوان معنی یا ریشه قطعی شخص‌نام نمایش داده شوند.
 - شناسه منبع هر رکورد در `sourceIds` نگهداری می‌شود.
 - انتساب فرهنگی/زبانی مستند در `classificationSourceIds` ثبت می‌شود.
 - معنی، ریشه یا قومیت از روی ظاهر یک نام حدس زده نمی‌شود.
@@ -49,7 +51,14 @@ P407 به‌عنوان «ریشه واژه» ذخیره نمی‌شود؛ فقط
 - ثبت در دسته Persian given names؛
 - ریشه کوتاه فقط وقتی category صریحی مثل `given names from Middle Persian` وجود دارد.
 
-متن بلند مدخل‌ها و glossهای طولانی کپی نمی‌شوند. بخش داده مشتق‌شده از Wiktionary باید همراه attribution و شرایط ShareAlike مربوط نگهداری شود.
+متن بلند مدخل‌ها و glossهای طولانی کپی نمی‌شوند. بخش داده مشتق‌شده از Wiktionary همراه attribution و شرایط ShareAlike/GFDL نگهداری می‌شود.
+
+### Maani/Dehkhoda-Lexicon — CC BY-SA 4.0
+دیتاست دارای حدود 19,895 مدخل واژگانی فارسی و روابط هم‌معنی/متضاد است. importer فقط وقتی headword با یک نام موجود تطابق قطعی داشته باشد، روابط فارسی را در فیلدهای مستقل زیر ذخیره می‌کند:
+- `lexicalMeaningFa`
+- `lexicalAntonymsFa`
+
+این اطلاعات «معنی واژه فارسی هم‌نوشت با نام» است و به‌تنهایی معنی، ریشه یا منشأ شخص‌نام را ثابت نمی‌کند. در UI نیز با هشدار روشن و جدا از `meaning` نمایش داده می‌شود. متن انگلیسی تولیدشده/ترجمه‌شده در این مرحله وارد برنامه نمی‌شود.
 
 ## منابع مرجع، نه bulk import
 
@@ -75,13 +84,15 @@ P407 به‌عنوان «ریشه واژه» ذخیره نمی‌شود؛ فقط
 - `app/src/main/assets/names_base.json`: corpus ادغام‌شده.
 - `app/src/main/assets/data_build_info.json`: آمار پوشش واقعی.
 - `app/src/main/assets/data_sources.json`: رجیستری ماشین‌خوان منابع.
-- `app/src/main/assets/curated_names.json`: داده‌های پژوهش‌شده/دستی که روی رکورد پایه اولویت دارند.
+- `app/src/main/assets/curated_names.json`: داده‌های پژوهش‌شده/دستی که به‌صورت فیلدبه‌فیلد روی base اولویت دارند.
 
 ## اجرای pipeline
 
 ```bash
 python3 tools/sync_names.py
 python3 tools/sync_mohammadhejazirad_names.py
+python3 tools/restore_enriched_orphans.py /path/to/previous.json
+python3 tools/sync_dehkhoda_lexical.py
 python3 tools/sync_wikidata_cultures.py
 python3 tools/sync_wiktionary_names.py
 python3 tools/build_data_report.py
