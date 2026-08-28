@@ -25,6 +25,15 @@ def assert_string_list(value: Any, label: str) -> None:
     )
 
 
+def assert_optional_text(item: dict[str, Any], field: str, name: str) -> None:
+    if field not in item:
+        return
+    value = item[field]
+    assert isinstance(value, str), f"{name}.{field} must be a string"
+    assert value.strip(), f"{name}.{field} must not be blank when present"
+    assert len(value) <= 2000, f"{name}.{field} is unexpectedly long"
+
+
 def validate_curated() -> int:
     data = json.loads((ASSETS / "curated_names.json").read_text(encoding="utf-8"))
     assert isinstance(data, list)
@@ -41,6 +50,8 @@ def validate_curated() -> int:
         assert_string_list(item.get("tags", []), f"{name}.tags")
         assert_string_list(item.get("sourceIds", []), f"{name}.sourceIds")
         assert_string_list(item.get("latinVariants", []), f"{name}.latinVariants")
+        assert_optional_text(item, "lexicalMeaningFa", name)
+        assert_optional_text(item, "lexicalAntonymsFa", name)
     return len(data)
 
 
@@ -64,6 +75,9 @@ def validate_base() -> int:
             if field in item:
                 assert_string_list(item[field], f"{name}.{field}")
 
+        assert_optional_text(item, "lexicalMeaningFa", name)
+        assert_optional_text(item, "lexicalAntonymsFa", name)
+
         if "sourceCount" in item:
             assert isinstance(item["sourceCount"], int) and item["sourceCount"] >= 0
             if "sourceIds" in item:
@@ -85,6 +99,10 @@ def validate_build_info() -> None:
     assert isinstance(data.get("totalNames", 0), int)
     assert isinstance(data.get("sourceCoverage", {}), dict)
     assert isinstance(data.get("cultureCoverage", {}), dict)
+    if "withLexicalMeaningFa" in data:
+        assert isinstance(data["withLexicalMeaningFa"], int)
+    if "withLexicalAntonymsFa" in data:
+        assert isinstance(data["withLexicalAntonymsFa"], int)
 
 
 def main() -> None:
