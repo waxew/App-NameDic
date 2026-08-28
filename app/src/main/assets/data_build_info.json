@@ -1,0 +1,35 @@
+{
+  "totalNames": 26353,
+  "genderCounts": {
+    "FEMALE": 9085,
+    "MALE": 14818,
+    "UNISEX": 1153,
+    "UNKNOWN": 1297
+  },
+  "withLatin": 24854,
+  "withMultipleLatinVariants": 3228,
+  "withMeaning": 0,
+  "withOrigin": 1,
+  "withPronunciation": 423,
+  "withCultureClassificationBeyondGeneral": 491,
+  "multiSourceNames": 8318,
+  "genderConflictNames": 1153,
+  "sourceCoverage": {
+    "armanyazdi_persian_names_female": 343,
+    "armanyazdi_persian_names_male": 324,
+    "farbodbj_pngt": 23351,
+    "jadijadi_persianwords_boy": 358,
+    "jadijadi_persianwords_girl": 369,
+    "mehdi_iranian_names_female": 2326,
+    "mehdi_iranian_names_male": 2082,
+    "nabidam_persian_names": 8735,
+    "wikidata_cc0": 31,
+    "wiktionary_kaikki": 466
+  },
+  "cultureCoverage": {
+    "azerbaijani": 25,
+    "iran_general": 26353,
+    "kurdish": 6,
+    "persian": 466
+  }
+}
