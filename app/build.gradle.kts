@@ -19,8 +19,8 @@ android {
         applicationId = "ir.asteam.namedic"
         minSdk = 24
         targetSdk = 36
-        versionCode = 6
-        versionName = "1.2.0"
+        versionCode = 7
+        versionName = "1.3.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -52,8 +52,6 @@ android {
     lint { abortOnError = true; checkReleaseBuilds = true }
 }
 
-// TopAppBar در نسخه Material3 فعلی هنوز ExperimentalMaterial3Api است.
-// opt-in در سطح ماژول باعث می‌شود API آزمایشی به‌صورت کنترل‌شده و مرکزی مدیریت شود.
 kotlin {
     compilerOptions {
         optIn.add("androidx.compose.material3.ExperimentalMaterial3Api")
@@ -61,7 +59,6 @@ kotlin {
 }
 
 dependencies {
-    // Compose 1.11.x remains compatible with compileSdk 36; Compose 1.12 requires API 37.
     val composeBom = platform("androidx.compose:compose-bom:2026.06.00")
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -73,7 +70,6 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.material:material-icons-extended")
-    // بارگذاری URI تصویر پروفایل انتخاب‌شده از Document Picker.
     implementation("io.coil-kt:coil-compose:2.7.0")
     debugImplementation("androidx.compose.ui:ui-tooling")
 }
