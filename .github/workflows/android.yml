@@ -79,8 +79,22 @@ jobs:
             git push origin HEAD:main
           fi
 
+      - name: Apply v1.4 comparison UI migration
+        run: python3 tools/apply_compare_ui_upgrade.py
+
       - name: Build debug APK
         run: gradle :app:assembleDebug
+
+      - name: Persist validated comparison UI
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/src/main/java/ir/asteam/namedic/ui/NameDicRedesign.kt
+          if ! git diff --cached --quiet; then
+            git commit -m "Apply favorites comparison UI [skip ci]"
+            git push origin HEAD:main
+          fi
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
