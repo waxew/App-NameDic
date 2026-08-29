@@ -46,7 +46,7 @@ import java.time.LocalDate
  * مستقیماً بین اسم دختر و پسر انتخاب می‌کند و در تمام مسیرها، فهرست خالی به
  * صفحهٔ بن‌بست تبدیل نمی‌شود.
  */
-private enum class NewScreen { HOME, GIRLS, BOYS, SEARCH, DISCOVER, FAVORITES, CULTURES, CULTURE_NAMES, DETAIL, ABOUT, CONTACT }
+private enum class NewScreen { HOME, GIRLS, BOYS, SEARCH, DISCOVER, FAVORITES, CULTURES, HISTORY, CULTURE_NAMES, DETAIL, ABOUT, CONTACT }
 
 @Composable
 fun NameDicRedesignApp() {
@@ -135,7 +135,7 @@ fun NameDicRedesignApp() {
                 )
             },
             bottomBar = {
-                if (screen !in setOf(NewScreen.DETAIL, NewScreen.ABOUT, NewScreen.CONTACT, NewScreen.CULTURE_NAMES)) {
+                if (screen !in setOf(NewScreen.DETAIL, NewScreen.ABOUT, NewScreen.CONTACT, NewScreen.CULTURE_NAMES, NewScreen.HISTORY)) {
                     NavigationBar {
                         BottomDestination("خانه", Icons.Rounded.Home, screen == NewScreen.HOME) { go(NewScreen.HOME) }
                         BottomDestination("جستجو", Icons.Rounded.Search, screen == NewScreen.SEARCH) { go(NewScreen.SEARCH) }
@@ -157,6 +157,7 @@ fun NameDicRedesignApp() {
                         selectedCulture = it
                         go(NewScreen.CULTURE_NAMES)
                     }
+                    NewScreen.HISTORY -> HistoricalFiguresScreen()
                     NewScreen.CULTURE_NAMES -> CultureNamesScreen(selectedCulture, discovery, favorites, ::toggleFavorite, ::openName)
                     NewScreen.DETAIL -> selectedName?.let { NewDetail(it, discovery, favorites, ::toggleFavorite, ::openName) }
                     NewScreen.ABOUT -> NewAbout()
@@ -180,6 +181,7 @@ private fun newTitle(screen: NewScreen, culture: CultureCategory?, name: NameEnt
     NewScreen.DISCOVER -> "اسم پیدا کن"
     NewScreen.FAVORITES -> "اسم‌های پسندیده"
     NewScreen.CULTURES -> "فرهنگ‌ها و زبان‌ها"
+    NewScreen.HISTORY -> "بزرگان تاریخ ایران"
     NewScreen.CULTURE_NAMES -> culture?.titleFa ?: "اسم‌ها"
     NewScreen.DETAIL -> name?.name ?: "جزئیات اسم"
     NewScreen.ABOUT -> "درباره نام‌نامه"
@@ -236,6 +238,8 @@ private fun NewHome(discovery: NameDiscoveryEngine, favoriteCount: Int, go: (New
                 MiniTool("فرهنگ‌ها", Icons.Rounded.Language, Modifier.weight(1f)) { go(NewScreen.CULTURES) }
             }
         }
+
+        item { HistoricalFiguresHomeCard { go(NewScreen.HISTORY) } }
 
         if (cultureStats.isNotEmpty()) {
             item { SectionHeader("فرهنگ‌های دارای اسم", "فقط دسته‌هایی که واقعاً داده دارند") }
@@ -861,6 +865,7 @@ private fun NewDrawer(profileUri: String, userName: String, onProfile: () -> Uni
         DrawerItem("اسم‌های پسرانه", Icons.Rounded.Male) { onNavigate(NewScreen.BOYS) }
         DrawerItem("اسم پیدا کن", Icons.Rounded.AutoAwesome) { onNavigate(NewScreen.DISCOVER) }
         DrawerItem("فرهنگ‌ها و زبان‌ها", Icons.Rounded.Language) { onNavigate(NewScreen.CULTURES) }
+        DrawerItem("بزرگان تاریخ ایران", Icons.Rounded.AccountBalance) { onNavigate(NewScreen.HISTORY) }
         DrawerItem("اسم‌های پسندیده", Icons.Rounded.Favorite) { onNavigate(NewScreen.FAVORITES) }
         Spacer(Modifier.weight(1f))
         HorizontalDivider()
@@ -879,7 +884,7 @@ private fun DrawerItem(title: String, icon: androidx.compose.ui.graphics.vector.
 private fun NewAbout() {
     LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(22.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         item { Text("نام‌نامه ایران", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black) }
-        item { Text("نام‌نامه ایران برای پیدا کردن و مقایسه اسم‌های دخترانه و پسرانه طراحی شده است. جستجو، فیلتر، پسندیده‌ها، پیشنهاد اسم، فرهنگ‌های دارای داده و اطلاعات معنی/ریشه در محیطی ساده و آفلاین در دسترس هستند.") }
+        item { Text("نام‌نامه ایران برای پیدا کردن و مقایسه اسم‌های دخترانه و پسرانه طراحی شده است. جستجو، فیلتر، پسندیده‌ها، پیشنهاد اسم، فرهنگ‌های دارای داده، اطلاعات معنی/ریشه و بخش آفلاین «بزرگان تاریخ ایران» در یک محیط ساده در دسترس هستند.") }
         item { Text("نسخه ${BuildConfig.VERSION_NAME}", fontWeight = FontWeight.Bold) }
     }
 }
