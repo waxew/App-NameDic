@@ -40,6 +40,9 @@ jobs:
       - name: Validate bundled data
         run: python3 tools/validate_data.py
 
+      - name: Validate historical figures data
+        run: python3 tools/validate_history.py
+
       - name: Snapshot current enriched corpus
         run: cp app/src/main/assets/names_base.json /tmp/names_base_previous.json
 
@@ -82,17 +85,20 @@ jobs:
       - name: Apply v1.4 comparison UI migration
         run: python3 tools/apply_compare_ui_upgrade.py
 
+      - name: Apply v1.5 history UI migration
+        run: python3 tools/apply_history_ui_upgrade.py
+
       - name: Build debug APK
         run: gradle :app:assembleDebug
 
-      - name: Persist validated comparison UI
+      - name: Persist validated UI migrations
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add app/src/main/java/ir/asteam/namedic/ui/NameDicRedesign.kt
           if ! git diff --cached --quiet; then
-            git commit -m "Apply favorites comparison UI [skip ci]"
+            git commit -m "Connect historical figures UI [skip ci]"
             git push origin HEAD:main
           fi
 
