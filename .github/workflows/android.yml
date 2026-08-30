@@ -37,11 +37,14 @@ jobs:
         with:
           gradle-version: '9.5.0'
 
-      - name: Validate bundled data
+      - name: Validate bundled name data
         run: python3 tools/validate_data.py
 
       - name: Validate historical figures data
         run: python3 tools/validate_history.py
+
+      - name: Validate history timeline data
+        run: python3 tools/validate_history_timeline.py
 
       - name: Snapshot current enriched corpus
         run: cp app/src/main/assets/names_base.json /tmp/names_base_previous.json
@@ -67,7 +70,7 @@ jobs:
       - name: Build data coverage report
         run: python3 tools/build_data_report.py
 
-      - name: Validate expanded data
+      - name: Validate expanded name data
         run: python3 tools/validate_data.py
 
       - name: Persist multi-source corpus
@@ -88,22 +91,56 @@ jobs:
       - name: Apply v1.5 history UI migration
         run: python3 tools/apply_history_ui_upgrade.py
 
+      - name: Apply v2 completion UI migration
+        run: python3 tools/apply_v2_completion_ui.py
+
+      - name: Run unit tests
+        run: gradle :app:testDebugUnitTest
+
+      - name: Run Android lint
+        run: gradle :app:lintDebug
+
       - name: Build debug APK
         run: gradle :app:assembleDebug
 
-      - name: Persist validated UI migrations
+      - name: Persist validated v2 UI
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add app/src/main/java/ir/asteam/namedic/ui/NameDicRedesign.kt
           if ! git diff --cached --quiet; then
-            git commit -m "Connect historical figures UI [skip ci]"
+            git commit -m "Apply v2 completion UI [skip ci]"
             git push origin HEAD:main
           fi
 
-      - name: Upload APK
+      - name: Prepare v2 delivery bundle
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/debug/app-debug.apk dist/App-NameDic-v2.0.0-debug.apk
+          sha256sum dist/App-NameDic-v2.0.0-debug.apk > dist/SHA256SUMS.txt
+          git archive --format=zip --output=dist/App-NameDic-v2.0.0-source.zip HEAD
+          cat > dist/BUILD_INFO.txt <<'EOF'
+          App-NameDic / نام‌نامه ایران
+          Version: 2.0.0
+          Version code: 11
+          Application ID: ir.asteam.namedic
+          Build type: Debug APK for testing
+          Validation: name data + historical figures + timeline + unit tests + lint + assembleDebug
+          Release signing: private original keystore is intentionally not stored in this public repository or CI.
+          EOF
+
+      - name: Upload pull-request APK
+        if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
-          name: App-NameDic-debug
+          name: App-NameDic-v2.0.0-pr-debug
           path: app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Upload v2 delivery bundle
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: App-NameDic-v2.0.0-delivery
+          path: dist/*
