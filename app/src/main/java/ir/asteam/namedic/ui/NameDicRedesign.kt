@@ -46,7 +46,7 @@ import java.time.LocalDate
  * مستقیماً بین اسم دختر و پسر انتخاب می‌کند و در تمام مسیرها، فهرست خالی به
  * صفحهٔ بن‌بست تبدیل نمی‌شود.
  */
-private enum class NewScreen { HOME, GIRLS, BOYS, SEARCH, DISCOVER, FAVORITES, CULTURES, HISTORY, CULTURE_NAMES, DETAIL, ABOUT, CONTACT }
+private enum class NewScreen { HOME, GIRLS, BOYS, SEARCH, DISCOVER, FAVORITES, CULTURES, TOOLS, HISTORY, CULTURE_NAMES, DETAIL, SETTINGS, ABOUT, CONTACT }
 
 @Composable
 fun NameDicRedesignApp() {
@@ -64,6 +64,9 @@ fun NameDicRedesignApp() {
     var favorites by remember { mutableStateOf(prefs.getStringSet("favorites", emptySet()).orEmpty().toSet()) }
     var profileUri by remember { mutableStateOf(prefs.getString("profile_uri", "").orEmpty()) }
     var userName by remember { mutableStateOf(prefs.getString("user_name", "کاربر نام‌نامه").orEmpty()) }
+    var autoUpdateCheck by remember {
+        mutableStateOf(prefs.getBoolean("auto_update_check", true))
+    }
 
     fun go(target: NewScreen) {
         if (target != screen) previous = screen
@@ -96,6 +99,9 @@ fun NameDicRedesignApp() {
             else -> screen = NewScreen.HOME
         }
     }
+
+    // بررسی نسخه اختیاری است و شکست شبکه هیچ مسیر آفلاینی را مسدود نمی‌کند.
+    UpdateNotificationHost(autoUpdateCheck)
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -135,7 +141,7 @@ fun NameDicRedesignApp() {
                 )
             },
             bottomBar = {
-                if (screen !in setOf(NewScreen.DETAIL, NewScreen.ABOUT, NewScreen.CONTACT, NewScreen.CULTURE_NAMES, NewScreen.HISTORY)) {
+                if (screen !in setOf(NewScreen.DETAIL, NewScreen.SETTINGS, NewScreen.ABOUT, NewScreen.CONTACT, NewScreen.CULTURE_NAMES, NewScreen.TOOLS, NewScreen.HISTORY)) {
                     NavigationBar {
                         BottomDestination("خانه", Icons.Rounded.Home, screen == NewScreen.HOME) { go(NewScreen.HOME) }
                         BottomDestination("جستجو", Icons.Rounded.Search, screen == NewScreen.SEARCH) { go(NewScreen.SEARCH) }
@@ -157,11 +163,16 @@ fun NameDicRedesignApp() {
                         selectedCulture = it
                         go(NewScreen.CULTURE_NAMES)
                     }
-                    NewScreen.HISTORY -> HistoricalFiguresScreen()
+                    NewScreen.TOOLS -> AdvancedNameToolsScreen(repository, discovery, favorites, ::toggleFavorite, ::openName)
+                    NewScreen.HISTORY -> IranHistoryHubScreen()
                     NewScreen.CULTURE_NAMES -> CultureNamesScreen(selectedCulture, discovery, favorites, ::toggleFavorite, ::openName)
                     NewScreen.DETAIL -> selectedName?.let { NewDetail(it, discovery, favorites, ::toggleFavorite, ::openName) }
                     NewScreen.ABOUT -> NewAbout()
                     NewScreen.CONTACT -> NewContact()
+                    NewScreen.SETTINGS -> SettingsScreen(autoUpdateCheck) { enabled ->
+                        autoUpdateCheck = enabled
+                        prefs.edit().putBoolean("auto_update_check", enabled).apply()
+                    }
                 }
             }
         }
@@ -181,9 +192,11 @@ private fun newTitle(screen: NewScreen, culture: CultureCategory?, name: NameEnt
     NewScreen.DISCOVER -> "اسم پیدا کن"
     NewScreen.FAVORITES -> "اسم‌های پسندیده"
     NewScreen.CULTURES -> "فرهنگ‌ها و زبان‌ها"
-    NewScreen.HISTORY -> "بزرگان تاریخ ایران"
+    NewScreen.TOOLS -> "ابزار انتخاب اسم"
+    NewScreen.HISTORY -> "تاریخ ایران"
     NewScreen.CULTURE_NAMES -> culture?.titleFa ?: "اسم‌ها"
     NewScreen.DETAIL -> name?.name ?: "جزئیات اسم"
+    NewScreen.SETTINGS -> "تنظیمات"
     NewScreen.ABOUT -> "درباره نام‌نامه"
     NewScreen.CONTACT -> "ارتباط با ما"
 }
@@ -238,6 +251,8 @@ private fun NewHome(discovery: NameDiscoveryEngine, favoriteCount: Int, go: (New
                 MiniTool("فرهنگ‌ها", Icons.Rounded.Language, Modifier.weight(1f)) { go(NewScreen.CULTURES) }
             }
         }
+
+        item { AdvancedToolsHomeCard { go(NewScreen.TOOLS) } }
 
         item { HistoricalFiguresHomeCard { go(NewScreen.HISTORY) } }
 
@@ -803,6 +818,8 @@ private fun NewDetail(entry: NameEntry, discovery: NameDiscoveryEngine, favorite
             item { DetailCard(Icons.Rounded.Info, "اطلاعات این اسم در حال تکمیل است", "این اسم در چند فهرست معتبر نام ثبت شده، اما هنوز معنی یا ریشهٔ پژوهش‌شده‌ای که بتوانیم با اطمینان نمایش دهیم به آن متصل نشده است.") }
         }
 
+        item { NameShareReportActions(entry, cultureTitles) }
+
         if (related.isNotEmpty()) {
             item { SectionHeader("اسم‌های مشابه", "بر اساس جنسیت، حرف اول و دسته‌های مشترک") }
             item {
@@ -860,10 +877,14 @@ private fun NewDrawer(profileUri: String, userName: String, onProfile: () -> Uni
             Row(Modifier.align(Alignment.CenterHorizontally).clickable { edit = true }.padding(10.dp), verticalAlignment = Alignment.CenterVertically) { Icon(Icons.Rounded.Person, null, Modifier.size(17.dp)); Spacer(Modifier.width(6.dp)); Text(userName, fontWeight = FontWeight.Bold); Spacer(Modifier.width(5.dp)); Icon(Icons.Rounded.Edit, null, Modifier.size(14.dp)) }
         }
         HorizontalDivider()
+        DrawerItem("تنظیمات", Icons.Rounded.Settings) { onNavigate(NewScreen.SETTINGS) }
+        ShareAppDrawerItem()
+        HorizontalDivider()
         DrawerItem("خانه", Icons.Rounded.Home) { onNavigate(NewScreen.HOME) }
         DrawerItem("اسم‌های دخترانه", Icons.Rounded.Female) { onNavigate(NewScreen.GIRLS) }
         DrawerItem("اسم‌های پسرانه", Icons.Rounded.Male) { onNavigate(NewScreen.BOYS) }
         DrawerItem("اسم پیدا کن", Icons.Rounded.AutoAwesome) { onNavigate(NewScreen.DISCOVER) }
+        DrawerItem("پیشنهادگر پیشرفته", Icons.Rounded.Tune) { onNavigate(NewScreen.TOOLS) }
         DrawerItem("فرهنگ‌ها و زبان‌ها", Icons.Rounded.Language) { onNavigate(NewScreen.CULTURES) }
         DrawerItem("بزرگان تاریخ ایران", Icons.Rounded.AccountBalance) { onNavigate(NewScreen.HISTORY) }
         DrawerItem("اسم‌های پسندیده", Icons.Rounded.Favorite) { onNavigate(NewScreen.FAVORITES) }
@@ -884,7 +905,8 @@ private fun DrawerItem(title: String, icon: androidx.compose.ui.graphics.vector.
 private fun NewAbout() {
     LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(22.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
         item { Text("نام‌نامه ایران", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Black) }
-        item { Text("نام‌نامه ایران برای پیدا کردن و مقایسه اسم‌های دخترانه و پسرانه طراحی شده است. جستجو، فیلتر، پسندیده‌ها، پیشنهاد اسم، فرهنگ‌های دارای داده، اطلاعات معنی/ریشه و بخش آفلاین «بزرگان تاریخ ایران» در یک محیط ساده در دسترس هستند.") }
+        item { Text("نام‌نامه ایران برای پیدا کردن، مقایسه و شناخت اسم‌های ایرانی طراحی شده است. جستجو، پیشنهادگر پیشرفته، پسندیده‌ها و مقایسه، فرهنگ‌های دارای داده، معنی/ریشه، مرکز تاریخ ایران با شخصیت‌ها و خط زمانی، آزمون آفلاین و ابزار گزارش داده در یک محیط یکپارچه در دسترس هستند.") }
+        item { DataTransparencySection() }
         item { Text("نسخه ${BuildConfig.VERSION_NAME}", fontWeight = FontWeight.Bold) }
     }
 }
