@@ -1,6 +1,6 @@
 # Third-party notices
 
-App-NameDic uses only data sources whose automatic reuse conditions are known. `DATA_SOURCES.md` and `app/src/main/assets/data_sources.json` describe which fields are imported from each source.
+App-NameDic automatically reuses only data sources whose reuse conditions are known. `DATA_SOURCES.md` and `app/src/main/assets/data_sources.json` describe which fields are imported into the name corpus. Historical profiles are a separate curated layer: article text is not bundled wholesale; the app stores short rewritten summaries plus reference links.
 
 ## nabidam/persian-names
 
@@ -68,7 +68,7 @@ The importer discards non-name lines and merge-conflict markers found in the ups
 
 Website: `https://www.wikidata.org/`
 
-Use: structured name-language associations, given-name class/gender, labels and Q identifiers.
+Use: structured name-language associations, given-name class/gender, labels and Q identifiers; one historical profile may also use a Wikidata entity page as its reference link.
 
 License: structured data in Wikidata's main/property/lexeme namespaces is CC0.
 
@@ -104,6 +104,22 @@ Attribution: Maani/Dehkhoda-Lexicon, derived from Dehkhoda lexical material. Der
 Website: `https://sahim.sabteahval.ir/`
 
 The interactive name system is treated as a high-priority official verification reference for Iranian naming information. It is not bulk-scraped by the automatic pipeline unless a public/authorized machine-readable interface and reuse terms are available.
+
+## Historical reference links in App-NameDic 2.0
+
+### Encyclopaedia Iranica
+
+Website: `https://www.iranicaonline.org/`
+
+Use: reference checking for selected historical periods and figures. App-NameDic does not distribute copies of Iranica articles. The bundled Persian profile text is independently summarized/rephrased and the relevant source URL is retained for further reading.
+
+### Wikipedia
+
+Website: `https://www.wikipedia.org/`
+
+Use: reference checking and further-reading links for a subset of historical profiles and timeline records. Long article passages are not bundled. The app stores concise rewritten factual summaries and source links rather than reproducing articles.
+
+Wikipedia article pages may contain text under CC BY-SA and other media with separate licenses. Opening a source link takes the user to the external article; App-NameDic does not bundle those external page assets as part of its historical cards.
 
 ## Sources intentionally not bundled
 
