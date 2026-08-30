@@ -96,21 +96,22 @@ fun SettingsScreen(
 
                 FilledTonalButton(
                     onClick = {
-                        if (checking) return@FilledTonalButton
-                        checking = true
-                        resultText = "در حال بررسی…"
-                        scope.launch {
-                            val info = UpdateChecker.check()
-                            checking = false
-                            when {
-                                info == null -> resultText = "بررسی نسخه انجام نشد؛ اتصال اینترنت را بررسی کن. استفاده آفلاین برنامه بدون مشکل ادامه دارد."
-                                info.latestVersionCode > BuildConfig.VERSION_CODE -> {
-                                    availableUpdate = info
-                                    resultText = "نسخه ${info.latestVersionName} در دسترس است."
-                                }
-                                else -> {
-                                    availableUpdate = null
-                                    resultText = "همین حالا آخرین نسخه را داری."
+                        if (!checking) {
+                            checking = true
+                            resultText = "در حال بررسی…"
+                            scope.launch {
+                                val info = UpdateChecker.check()
+                                checking = false
+                                when {
+                                    info == null -> resultText = "بررسی نسخه انجام نشد؛ اتصال اینترنت را بررسی کن. استفاده آفلاین برنامه بدون مشکل ادامه دارد."
+                                    info.latestVersionCode > BuildConfig.VERSION_CODE -> {
+                                        availableUpdate = info
+                                        resultText = "نسخه ${info.latestVersionName} در دسترس است."
+                                    }
+                                    else -> {
+                                        availableUpdate = null
+                                        resultText = "همین حالا آخرین نسخه را داری."
+                                    }
                                 }
                             }
                         }
