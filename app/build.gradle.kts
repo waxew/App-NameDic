@@ -16,11 +16,12 @@ android {
     compileSdk = 36
 
     defaultConfig {
+        // applicationId عمداً ثابت است تا نسخه‌های جدید روی نصب قبلی به‌روزرسانی شوند.
         applicationId = "ir.asteam.namedic"
         minSdk = 24
         targetSdk = 36
-        versionCode = 10
-        versionName = "1.5.0"
+        versionCode = 11
+        versionName = "2.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -40,6 +41,7 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // فقط همان کلید خصوصی اصلی پروژه اجازه دارد Release را امضا کند.
             if (signingPropertiesFile.exists()) signingConfig = signingConfigs.getByName("release")
         }
     }
@@ -74,5 +76,9 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     implementation("io.coil-kt:coil-compose:2.7.0")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+
+    // تست‌های خالص موتور پیشنهادگر و آزمون تاریخ در CI اجرا می‌شوند.
+    testImplementation("junit:junit:4.13.2")
+
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

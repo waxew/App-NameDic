@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the offline historical-figures dataset used by the Android app.
+"""Validate all offline historical-figures datasets used by the Android app.
 
 This validator intentionally checks structure rather than historical truth. Historical
 claims are reviewed when records are curated; CI guarantees that broken/duplicate
@@ -12,7 +12,10 @@ import json
 from pathlib import Path
 from urllib.parse import urlparse
 
-DATA_FILE = Path("app/src/main/assets/historical_figures.json")
+DATA_FILES = (
+    Path("app/src/main/assets/historical_figures.json"),
+    Path("app/src/main/assets/historical_figures_extra.json"),
+)
 REQUIRED_TEXT_FIELDS = (
     "id",
     "nameFa",
@@ -32,38 +35,45 @@ def fail(message: str) -> None:
     raise SystemExit(f"[history-data] ERROR: {message}")
 
 
+def load_records() -> list[tuple[Path, dict]]:
+    """Read every declared content pack and preserve its file for useful errors."""
+    loaded: list[tuple[Path, dict]] = []
+    for data_file in DATA_FILES:
+        if not data_file.exists():
+            fail(f"missing file: {data_file}")
+        try:
+            records = json.loads(data_file.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            fail(f"invalid JSON in {data_file}: {exc}")
+        if not isinstance(records, list) or not records:
+            fail(f"{data_file}: top-level JSON must be a non-empty array")
+        for record in records:
+            loaded.append((data_file, record))
+    return loaded
+
+
 def main() -> None:
-    if not DATA_FILE.exists():
-        fail(f"missing file: {DATA_FILE}")
+    records = load_records()
+    seen_ids: dict[str, Path] = {}
+    seen_names: dict[str, Path] = {}
 
-    try:
-        records = json.loads(DATA_FILE.read_text(encoding="utf-8"))
-    except json.JSONDecodeError as exc:
-        fail(f"invalid JSON: {exc}")
-
-    if not isinstance(records, list) or not records:
-        fail("top-level JSON must be a non-empty array")
-
-    seen_ids: set[str] = set()
-    seen_names: set[str] = set()
-
-    for index, record in enumerate(records):
+    for index, (data_file, record) in enumerate(records):
         if not isinstance(record, dict):
-            fail(f"record #{index + 1} is not an object")
+            fail(f"{data_file}: record #{index + 1} is not an object")
 
         for field in REQUIRED_TEXT_FIELDS:
             value = record.get(field)
             if not isinstance(value, str) or not value.strip():
-                fail(f"record #{index + 1} has empty/non-string field {field!r}")
+                fail(f"{data_file}: record #{index + 1} has empty/non-string field {field!r}")
 
         record_id = record["id"].strip()
         name_fa = record["nameFa"].strip()
         if record_id in seen_ids:
-            fail(f"duplicate id: {record_id}")
+            fail(f"duplicate id across packs: {record_id} ({seen_ids[record_id]} and {data_file})")
         if name_fa in seen_names:
-            fail(f"duplicate Persian name: {name_fa}")
-        seen_ids.add(record_id)
-        seen_names.add(name_fa)
+            fail(f"duplicate Persian name across packs: {name_fa} ({seen_names[name_fa]} and {data_file})")
+        seen_ids[record_id] = data_file
+        seen_names[name_fa] = data_file
 
         highlights = record.get("highlightsFa")
         if not isinstance(highlights, list) or len(highlights) < 2:
@@ -78,9 +88,9 @@ def main() -> None:
         if len(record["summaryFa"].strip()) < 80:
             fail(f"{record_id}: summaryFa is too short for a useful profile")
 
-    categories = sorted({record["categoryFa"] for record in records})
+    categories = sorted({record["categoryFa"] for _, record in records})
     print(
-        f"[history-data] OK: {len(records)} figures, "
+        f"[history-data] OK: {len(records)} figures across {len(DATA_FILES)} packs, "
         f"{len(categories)} categories, all ids and source URLs valid"
     )
 

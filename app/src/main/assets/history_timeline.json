@@ -1,0 +1,134 @@
+[
+  {
+    "id": "medes",
+    "titleFa": "مادها",
+    "yearsFa": "سدهٔ هفتم پیش از میلاد تا ۵۵۰ پیش از میلاد",
+    "eraFa": "ایران باستان",
+    "summaryFa": "مادها یکی از قدرت‌های مهم فلات ایران در سدهٔ هفتم پیش از میلاد بودند. تاریخ آغاز دقیق دولت ماد محل بحث است؛ در این Timeline به‌جای یک سال تأسیس قطعی، بازهٔ کلی دوره نمایش داده می‌شود.",
+    "startSort": -700,
+    "endSort": -550,
+    "sourceLabel": "Encyclopaedia Iranica — Chronology of Iranian History",
+    "sourceUrl": "https://www.iranicaonline.org/articles/chronology-of-iranian-history-part-1/"
+  },
+  {
+    "id": "achaemenid",
+    "titleFa": "هخامنشیان",
+    "yearsFa": "۵۵۰ تا ۳۳۰ پیش از میلاد",
+    "eraFa": "ایران باستان",
+    "summaryFa": "با پیروزی کوروش دوم بر آستیاگ در ۵۵۰ پیش از میلاد، هخامنشیان به قدرت برتر منطقه تبدیل شدند. این شاهنشاهی تا شکست داریوش سوم و پایان دودمان در ۳۳۰ پیش از میلاد ادامه یافت.",
+    "startSort": -550,
+    "endSort": -330,
+    "sourceLabel": "Encyclopaedia Iranica — Achaemenid Dynasty",
+    "sourceUrl": "https://www.iranicaonline.org/articles/achaemenid-dynasty/"
+  },
+  {
+    "id": "arsacid",
+    "titleFa": "اشکانیان / ارشکیان",
+    "yearsFa": "حدود ۲۴۷ پیش از میلاد تا ۲۲۴ میلادی",
+    "eraFa": "ایران باستان",
+    "summaryFa": "ارشکیان از شرق ایران برخاستند و به‌تدریج بخش بزرگی از ایران و بین‌النهرین را زیر فرمان گرفتند. نظام سیاسی آنان نسبت به ساسانیان تمرکز کمتری داشت و دورهٔ حکومتشان چند سده ادامه یافت.",
+    "startSort": -247,
+    "endSort": 224,
+    "sourceLabel": "Encyclopaedia Iranica — Arsacids",
+    "sourceUrl": "https://www.iranicaonline.org/articles/arsacids-vi/"
+  },
+  {
+    "id": "sasanian",
+    "titleFa": "ساسانیان",
+    "yearsFa": "۲۲۴ تا میانهٔ سدهٔ هفتم میلادی",
+    "eraFa": "ایران باستان",
+    "summaryFa": "ساسانیان با پیروزی اردشیر بابکان بر آخرین شاه بزرگ اشکانی در ۲۲۴ میلادی به قدرت رسیدند. این دولت یکی از قدرت‌های اصلی غرب آسیا بود و تا فتوحات عربی در سدهٔ هفتم ادامه داشت.",
+    "startSort": 224,
+    "endSort": 651,
+    "sourceLabel": "Encyclopaedia Iranica — Sasanian Dynasty",
+    "sourceUrl": "https://www.iranicaonline.org/articles/sasanian-dynasty/"
+  },
+  {
+    "id": "saffarid",
+    "titleFa": "صفاریان",
+    "yearsFa": "سدهٔ نهم تا آغاز سدهٔ یازدهم میلادی",
+    "eraFa": "ایران پس از اسلام",
+    "summaryFa": "صفاریان از سیستان برخاستند و در دورهٔ یعقوب لیث و جانشینان او در بخش‌هایی از ایران شرقی قدرت گرفتند. این دوره در روند شکل‌گیری دوبارهٔ حکومت‌های محلی ایرانی پس از خلافت اهمیت دارد.",
+    "startSort": 861,
+    "endSort": 1003,
+    "sourceLabel": "Wikipedia — Saffarid dynasty",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Saffarid_dynasty"
+  },
+  {
+    "id": "samanid",
+    "titleFa": "سامانیان",
+    "yearsFa": "۸۱۹ تا ۹۹۹ میلادی",
+    "eraFa": "ایران پس از اسلام",
+    "summaryFa": "سامانیان در خراسان و فرارود حکومت کردند و در گسترش زبان و فرهنگ فارسی نو نقش مهمی داشتند. بخارا و سمرقند از مراکز برجستهٔ فرهنگی و اداری این دوره بودند.",
+    "startSort": 819,
+    "endSort": 999,
+    "sourceLabel": "Wikipedia — Samanid Empire",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Samanid_Empire"
+  },
+  {
+    "id": "seljuk",
+    "titleFa": "سلجوقیان بزرگ",
+    "yearsFa": "سدهٔ یازدهم تا پایان سدهٔ دوازدهم میلادی",
+    "eraFa": "ایران میانه",
+    "summaryFa": "سلجوقیان قدرتی گسترده در ایران و سرزمین‌های پیرامونی ایجاد کردند. ادارهٔ دیوانی فارسی و چهره‌هایی مانند خواجه نظام‌الملک در ساختار سیاسی و فرهنگی این دوره نقش برجسته‌ای داشتند.",
+    "startSort": 1037,
+    "endSort": 1194,
+    "sourceLabel": "Wikipedia — Seljuk Empire",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Seljuk_Empire"
+  },
+  {
+    "id": "safavid",
+    "titleFa": "صفویان",
+    "yearsFa": "۱۵۰۱ تا ۱۷۳۶ میلادی",
+    "eraFa": "اوایل دوران نوین",
+    "summaryFa": "صفویان از ۱۵۰۱ به حکومت رسیدند و یکی از مهم‌ترین دولت‌های ایران اوایل دوران نوین را تشکیل دادند. تشیع دوازده‌امامی در این دوره مذهب رسمی دولت شد و اصفهان در دورهٔ شاه عباس به مرکز مهم سیاسی و فرهنگی تبدیل شد.",
+    "startSort": 1501,
+    "endSort": 1736,
+    "sourceLabel": "Wikipedia — Safavid dynasty",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Safavid_dynasty"
+  },
+  {
+    "id": "afsharid",
+    "titleFa": "افشاریان",
+    "yearsFa": "۱۷۳۶ تا ۱۷۹۶ میلادی",
+    "eraFa": "ایران سدهٔ هجدهم",
+    "summaryFa": "نادرشاه در ۱۷۳۶ به پادشاهی رسید و دودمان افشاری را پایه گذاشت. پس از مرگ او، قدرت مرکزی افشاریان کاهش یافت و بخش‌هایی از ایران زیر فرمان نیروهای رقیب قرار گرفت.",
+    "startSort": 1736,
+    "endSort": 1796,
+    "sourceLabel": "Wikipedia — Afsharid Iran",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Afsharid_Iran"
+  },
+  {
+    "id": "zand",
+    "titleFa": "زندیه",
+    "yearsFa": "میانهٔ سدهٔ هجدهم تا ۱۷۹۴ میلادی",
+    "eraFa": "ایران سدهٔ هجدهم",
+    "summaryFa": "کریم‌خان زند پس از دورهٔ آشفتگی پس از نادرشاه در بخش بزرگی از ایران قدرت یافت. شیراز مرکز حکومت او بود و آثار معماری مهمی از دورهٔ زندیه در این شهر باقی مانده است.",
+    "startSort": 1751,
+    "endSort": 1794,
+    "sourceLabel": "Wikipedia — Zand dynasty",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Zand_dynasty"
+  },
+  {
+    "id": "qajar",
+    "titleFa": "قاجار",
+    "yearsFa": "۱۷۸۹ تا ۱۹۲۵ میلادی",
+    "eraFa": "ایران معاصر اولیه",
+    "summaryFa": "قاجارها از اواخر سدهٔ هجدهم تا ۱۹۲۵ بر ایران حکومت کردند. انقلاب مشروطه و تشکیل مجلس شورای ملی در همین دوره رخ داد و ساختار حکومت ایران دچار تغییرات مهمی شد.",
+    "startSort": 1789,
+    "endSort": 1925,
+    "sourceLabel": "Wikipedia — Qajar dynasty",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Qajar_dynasty"
+  },
+  {
+    "id": "pahlavi",
+    "titleFa": "پهلوی",
+    "yearsFa": "۱۹۲۵ تا ۱۹۷۹ میلادی",
+    "eraFa": "ایران معاصر",
+    "summaryFa": "دودمان پهلوی در ۱۹۲۵ جای قاجار را گرفت و تا انقلاب ۱۹۷۹ بر ایران حکومت کرد. این دوره شاهد نوسازی دولتی گسترده، تحولات اجتماعی و اقتصادی و تنش‌های سیاسی مهم بود.",
+    "startSort": 1925,
+    "endSort": 1979,
+    "sourceLabel": "Wikipedia — Pahlavi dynasty",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pahlavi_dynasty"
+  }
+]

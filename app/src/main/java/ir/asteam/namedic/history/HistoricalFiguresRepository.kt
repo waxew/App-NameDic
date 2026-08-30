@@ -6,13 +6,26 @@ import org.json.JSONArray
 /**
  * مخزن آفلاین «بزرگان تاریخ ایران».
  *
- * تمام دادهٔ اصلی از فایل asset خوانده می‌شود تا کاربر برای مشاهدهٔ تاریخ به
- * اینترنت وابسته نباشد. اینترنت فقط در صورت لمس لینک «منبع» استفاده می‌شود.
+ * داده‌ها عمداً در چند asset مستقل نگهداری می‌شوند تا مجموعهٔ پایه و توسعه‌های
+ * محتوایی بعدی بدون بازنویسی فایل اصلی قابل نگهداری باشند. تمام فایل‌ها در
+ * زمان ساخت توسط validator بررسی می‌شوند و در زمان اجرا به یک فهرست واحد تبدیل
+ * می‌شوند. اینترنت فقط هنگام لمس لینک منبع استفاده می‌شود.
  */
 class HistoricalFiguresRepository(private val context: Context) {
 
-    /** فهرست شخصیت‌ها فقط یک بار در طول عمر Repository از JSON خوانده می‌شود. */
-    val figures: List<HistoricalFigure> by lazy { loadFigures() }
+    /**
+     * ترتیب فایل‌ها پایدار است تا نمایش اولیه بین اجراهای برنامه بی‌دلیل تغییر
+     * نکند. اضافه شدن بسته‌های محتوایی بعدی فقط به این فهرست نیاز دارد.
+     */
+    private val assetFiles = listOf(
+        "historical_figures.json",
+        "historical_figures_extra.json",
+    )
+
+    /** فهرست شخصیت‌ها فقط یک بار در طول عمر Repository از assetها خوانده می‌شود. */
+    val figures: List<HistoricalFigure> by lazy {
+        assetFiles.flatMap(::loadFile)
+    }
 
     /** دسته‌های واقعی موجود در داده؛ هیچ دستهٔ خالی در UI ساخته نمی‌شود. */
     val categories: List<String> by lazy {
@@ -39,9 +52,9 @@ class HistoricalFiguresRepository(private val context: Context) {
         }
     }
 
-    /** فایل JSON را با API داخلی Android می‌خوانیم تا وابستگی serialization اضافه نشود. */
-    private fun loadFigures(): List<HistoricalFigure> {
-        val raw = context.assets.open("historical_figures.json")
+    /** یک فایل JSON را بدون افزودن dependency جدید serialization تبدیل می‌کند. */
+    private fun loadFile(fileName: String): List<HistoricalFigure> {
+        val raw = context.assets.open(fileName)
             .bufferedReader(Charsets.UTF_8)
             .use { it.readText() }
         val array = JSONArray(raw)
